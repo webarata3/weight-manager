@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="26f42047-d813-4b9e-b019-5337f21f0d29" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/js/dbManager.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/js/appValidator.js" afterPath="$PROJECT_DIR$/app/js/app-validator.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/js/dbManager.js" afterPath="$PROJECT_DIR$/app/js/db-manager.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/html/heightDialog.html" afterPath="$PROJECT_DIR$/app/html/heightDialog.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/js/index.js" afterPath="$PROJECT_DIR$/app/js/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/package.json" afterPath="$PROJECT_DIR$/app/package.json" />
     </list>
     <ignored path="WeightManager.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -43,15 +43,15 @@
           <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/app/js/index.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="285">
-                  <caret line="19" column="11" selection-start-line="19" selection-start-column="11" selection-end-line="19" selection-end-column="11" />
+                <state relative-caret-position="120">
+                  <caret line="8" column="37" selection-start-line="8" selection-start-column="37" selection-end-line="8" selection-end-column="37" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="dbManager.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/js/dbManager.js">
+          <file leaf-file-name="db-manager.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/app/js/db-manager.js">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="450">
                   <caret line="30" column="20" selection-start-line="30" selection-start-column="20" selection-end-line="30" selection-end-column="20" />
@@ -60,8 +60,8 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="appValidator.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/js/appValidator.js">
+          <file leaf-file-name="app-validator.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/app/js/app-validator.js">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="45">
                   <caret line="3" column="22" selection-start-line="3" selection-start-column="22" selection-end-line="3" selection-end-column="22" />
@@ -330,12 +330,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1471224692693</updated>
-      <workItem from="1471224694733" duration="18206000" />
+      <workItem from="1471224694733" duration="18472000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="18206000" />
+    <option name="totallyTimeSpent" value="18472000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -440,7 +440,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/js/appValidator.js">
+    <entry file="file://$PROJECT_DIR$/app/js/app-validator.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
           <caret line="3" column="22" selection-start-line="3" selection-start-column="22" selection-end-line="3" selection-end-column="22" />
@@ -448,7 +448,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/js/dbManager.js">
+    <entry file="file://$PROJECT_DIR$/app/js/db-manager.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="450">
           <caret line="30" column="20" selection-start-line="30" selection-start-column="20" selection-end-line="30" selection-end-column="20" />
@@ -458,8 +458,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/js/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="11" selection-start-line="19" selection-start-column="11" selection-end-line="19" selection-end-column="11" />
+        <state relative-caret-position="120">
+          <caret line="8" column="37" selection-start-line="8" selection-start-column="37" selection-end-line="8" selection-end-column="37" />
           <folding />
         </state>
       </provider>

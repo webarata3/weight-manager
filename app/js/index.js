@@ -5,8 +5,8 @@ const electron = require('electron');
 // http://qiita.com/taizo/items/3a5505308ca2e303c099
 const moment = require('moment');
 
-const appValidator = require('../js/appValidator.js');
-const dbManager = require('../js/dbManager.js');
+const appValidator = require('../js/app-validator.js');
+const dbManager = require('../js/db-manager.js');
 
 const controller = {};
 
