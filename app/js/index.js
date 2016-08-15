@@ -5,6 +5,8 @@ const electron = require('electron');
 // http://qiita.com/taizo/items/3a5505308ca2e303c099
 const moment = require('moment');
 
+const appValidator = require('../js/appValidator');
+
 const controller = {};
 const dbManager = {};
 
@@ -63,7 +65,7 @@ controller.renderWeightList = () => {
           <td class="number">${weight.toFixed(1)} kg</td>
           <td class="number">${diffWeight.toFixed(1)} kg</td>
           <td class="number">${bmi.toFixed(1)}</td>
-          <td><button class="btn btn-positive">変更・削除</button></td>`;
+          <td><button class="btn btn-mini btn-positive">変更・削除</button></td>`;
       $weightTable.appendChild($trEl);
     });
 

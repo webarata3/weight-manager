@@ -5,6 +5,8 @@ const validator = require('validator');
 
 const appValidator = {};
 
+module.exports = appValidator;
+
 appValidator.ERROR_STYLE = 'validationError';
 appValidator.ERROR_MESSAGE_STYLE = 'errorMessage';
 
