@@ -84,6 +84,29 @@ dbManager.readAll = () => {
   }
 };
 
+dbManager.insert = (date, weight) => {
+  // キー情報の読み込み
+  let tx = dbManager.db.transaction(['weight'], 'readwrite');
+  let store = tx.objectStore('weight');
+  let request = store.get(date);
+  request.onsuccess = function(event) {
+    var value = event.target.result;
+
+    // すでに登録済みの場合エラー
+    if (value != null) {
+      document.getElementById('weightError').innerText = '指定の日の体重は登録済みです'
+    }
+    store.put({date: date, weight: weight});
+    tx.oncomplete = function() {
+      console.log(date, weight);
+      setWeight();
+    };
+    tx.onerror = function(event) {
+      console.log("error", event);
+    };
+  };
+};
+
 // 初期設定
 {
   dbManager.init();
@@ -112,24 +135,5 @@ document.getElementById('registerWeightButton').addEventListener('click', () => 
 });
 
 function addWeight(date, weight) {
-  // キー情報の読み込み
-  let tx = dbManager.db.transaction(['weight'], 'readwrite');
-  let store = tx.objectStore('weight');
-  let request = store.get(date);
-  request.onsuccess = function(event) {
-    var value = event.target.result;
-
-    // すでに登録済みの場合エラー
-    if (value != null) {
-      document.getElementById('weightError').innerText = '指定の日の体重は登録済みです'
-    }
-    store.put({date: date, weight: weight});
-    tx.oncomplete = function() {
-      console.log(date, weight);
-      setWeight();
-    };
-    tx.onerror = function(event) {
-      console.log("error", event);
-    };
-  };
+  dbManager.insert(date, weight);
 }
