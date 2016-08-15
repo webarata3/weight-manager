@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="26f42047-d813-4b9e-b019-5337f21f0d29" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/js/index.js" afterPath="$PROJECT_DIR$/app/js/index.js" />
     </list>
     <ignored path="WeightManager.iws" />
@@ -40,11 +41,11 @@
           <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/app/js/index.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="437">
-                  <caret line="134" column="0" selection-start-line="134" selection-start-column="0" selection-end-line="134" selection-end-column="0" />
+                <state relative-caret-position="-915">
+                  <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
                   <folding>
-                    <marker date="1471237858000" expanded="true" signature="3215:3234" ph="{...}" />
-                    <marker date="1471237858000" expanded="true" signature="3404:3566" ph="{...}" />
+                    <marker date="1471238893000" expanded="true" signature="3397:3416" ph="{...}" />
+                    <marker date="1471238893000" expanded="true" signature="3604:3766" ph="{...}" />
                   </folding>
                 </state>
               </provider>
@@ -306,12 +307,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1471224692693</updated>
-      <workItem from="1471224694733" duration="7313000" />
+      <workItem from="1471224694733" duration="8302000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7313000" />
+    <option name="totallyTimeSpent" value="8302000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -410,11 +411,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/js/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="134" column="0" selection-start-line="134" selection-start-column="0" selection-end-line="134" selection-end-column="0" />
+        <state relative-caret-position="-915">
+          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
           <folding>
-            <marker date="1471237858000" expanded="true" signature="3215:3234" ph="{...}" />
-            <marker date="1471237858000" expanded="true" signature="3404:3566" ph="{...}" />
+            <marker date="1471238893000" expanded="true" signature="3397:3416" ph="{...}" />
+            <marker date="1471238893000" expanded="true" signature="3604:3766" ph="{...}" />
           </folding>
         </state>
       </provider>

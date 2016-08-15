@@ -7,32 +7,12 @@ const moment = require('moment');
 
 const $height = document.getElementById('height');
 
-// DB管理用のオブジェクト
-const dbManager = {};
-dbManager.indexedDB = window.indexedDB;
-dbManager.db = null;
+//******************************
+// 描画用のオブジェクト
+//******************************
+const controller = {};
 
-// 初期化、アップグレード時の処理
-dbManager.init = () => {
-  const request = indexedDB.open('weightManager', 1);
-
-  // DBのバージョンが上がった場合
-  request.onupgradeneeded = event => {
-    dbManager.db = event.target.result;
-    dbManager.db.createObjectStore('weight', {keyPath: 'date'});
-  };
-
-  // DBのオープンが成功した場合
-  request.onsuccess = event => {
-    dbManager.db = event.target.result;
-    // 非同期だからうーん。
-    // TODO
-    setWeight();
-  };
-};
-
-// 全件読み込み
-dbManager.readAll = () => {
+controller.renderWeightList = () => {
   const $weightTable = document.getElementById('weightTable');
   $weightTable.innerHTML = '';
 
@@ -80,6 +60,37 @@ dbManager.readAll = () => {
     // TODO
     console.log('ERROR');
   }
+
+};
+
+//******************************
+// DB管理用のオブジェクト
+//******************************
+const dbManager = {};
+dbManager.indexedDB = window.indexedDB;
+dbManager.db = null;
+
+// 初期化、アップグレード時の処理
+dbManager.init = () => {
+  const request = indexedDB.open('weightManager', 1);
+
+  // DBのバージョンが上がった場合
+  request.onupgradeneeded = event => {
+    dbManager.db = event.target.result;
+    dbManager.db.createObjectStore('weight', {keyPath: 'date'});
+  };
+
+  // DBのオープンが成功した場合
+  request.onsuccess = event => {
+    dbManager.db = event.target.result;
+    // 非同期だからうーん。
+    // TODO
+    controller.renderWeightList();
+  };
+};
+
+// 全件読み込み
+dbManager.readAll = () => {
 };
 
 dbManager.insert = (date, weight, completeCallback, errorCallback) => {
@@ -116,15 +127,11 @@ dbManager.insert = (date, weight, completeCallback, errorCallback) => {
   dbManager.init();
 }
 
-function setWeight() {
-  dbManager.readAll();
-}
-
 // イベント
 $height.addEventListener('input', () => {
   if (checkHeight($height)) {
     localStorage.setItem('height', $height.value);
-    setWeight();
+    controller.renderWeightList();
   }
 });
 
@@ -134,6 +141,8 @@ document.getElementById('registerWeightButton').addEventListener('click', () => 
 
   const isValid = checkDate($date) & checkWeight($weight);
   if (isValid) {
-    dbManager.insert(moment($date.value).format('YYYYMMDD'), $weight.value, setWeight);
+    const date = moment($date.value).format('YYYYMMDD');
+    const weight = $weight.value;
+    dbManager.insert(date, weight, controller.renderWeightList);
   }
 });
