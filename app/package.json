@@ -1,0 +1,13 @@
+{
+  "name": "体重管理",
+  "version": "0.1.0",
+  "main": "main.js",
+  "devDependencies": {
+    "electron-packager": "^7.5.1",
+    "electron-prebuilt": "^1.3.3"
+  },
+  "dependencies": {
+    "moment": "^2.14.1",
+    "validator": "^5.5.0"
+  }
+}

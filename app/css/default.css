@@ -1,0 +1,18 @@
+@charset "utf-8";
+
+* {
+  font-family: -apple-system, ‘Helvetica Neue’, ‘Hiragino Kaku Gothic ProN’, ‘游ゴシック Medium’, ‘メイリオ’, meiryo, sans-serif;
+}
+
+.validationError {
+  background-color: #fcc;
+}
+
+.errorMessage {
+  color: #f00;
+  padding: 0.5em;
+}
+
+.number {
+  text-align: right;
+}

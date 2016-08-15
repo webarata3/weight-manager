@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ja">
+ <head>
+  <meta charset="utf-8">
+  <title>体重管理</title>
+  <link href="../css/photon.min.css" rel="stylesheet" type="text/css">
+  <link href="../css/default.css" rel="stylesheet" type="text/css">
+  <link href="../css/index.css" rel="stylesheet" type="text/css">
+ </head>
+ <body>
+  <header class="toolbar toolbar-header">
+   <div class="toolbar-actions">
+    <div class="btn-group">
+     <button class="btn btn-default active">
+      <span class="icon icon-doc-text"></span>
+     </button>
+     <button class="btn btn-default">
+      <span class="icon icon-gauge"></span>
+     </button>
+    </div>
+   </div>
+  </header>
+  <div class="container">
+   <div class="side">
+    <fieldset>
+     <div class="form-group">
+      <label>身長（cm）を入力してください</label><br>
+      <input id="height" type="number" step="0.1" class="form-control" placeholder="身長（cm）">
+     </div>
+    </fieldset>
+    <fieldset>
+     <div class="form-group">
+      <label>計測日を入力してください</label><br>
+      <input id="date" type="date" class="form-control">
+     </div>
+     <div class="form-group">
+      <label>体重（kg）を入力してください</label><br>
+      <input id="weight" type="number" step="0.1" class="form-control" placeholder="体重（kg）">
+     </div>
+     <button id="registerWeightButton" class="btn btn-primary">体重を登録する⇒</button>
+    </fieldset>
+   </div>
+   <div class="content">
+    <table class="table-striped">
+     <thead>
+      <tr>
+       <th>日付</th>
+       <th>体重</th>
+       <th>増減</th>
+       <th>BMI</th>
+       <th></th>
+      </tr>
+     </thead>
+     <tbody id="weightTable">
+     </tbody>
+    </table>
+   </div>
+  </div>
+  <script src="../js/validation.js"></script>
+  <script src="../js/index.js"></script>
+ </body>
+</html>
