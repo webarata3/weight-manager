@@ -11,15 +11,14 @@ const dbManager = {};
 //******************************
 // 描画用のオブジェクト
 //******************************
-controller.$height = document.getElementById('height');
-
 controller.init = () => {
   // 初期設定
   dbManager.init();
 
+  const $height = document.getElementById('height');
   // イベント
-  controller.$height.addEventListener('input', () => {
-    if (checkHeight($height)) {
+  $height.addEventListener('input', () => {
+    if (appValidator.checkHeight($height)) {
       localStorage.setItem('height', $height.value);
       controller.renderWeightList();
     }
@@ -29,7 +28,7 @@ controller.init = () => {
     const $weight = document.getElementById('weight');
     const $date = document.getElementById('date');
 
-    const isValid = checkDate($date) & checkWeight($weight);
+    const isValid = appValidator.checkDate($date) & appValidator.checkWeight($weight);
     if (isValid) {
       const date = moment($date.value).format('YYYYMMDD');
       const weight = $weight.value;
@@ -48,7 +47,7 @@ controller.renderWeightList = () => {
     const height = localStorage.getItem('height');
     if (height == null) return;
 
-    controller.$height.value = height;
+    document.getElementById('height').value = height;
 
     let beforeWeight = 0;
     let diffWeight = 0;
