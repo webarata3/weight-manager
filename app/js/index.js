@@ -5,8 +5,6 @@ const electron = require('electron');
 // http://qiita.com/taizo/items/3a5505308ca2e303c099
 const moment = require('moment');
 
-const indexedDB = window.indexedDB;
-
 const $height = document.getElementById('height');
 
 // DB管理用のオブジェクト
@@ -84,27 +82,33 @@ dbManager.readAll = () => {
   }
 };
 
-dbManager.insert = (date, weight) => {
-  // キー情報の読み込み
-  let tx = dbManager.db.transaction(['weight'], 'readwrite');
-  let store = tx.objectStore('weight');
-  let request = store.get(date);
-  request.onsuccess = function(event) {
-    var value = event.target.result;
-
-    // すでに登録済みの場合エラー
-    if (value != null) {
-      document.getElementById('weightError').innerText = '指定の日の体重は登録済みです'
-    }
-    store.put({date: date, weight: weight});
-    tx.oncomplete = function() {
-      console.log(date, weight);
-      setWeight();
+dbManager.insert = (date, weight, completeCallback, errorCallback) => {
+  new Promise((resolve, reject) => {
+    // キー情報の読み込み
+    const tx = dbManager.db.transaction(['weight'], 'readwrite');
+    const store = tx.objectStore('weight');
+    const request = store.get(date);
+    request.onsuccess = function(event) {
+      const value = event.target.result;
+      // すでに登録済みの場合エラー
+      if (value != null) {
+        document.getElementById('weightError').innerText = '指定の日の体重は登録済みです'
+      }
+      store.put({date: date, weight: weight});
+      tx.oncomplete = function() {
+        resolve();
+      };
+      tx.onerror = function(event) {
+        reject();
+      };
     };
-    tx.onerror = function(event) {
-      console.log("error", event);
-    };
-  };
+  }).then(() => {
+    completeCallback();
+  }).catch((error) => {
+    // TODO エラー処理
+    console.log(error);
+    errorCallback(error);
+  });
 };
 
 // 初期設定
@@ -124,16 +128,12 @@ $height.addEventListener('input', () => {
   }
 });
 
-const $weight = document.getElementById('weight');
-const $date = document.getElementById('date');
-
 document.getElementById('registerWeightButton').addEventListener('click', () => {
+  const $weight = document.getElementById('weight');
+  const $date = document.getElementById('date');
+
   const isValid = checkDate($date) & checkWeight($weight);
   if (isValid) {
-    addWeight(moment($date.value).format('YYYYMMDD'), $weight.value);
+    dbManager.insert(moment($date.value).format('YYYYMMDD'), $weight.value, setWeight);
   }
 });
-
-function addWeight(date, weight) {
-  dbManager.insert(date, weight);
-}
