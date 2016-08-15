@@ -18,34 +18,7 @@ const $height = document.getElementById('height');
 
   idb.onupgradeneeded = function(event) {
     const db = event.target.result;
-    const weightStore = db.createObjectStore('weight', {keyPath: 'date'});
-    /*
-     weightStore.add({date: "20160803", weight: '75.0'});
-     weightStore.add({date: "20160804", weight: '74.8'});
-     weightStore.add({date: "20160807", weight: '73.9'});
-     weightStore.add({date: "20160808", weight: '73.8'});
-     weightStore.add({date: "20160801", weight: '75.0'});
-     weightStore.add({date: "20160802", weight: '74.2'});
-     weightStore.add({date: "20160809", weight: '73.8'});
-     weightStore.add({date: "20160810", weight: '74.2'});
-     weightStore.add({date: "20160811", weight: '74.1'});
-     weightStore.add({date: "20160812", weight: '73.5'});
-     weightStore.add({date: "20160817", weight: '73.4'});
-     weightStore.add({date: "20160818", weight: '73.2'});
-     weightStore.add({date: "20160819", weight: '72.1'});
-     weightStore.add({date: "20160820", weight: '72.0'});
-     weightStore.add({date: "20160821", weight: '72.4'});
-     weightStore.add({date: "20160822", weight: '71.9'});
-     weightStore.add({date: "20160823", weight: '71.8'});
-     weightStore.add({date: "20160824", weight: '71.8'});
-     weightStore.add({date: "20160825", weight: '71.8'});
-     weightStore.add({date: "20160826", weight: '72.0'});
-     weightStore.add({date: "20160827", weight: '71.7'});
-     weightStore.add({date: "20160813", weight: '73.3'});
-     weightStore.add({date: "20160814", weight: '73.1'});
-     weightStore.add({date: "20160815", weight: '72.9'});
-     weightStore.add({date: "20160816", weight: '72.8'});
-     */
+    db.createObjectStore('weight', {keyPath: 'date'});
   };
   setWeight();
 }
@@ -126,24 +99,23 @@ document.getElementById('registerWeightButton').addEventListener('click', () => 
 });
 
 function addWeight(date, weight) {
+  // キー情報の読み込み
   let tx = db.transaction(['weight'], 'readwrite');
   let store = tx.objectStore('weight');
-  console.log('date=' + date);
   let req = store.get(date);
   req.onsuccess = function(event) {
     var value = event.target.result;
-    console.log('value= ' + value);
+
+    // すでに登録済みの場合エラー
     if (value != null) {
-      console.log('error');
-      return;
+      document.getElementById('weightError').innerText = '指定の日の体重は登録済みです'
     }
-    let tx2 = db.transaction(['weight'], 'readwrite');
     let req2 = store.put({date: date, weight: weight});
-    tx2.oncomplete = function() {
+    tx.oncomplete = function() {
       console.log(date, weight);
       setWeight();
     };
-    tx2.onerror = function(event) {
+    tx.onerror = function(event) {
       console.log("error", event);
     };
   };
