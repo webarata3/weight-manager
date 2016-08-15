@@ -5,68 +5,78 @@ const electron = require('electron');
 // http://qiita.com/taizo/items/3a5505308ca2e303c099
 const moment = require('moment');
 
-const $height = document.getElementById('height');
+const controller = {};
+const dbManager = {};
 
 //******************************
 // 描画用のオブジェクト
 //******************************
-const controller = {};
+controller.$height = document.getElementById('height');
+
+controller.init = () => {
+  // 初期設定
+  dbManager.init();
+
+  // イベント
+  controller.$height.addEventListener('input', () => {
+    if (checkHeight($height)) {
+      localStorage.setItem('height', $height.value);
+      controller.renderWeightList();
+    }
+  });
+
+  document.getElementById('registerWeightButton').addEventListener('click', () => {
+    const $weight = document.getElementById('weight');
+    const $date = document.getElementById('date');
+
+    const isValid = checkDate($date) & checkWeight($weight);
+    if (isValid) {
+      const date = moment($date.value).format('YYYYMMDD');
+      const weight = $weight.value;
+      dbManager.insert(date, weight, controller.renderWeightList);
+    }
+  });
+};
 
 controller.renderWeightList = () => {
+  const promise = dbManager.readAll();
+
   const $weightTable = document.getElementById('weightTable');
-  $weightTable.innerHTML = '';
+  promise.then(weightList => {
+    $weightTable.innerHTML = '';
 
-  const height = localStorage.getItem('height');
-  if (height == null) return;
+    const height = localStorage.getItem('height');
+    if (height == null) return;
 
-  $height.value = height;
+    controller.$height.value = height;
 
-  const tx = dbManager.db.transaction(['weight'], 'readonly');
+    let beforeWeight = 0;
+    let diffWeight = 0;
 
-  const weightStore = tx.objectStore('weight');
-
-  let beforeWeight = 0;
-  let diffWeight = 0;
-
-  const cursorRequest = weightStore.openCursor();
-  cursorRequest.onsuccess = event => {
-    var cursor = event.target.result;
-    if (cursor) {
-      const date = cursor.key;
-      const weight = Number.parseFloat(cursor.value.weight);
+    weightList.forEach((currentValue) => {
+      const weight = Number.parseFloat(currentValue.weight);
       const bmi = Number.parseFloat(weight / (height * height / 10000));
-
-      const dispDate = moment(date).format('YYYY/MM/DD');
-
       diffWeight = Number.parseFloat(beforeWeight === 0 ? 0 : weight - beforeWeight);
       beforeWeight = weight;
       const $trEl = document.createElement('tr');
       $trEl.innerHTML = `
-          <td>${dispDate}</td>
+          <td>${currentValue.date}</td>
           <td class="number">${weight.toFixed(1)} kg</td>
           <td class="number">${diffWeight.toFixed(1)} kg</td>
           <td class="number">${bmi.toFixed(1)}</td>
           <td><button class="btn btn-positive">変更・削除</button></td>`;
       $weightTable.appendChild($trEl);
-      cursor.continue();
-    } else {
-      // 読み込みの終了
-      // ウィンドウの高さの決定
-      // TODO 仮
-      document.getElementsByClassName('content')[0].style.height = `${window.innerHeight - 50}px`;
-    }
-  };
-  cursorRequest.onerror = event => {
-    // TODO
-    console.log('ERROR');
-  }
+    });
 
+    document.getElementsByClassName('content')[0].style.height = `${window.innerHeight - 50}px`;
+  }).catch(() => {
+    // TODO
+  });
 };
 
 //******************************
 // DB管理用のオブジェクト
 //******************************
-const dbManager = {};
 dbManager.indexedDB = window.indexedDB;
 dbManager.db = null;
 
@@ -91,6 +101,40 @@ dbManager.init = () => {
 
 // 全件読み込み
 dbManager.readAll = () => {
+  const weightList = [];
+
+  const tx = dbManager.db.transaction(['weight'], 'readonly');
+
+  const weightStore = tx.objectStore('weight');
+  const cursorRequest = weightStore.openCursor();
+  const promise = new Promise((resolve, reject) => {
+    cursorRequest.onsuccess = event => {
+      var cursor = event.target.result;
+      if (cursor) {
+        const date = cursor.key;
+        const weight = Number.parseFloat(cursor.value.weight);
+        const dispDate = moment(date).format('YYYY/MM/DD');
+        weightList.push({
+          date: dispDate,
+          weight: weight
+        });
+
+        cursor.continue();
+      } else {
+        // 読み込みの終了
+        // ウィンドウの高さの決定
+        // TODO 仮
+        document.getElementsByClassName('content')[0].style.height = `${window.innerHeight - 50}px`;
+        resolve(weightList);
+      }
+    };
+    cursorRequest.onerror = event => {
+      // TODO
+      console.log('ERROR');
+    }
+  });
+
+  return promise;
 };
 
 dbManager.insert = (date, weight, completeCallback, errorCallback) => {
@@ -122,27 +166,5 @@ dbManager.insert = (date, weight, completeCallback, errorCallback) => {
   });
 };
 
-// 初期設定
-{
-  dbManager.init();
-}
-
-// イベント
-$height.addEventListener('input', () => {
-  if (checkHeight($height)) {
-    localStorage.setItem('height', $height.value);
-    controller.renderWeightList();
-  }
-});
-
-document.getElementById('registerWeightButton').addEventListener('click', () => {
-  const $weight = document.getElementById('weight');
-  const $date = document.getElementById('date');
-
-  const isValid = checkDate($date) & checkWeight($weight);
-  if (isValid) {
-    const date = moment($date.value).format('YYYYMMDD');
-    const weight = $weight.value;
-    dbManager.insert(date, weight, controller.renderWeightList);
-  }
-});
+// 実行
+controller.init();
