@@ -11,6 +11,10 @@ const dbManager = require('../js/db-manager.js');
 const controller = {};
 
 controller.init = () => {
+  const $height = document.getElementById('height');
+  controller.$registerFieldset = document.getElementById('registerFieldset');
+  controller.$changeFieldset = document.getElementById('changeFieldset');
+
   // 初期設定
   const promise = dbManager.init();
 
@@ -20,7 +24,6 @@ controller.init = () => {
     // TODO
   });
 
-  const $height = document.getElementById('height');
   // イベント
   $height.addEventListener('input', () => {
     if (appValidator.checkHeight($height)) {
@@ -29,16 +32,46 @@ controller.init = () => {
     }
   });
 
-  document.getElementById('registerWeightButton').addEventListener('click', () => {
-    const $weight = document.getElementById('weight');
-    const $date = document.getElementById('date');
+  document.getElementById('registerButton').addEventListener('click', () => {
+    const $registerDate = document.getElementById('registerDate');
+    const $registerWeight = document.getElementById('registerWeight');
 
-    const isValid = appValidator.checkDate($date) & appValidator.checkWeight($weight);
+    // 一度エラーを消す
+    document.getElementById('weightError').innerText = '';
+
+    const isValid = appValidator.checkDate($registerDate)
+      & appValidator.checkWeight($registerWeight);
     if (isValid) {
-      const date = moment($date.value).format('YYYYMMDD');
-      const weight = $weight.value;
+      console.log($registerDate.value);
+      const date = moment($registerDate.value).format('YYYYMMDD');
+      const weight = $registerWeight.value;
       dbManager.insert(date, weight, controller.renderWeightList);
     }
+  });
+
+  document.getElementById('cancelButton').addEventListener('click', () => {
+    controller.setRegisterMode();
+  });
+
+  document.getElementById('changeButton').addEventListener('click', () => {
+    const $selectedDate = document.getElementById('selectedDate');
+    const $changeWeight = document.getElementById('changeWeight');
+
+    // 一度エラーを消す
+    document.getElementById('weightError').innerText = '';
+
+    const isValid = appValidator.checkWeight($changeWeight);
+    if (isValid) {
+      const date = moment($selectedDate.innerText.split('/').join('-')).format('YYYYMMDD');
+      const weight = $changeWeight.value;
+      dbManager.update(date, weight, controller.renderWeightList);
+    }
+  });
+
+  document.getElementById('deleteButton').addEventListener('click', () => {
+    const $selectedDate = document.getElementById('selectedDate');
+    const date = moment($selectedDate.innerText.split('/').join('-')).format('YYYYMMDD');
+    dbManager.delete(date);
   });
 };
 
@@ -72,8 +105,7 @@ controller.renderWeightList = () => {
       $weightTable.appendChild($trEl);
 
       $trEl.getElementsByTagName('button')[0].addEventListener('click', () => {
-        document.getElementById('dialogBack').classList.remove('hide');
-        document.getElementById('changeWeightWindow').classList.remove('hide');
+        controller.setChangeMode(currentValue.date, weight);
       });
     });
 
@@ -81,6 +113,22 @@ controller.renderWeightList = () => {
   }).catch(() => {
     // TODO
   });
+};
+
+controller.setRegisterMode = () => {
+  controller.$registerFieldset.removeAttribute('disabled');
+  controller.$changeFieldset.setAttribute('disabled', 'disabled');
+
+  document.getElementById('selectedDate').innerText = '';
+  document.getElementById('changeWeight').value = '';
+};
+
+controller.setChangeMode = (date, weight) => {
+  controller.$registerFieldset.setAttribute('disabled', 'disabled');
+  controller.$changeFieldset.removeAttribute('disabled');
+
+  document.getElementById('selectedDate').innerText = date;
+  document.getElementById('changeWeight').value = weight.toFixed(1);
 };
 
 // 実行

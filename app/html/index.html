@@ -29,23 +29,23 @@
        <input id="height" type="number" step="0.1" class="form-control" placeholder="身長（cm）">
       </div>
      </fieldset>
-     <fieldset>
+     <fieldset id="registerFieldset">
       <legend>体重の登録</legend>
       <div id="weightError" class="errorMessage"></div>
       <div class="form-group">
        <label>計測日を入力してください</label><br>
-       <input id="date" type="date" class="form-control">
+       <input id="registerDate" type="date" class="form-control">
       </div>
       <div class="form-group">
        <label>体重（kg）を入力してください</label><br>
-       <input id="weight" type="number" step="0.1" class="form-control" placeholder="体重（kg）">
+       <input id="registerWeight" type="number" step="0.1" class="form-control" placeholder="体重（kg）">
       </div>
-      <button id="registerWeightButton" class="btn btn-primary">体重を登録する⇒</button>
+      <button id="registerButton" class="btn btn-primary">体重を登録する⇒</button>
      </fieldset>
-     <fieldset disabled="disabled">
+     <fieldset disabled="disabled" id="changeFieldset">
       <legend>体重の変更・削除</legend>
       <div id="changeWeightError" class="errorMessage"></div>
-      <div><span>計測日: </span><span></span></div>
+      <div><span>計測日: </span><span id="selectedDate"></span></div>
       <div class="form-group">
        <label>体重（kg）を入力してください</label><br>
        <input id="changeWeight" type="number" step="0.1" class="form-control" placeholder="体重（kg）">

@@ -83,6 +83,7 @@ dbManager.insert = (date, weight, completeCallback, errorCallback) => {
       const value = event.target.result;
       // すでに登録済みの場合エラー
       if (value != null) {
+        // TODO これだめ
         document.getElementById('weightError').innerText = '指定の日の体重は登録済みです'
       }
       store.put({date: date, weight: weight});
@@ -101,3 +102,54 @@ dbManager.insert = (date, weight, completeCallback, errorCallback) => {
     errorCallback(error);
   });
 };
+
+dbManager.update = (date, weight, completeCallback, errorCallback) => {
+  new Promise((resolve, reject) => {
+    // キー情報の読み込み
+    const tx = dbManager.db.transaction(['weight'], 'readwrite');
+    const store = tx.objectStore('weight');
+    const request = store.get(date);
+    request.onsuccess = function(event) {
+      const value = event.target.result;
+      // TODO
+      // データが登録されていない場合エラーにするかどうか
+      if (value == null) {
+        // TODO これだめ
+        document.getElementById('weightError').innerText = '指定の日の体重は登録済みです'
+      }
+      store.put({date: date, weight: weight});
+      tx.oncomplete = function() {
+        resolve();
+      };
+      tx.onerror = function(event) {
+        reject();
+      };
+    };
+  }).then(() => {
+    completeCallback();
+  }).catch((error) => {
+    // TODO エラー処理
+    console.log(error);
+    errorCallback(error);
+  });
+};
+
+dbManager.delete = (date, completeCallback, errorCallback) => {
+  new Promise((resolve, reject) => {
+    // キー情報の読み込み
+    const tx = dbManager.db.transaction(['weight'], 'readwrite');
+    const store = tx.objectStore('weight');
+    const request = store.delete(date);
+    request.onsuccess = function(event) {
+      resolve();
+    };
+  }).then(() => {
+    console.log('success');
+   // completeCallback();
+  }).catch((error) => {
+    // TODO エラー処理
+    console.log(error);
+   // errorCallback(error);
+  });
+};
+
