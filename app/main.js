@@ -10,6 +10,7 @@ const dialog = electron.dialog;
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let win;
+let changeWeightWindow;
 
 let menuTemplate = [
   {
@@ -106,8 +107,3 @@ function showAboutDialog() {
     detail: '体重管理 バージョン 0.1.0'
   });
 }
-
-//*****************************
-// indexWindow
-//*****************************
-

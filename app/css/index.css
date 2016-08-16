@@ -23,18 +23,13 @@
   margin: 5px;
 }
 
-fieldset {
-  margin: 0 0 5px 0;
+*[disabled="disabled"], *[disabled="disabled"] input {
+  background-color: #ddd;
 }
 
-#height {
-  width: 8em;
-}
-
-#date {
-  width: 12em;
-}
-
-#weight {
-  width: 8em;
+*[disabled="disabled"] button {
+  background-color: #ddd;
+  background-image: none;
+  border-color: #ddd;
+  color: #000;
 }

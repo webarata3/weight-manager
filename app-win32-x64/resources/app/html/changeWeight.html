@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ja">
+ <head>
+  <meta charset="utf-8">
+  <title>体重変更・削除</title>
+  <link href="../css/photon.min.css" rel="stylesheet" type="text/css">
+  <link href="../css/default.css" rel="stylesheet" type="text/css">
+  <link href="../css/index.css" rel="stylesheet" type="text/css">
+ </head>
+ <body>
+  <div class="window">
+   <div class="window-content">
+    <div class="container">
+     <div id="weightError" class="errorMessage"></div>
+     <div class="form-group">
+      <label>体重（kg）を入力してください</label><br>
+      <input id="weight" type="number" step="0.1" class="form-control" placeholder="体重（kg）">
+     </div>
+     <button id="registerWeightButton" class="btn btn-primary">体重を登録する⇒</button>
+    </div>
+   </div>
+   <footer class="toolbar toolbar-footer">
+    <div class="toolbar-actions">
+     <button id="cancelButton" class="btn btn-default">Cancel</button>
+     <button class="btn btn-primary pull-right">更新</button>
+     <button class="btn btn-negative pull-right">削除</button>
+    </div>
+   </footer>
+  </div>
+  <script src="../js/changeWeight.js"></script>
+ </body>
+</html>

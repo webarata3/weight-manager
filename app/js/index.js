@@ -70,6 +70,11 @@ controller.renderWeightList = () => {
           <td class="number">${bmi.toFixed(1)}</td>
           <td><button class="btn btn-mini btn-positive">変更・削除</button></td>`;
       $weightTable.appendChild($trEl);
+
+      $trEl.getElementsByTagName('button')[0].addEventListener('click', () => {
+        document.getElementById('dialogBack').classList.remove('hide');
+        document.getElementById('changeWeightWindow').classList.remove('hide');
+      });
     });
 
     document.getElementsByClassName('content')[0].style.height = `${window.innerHeight - 50}px`;
