@@ -5,6 +5,8 @@ const electron = require('electron');
 // http://qiita.com/taizo/items/3a5505308ca2e303c099
 const moment = require('moment');
 
+const chart = require('chart.js');
+
 const appValidator = require('../js/app-validator.js');
 const dbManager = require('../js/db-manager.js');
 
@@ -116,6 +118,36 @@ controller.renderWeightList = () => {
     document.getElementsByClassName('content')[0].style.height = `${window.innerHeight - 50}px`;
   }).catch(() => {
     // TODO
+  });
+
+// TODO
+  //「月別データ」
+  var mydata = {
+    labels: ['8/10', '8/11', '8/12', '8/13', '8/14', '8/15'],
+    datasets: [
+      {
+        label: '体重',
+        hoverBackgroundColor: "rgba(255,99,132,0.3)",
+        data: [84, 83.2, 83.1, 83.5, 83.2, 82.1],
+      }
+    ]
+  };
+
+//「オプション設定」
+  var options = {
+    title: {
+      display: true,
+      text: 'サンプルチャート'
+    }
+  };
+
+  var canvas = document.getElementById('weightGraph');
+  var chart = new Chart(canvas, {
+
+    type: 'line',  //グラフの種類
+    data: mydata,  //表示するデータ
+    options: options,  //オプション設定
+    lineTension: 0
   });
 };
 
