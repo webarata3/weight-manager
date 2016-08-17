@@ -4,6 +4,7 @@
   "description": "",
   "main": "main.js",
   "dependencies": {
+    "chart.js": "^2.2.1",
     "moment": "^2.14.1",
     "validator": "^5.5.0"
   },

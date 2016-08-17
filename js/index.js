@@ -18,9 +18,9 @@ controller.init = () => {
   // 初期設定
   const promise = dbManager.init();
 
-  promise.then(() => {
-    controller.renderWeightList();
-  }).catch(() => {
+  promise.then(
+    controller.renderWeightList
+  ).catch(() => {
     // TODO
   });
 
@@ -42,10 +42,14 @@ controller.init = () => {
     const isValid = appValidator.checkDate($registerDate)
       & appValidator.checkWeight($registerWeight);
     if (isValid) {
-      console.log($registerDate.value);
       const date = moment($registerDate.value).format('YYYYMMDD');
       const weight = $registerWeight.value;
-      dbManager.insert(date, weight, controller.renderWeightList);
+      const promise = dbManager.insert(date, weight);
+      promise.then(
+        controller.renderWeightList
+      ).catch(() => {
+        // TODO
+      });
     }
   });
 

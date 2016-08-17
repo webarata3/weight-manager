@@ -73,8 +73,8 @@ dbManager.readAll = () => {
   return promise;
 };
 
-dbManager.insert = (date, weight, completeCallback, errorCallback) => {
-  new Promise((resolve, reject) => {
+dbManager.insert = (date, weight) => {
+  const promise = new Promise((resolve, reject) => {
     // キー情報の読み込み
     const tx = dbManager.db.transaction(['weight'], 'readwrite');
     const store = tx.objectStore('weight');
@@ -94,13 +94,9 @@ dbManager.insert = (date, weight, completeCallback, errorCallback) => {
         reject();
       };
     };
-  }).then(() => {
-    completeCallback();
-  }).catch((error) => {
-    // TODO エラー処理
-    console.log(error);
-    errorCallback(error);
   });
+
+  return promise;
 };
 
 dbManager.update = (date, weight, completeCallback, errorCallback) => {
