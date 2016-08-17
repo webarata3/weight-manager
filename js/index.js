@@ -19,7 +19,7 @@ controller.init = () => {
   controller.$registerWeight = document.getElementById('registerWeight');
 
   controller.$registerFieldset = document.getElementById('registerFieldset');
-  controller.$changeFieldset = document.getElementById('changeFieldset');
+  controller.$updateFieldset = document.getElementById('updateFieldset');
 
 
   // 初期設定
@@ -60,6 +60,7 @@ controller.init = () => {
   });
 
   document.getElementById('cancelButton').addEventListener('click', () => {
+    controller.clearUpdateArea();
     controller.setRegisterMode();
   });
 
@@ -171,7 +172,7 @@ controller.renderWeightList = () => {
 
 controller.setRegisterMode = () => {
   controller.$registerFieldset.removeAttribute('disabled');
-  controller.$changeFieldset.setAttribute('disabled', 'disabled');
+  controller.$updateFieldset.setAttribute('disabled', 'disabled');
 
   document.getElementById('selectedDate').innerText = '';
   document.getElementById('changeWeight').value = '';
@@ -179,7 +180,7 @@ controller.setRegisterMode = () => {
 
 controller.setChangeMode = (date, weight) => {
   controller.$registerFieldset.setAttribute('disabled', 'disabled');
-  controller.$changeFieldset.removeAttribute('disabled');
+  controller.$updateFieldset.removeAttribute('disabled');
 
   document.getElementById('selectedDate').innerText = date;
   document.getElementById('changeWeight').value = weight.toFixed(1);
