@@ -16,7 +16,7 @@ dbManager.NOT_EXIST = 2;
 
 // 初期化、アップグレード時の処理
 dbManager.init = () => {
-  const request = indexedDB.open('weightManager', 1);
+  const request = dbManager.indexedDB.open('weightManager', 1);
 
   // DBのバージョンが上がった場合
   request.onupgradeneeded = event => {
@@ -108,7 +108,7 @@ dbManager.update = (date, weight) => {
       const value = event.target.result;
       // データが登録されていない場合エラーとする（本来ありえないはず）
       if (value == null) {
-        resolve(dbManager.NOT_EXIST)
+        resolve(dbManager.NOT_EXIST);
         return;
       }
       store.put({date: date, weight: weight});

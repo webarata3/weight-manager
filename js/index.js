@@ -14,8 +14,13 @@ const controller = {};
 
 controller.init = () => {
   const $height = document.getElementById('height');
+
+  controller.$registerDate = document.getElementById('registerDate');
+  controller.$registerWeight = document.getElementById('registerWeight');
+
   controller.$registerFieldset = document.getElementById('registerFieldset');
   controller.$changeFieldset = document.getElementById('changeFieldset');
+
 
   // 初期設定
   const promise = dbManager.init();
@@ -35,17 +40,13 @@ controller.init = () => {
   });
 
   document.getElementById('registerButton').addEventListener('click', () => {
-    const $registerDate = document.getElementById('registerDate');
-    const $registerWeight = document.getElementById('registerWeight');
+    controller.clearRegisterArea();
 
-    // 一度エラーを消す
-    document.getElementById('registerError').innerText = '';
-
-    const isValid = appValidator.checkDate($registerDate)
-      & appValidator.checkWeight($registerWeight);
+    const isValid = appValidator.checkDate(controller.$registerDate)
+      & appValidator.checkWeight(controller.$registerWeight);
     if (isValid) {
-      const date = moment($registerDate.value).format('YYYYMMDD');
-      const weight = $registerWeight.value;
+      const date = moment(controller.$registerDate.value).format('YYYYMMDD');
+      const weight = controller.$registerWeight.value;
       dbManager.insert(date, weight).then(registerStatus => {
         if (registerStatus === dbManager.DUPLICATE) {
           document.getElementById('registerError').innerText = '指定の日の体重は登録済みです';
@@ -63,6 +64,8 @@ controller.init = () => {
   });
 
   document.getElementById('changeButton').addEventListener('click', () => {
+    controller.clearUpdateArea();
+
     const $selectedDate = document.getElementById('selectedDate');
     const $changeWeight = document.getElementById('changeWeight');
 
@@ -111,7 +114,7 @@ controller.renderWeightList = () => {
     let beforeWeight = 0;
     let diffWeight = 0;
 
-    weightList.forEach((currentValue) => {
+    weightList.forEach(currentValue => {
       const weight = Number.parseFloat(currentValue.weight);
       const bmi = Number.parseFloat(weight / (height * height / 10000));
       diffWeight = Number.parseFloat(beforeWeight === 0 ? 0 : weight - beforeWeight);
@@ -181,6 +184,15 @@ controller.setChangeMode = (date, weight) => {
   document.getElementById('selectedDate').innerText = date;
   document.getElementById('changeWeight').value = weight.toFixed(1);
 };
+
+controller.clearRegisterArea = () => {
+  document.getElementById('registerError').innerText = '';
+};
+
+controller.clearUpdateArea = () => {
+  document.getElementById('updateError').innerText = '';
+};
+
 
 // 実行
 controller.init();
