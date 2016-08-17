@@ -10,6 +10,10 @@ module.exports = dbManager;
 dbManager.indexedDB = window.indexedDB;
 dbManager.db = null;
 
+dbManager.SUCESS = 0;
+dbManager.DUPLICATE = 1;
+dbManager.NOT_EXIST = 2;
+
 // 初期化、アップグレード時の処理
 dbManager.init = () => {
   const request = indexedDB.open('weightManager', 1);
@@ -81,12 +85,11 @@ dbManager.insert = (date, weight) => {
       const value = event.target.result;
       // すでに登録済みの場合エラー
       if (value != null) {
-        // TODO これだめ
-        document.getElementById('weightError').innerText = '指定の日の体重は登録済みです'
+        resolve(dbManager.DUPLICATE)
       }
       store.put({date: date, weight: weight});
       tx.oncomplete = function() {
-        resolve();
+        resolve(dbManager.SUCESS);
       };
       tx.onerror = function(event) {
         reject();
@@ -103,15 +106,14 @@ dbManager.update = (date, weight) => {
     const request = store.get(date);
     request.onsuccess = function(event) {
       const value = event.target.result;
-      // TODO
-      // データが登録されていない場合エラーにするかどうか
+      // データが登録されていない場合エラーとする（本来ありえないはず）
       if (value == null) {
-        // TODO これだめ
-        document.getElementById('weightError').innerText = '指定の日の体重は登録済みです'
+        resolve(dbManager.NOT_EXIST)
+        return;
       }
       store.put({date: date, weight: weight});
       tx.oncomplete = function() {
-        resolve();
+        resolve(dbManager.SUCESS);
       };
       tx.onerror = function(event) {
         reject();

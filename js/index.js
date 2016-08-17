@@ -39,16 +39,20 @@ controller.init = () => {
     const $registerWeight = document.getElementById('registerWeight');
 
     // 一度エラーを消す
-    document.getElementById('weightError').innerText = '';
+    document.getElementById('registerError').innerText = '';
 
     const isValid = appValidator.checkDate($registerDate)
       & appValidator.checkWeight($registerWeight);
     if (isValid) {
       const date = moment($registerDate.value).format('YYYYMMDD');
       const weight = $registerWeight.value;
-      dbManager.insert(date, weight).then(
-        controller.renderWeightList
-      ).catch(() => {
+      dbManager.insert(date, weight).then(registerStatus => {
+        if (registerStatus === dbManager.DUPLICATE) {
+          document.getElementById('registerError').innerText = '指定の日の体重は登録済みです';
+        } else {
+          controller.renderWeightList();
+        }
+      }).catch(() => {
         // TODO
       });
     }
@@ -63,15 +67,19 @@ controller.init = () => {
     const $changeWeight = document.getElementById('changeWeight');
 
     // 一度エラーを消す
-    document.getElementById('weightError').innerText = '';
+    document.getElementById('registerError').innerText = '';
 
     const isValid = appValidator.checkWeight($changeWeight);
     if (isValid) {
       const date = moment($selectedDate.innerText.split('/').join('-')).format('YYYYMMDD');
       const weight = $changeWeight.value;
-      dbManager.update(date, weight).then(
-        controller.renderWeightList
-      ).catch(() => {
+      dbManager.update(date, weight).then(updateStatus => {
+        if (updateStatus === dbManager.NOT_EXIST) {
+          document.getElementById('updateError').innerText = '指定の日の体重は削除されています'
+        } else {
+          controller.renderWeightList();
+        }
+      }).catch(() => {
         // TODO
       });
     }
