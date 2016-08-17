@@ -8,6 +8,7 @@ const moment = require('moment');
 const chart = require('chart.js');
 
 const appValidator = require('../js/app-validator.js');
+const model = require('../js/model.js');
 const dbManager = require('../js/db-manager.js');
 
 const controller = {};
@@ -15,7 +16,7 @@ const controller = {};
 module.exports = controller;
 
 controller.init = () => {
-  const $height = document.getElementById('height');
+  controller.$height = document.getElementById('height');
 
   controller.$insertError = document.getElementById('insertError');
   controller.$insertDate = document.getElementById('insertDate');
@@ -37,9 +38,9 @@ controller.init = () => {
   });
 
   // イベント
-  $height.addEventListener('input', () => {
-    if (appValidator.checkHeight($height)) {
-      localStorage.setItem('height', $height.value);
+  controller.$height.addEventListener('input', () => {
+    if (appValidator.checkHeight(controller.$height)) {
+      localStorage.setItem('height', controller.$height.value);
       controller.renderWeightList();
     }
   });
@@ -99,7 +100,7 @@ controller.init = () => {
 };
 
 controller.renderWeightList = () => {
-  const promise = dbManager.readAll();
+  const promise = model.getWeightList();
 
   const $weightTable = document.getElementById('weightTable');
   promise.then(weightList => {
