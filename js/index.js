@@ -15,17 +15,20 @@ const controller = {};
 controller.init = () => {
   const $height = document.getElementById('height');
 
-  controller.$registerDate = document.getElementById('registerDate');
-  controller.$registerWeight = document.getElementById('registerWeight');
+  controller.$insertError = document.getElementById('insertError');
+  controller.$insertDate = document.getElementById('insertDate');
+  controller.$insertWeight = document.getElementById('insertWeight');
 
-  controller.$registerFieldset = document.getElementById('registerFieldset');
+  controller.$updateError = document.getElementById('updateError');
+  controller.$updateDate = document.getElementById('updateDate');
+  controller.$updateWeight = document.getElementById('updateWeight');
+
+  controller.$insertFieldset = document.getElementById('insertFieldset');
   controller.$updateFieldset = document.getElementById('updateFieldset');
 
 
   // 初期設定
-  const promise = dbManager.init();
-
-  promise.then(
+  dbManager.init().then(
     controller.renderWeightList
   ).catch(() => {
     // TODO
@@ -39,17 +42,17 @@ controller.init = () => {
     }
   });
 
-  document.getElementById('registerButton').addEventListener('click', () => {
-    controller.clearRegisterArea();
+  document.getElementById('insertButton').addEventListener('click', () => {
+    controller.clearinsertArea();
 
-    const isValid = appValidator.checkDate(controller.$registerDate)
-      & appValidator.checkWeight(controller.$registerWeight);
+    const isValid = appValidator.checkDate(controller.$insertDate)
+      & appValidator.checkWeight(controller.$insertWeight);
     if (isValid) {
-      const date = moment(controller.$registerDate.value).format('YYYYMMDD');
-      const weight = controller.$registerWeight.value;
-      dbManager.insert(date, weight).then(registerStatus => {
-        if (registerStatus === dbManager.DUPLICATE) {
-          document.getElementById('registerError').innerText = '指定の日の体重は登録済みです';
+      const date = moment(controller.$insertDate.value).format('YYYYMMDD');
+      const weight = controller.$insertWeight.value;
+      dbManager.insert(date, weight).then(insertStatus => {
+        if (insertStatus === dbManager.DUPLICATE) {
+          controller.$insertError.innerText = '指定の日の体重は登録済みです';
         } else {
           controller.renderWeightList();
         }
@@ -61,22 +64,16 @@ controller.init = () => {
 
   document.getElementById('cancelButton').addEventListener('click', () => {
     controller.clearUpdateArea();
-    controller.setRegisterMode();
+    controller.setinsertMode();
   });
 
-  document.getElementById('changeButton').addEventListener('click', () => {
+  document.getElementById('updateButton').addEventListener('click', () => {
     controller.clearUpdateArea();
 
-    const $selectedDate = document.getElementById('selectedDate');
-    const $changeWeight = document.getElementById('changeWeight');
-
-    // 一度エラーを消す
-    document.getElementById('registerError').innerText = '';
-
-    const isValid = appValidator.checkWeight($changeWeight);
+    const isValid = appValidator.checkWeight(controller.$updateWeight);
     if (isValid) {
-      const date = moment($selectedDate.innerText.split('/').join('-')).format('YYYYMMDD');
-      const weight = $changeWeight.value;
+      const date = moment(controller.$updateDate.innerText.split('/').join('-')).format('YYYYMMDD');
+      const weight = controller.$updateWeight.value;
       dbManager.update(date, weight).then(updateStatus => {
         if (updateStatus === dbManager.NOT_EXIST) {
           document.getElementById('updateError').innerText = '指定の日の体重は削除されています'
@@ -90,8 +87,7 @@ controller.init = () => {
   });
 
   document.getElementById('deleteButton').addEventListener('click', () => {
-    const $selectedDate = document.getElementById('selectedDate');
-    const date = moment($selectedDate.innerText.split('/').join('-')).format('YYYYMMDD');
+    const date = moment(controller.$updateDate.innerText.split('/').join('-')).format('YYYYMMDD');
     dbManager.delete(date).then(
       // TODO
     ).catch(
@@ -143,20 +139,18 @@ controller.renderWeightList = () => {
   //「月別データ」
   var mydata = {
     labels: ['8/10', '8/11', '8/12', '8/13', '8/14', '8/15'],
-    datasets: [
-      {
-        label: '体重',
-        hoverBackgroundColor: "rgba(255,99,132,0.3)",
-        data: [84, 83.2, 83.1, 83.5, 83.2, 82.1],
-      }
-    ]
+    datasets: [{
+      label: '体重',
+      hoverBackgroundColor: "rgba(255,99,132,0.3)",
+      data: [84, 83.2, 83.1, 83.5, 83.2, 82.1],
+    }]
   };
 
 //「オプション設定」
   var options = {
     title: {
-      display: true,
-      text: 'サンプルチャート'
+//      display: true,
+      //     text: 'サンプルチャート'
     }
   };
 
@@ -170,28 +164,28 @@ controller.renderWeightList = () => {
   });
 };
 
-controller.setRegisterMode = () => {
-  controller.$registerFieldset.removeAttribute('disabled');
+controller.setinsertMode = () => {
+  controller.$insertFieldset.removeAttribute('disabled');
   controller.$updateFieldset.setAttribute('disabled', 'disabled');
 
-  document.getElementById('selectedDate').innerText = '';
-  document.getElementById('changeWeight').value = '';
+  controller.$updateDate.innerText = '';
+  controller.$updateWeight.value = '';
 };
 
 controller.setChangeMode = (date, weight) => {
-  controller.$registerFieldset.setAttribute('disabled', 'disabled');
+  controller.$insertFieldset.setAttribute('disabled', 'disabled');
   controller.$updateFieldset.removeAttribute('disabled');
 
-  document.getElementById('selectedDate').innerText = date;
-  document.getElementById('changeWeight').value = weight.toFixed(1);
+  controller.$updateDate.innerText = date;
+  controller.$updateWeight.value = weight.toFixed(1);
 };
 
-controller.clearRegisterArea = () => {
-  document.getElementById('registerError').innerText = '';
+controller.clearinsertArea = () => {
+  controller.$insertError.innerText = '';
 };
 
 controller.clearUpdateArea = () => {
-  document.getElementById('updateError').innerText = '';
+  controller.$updateError.innerText = '';
 };
 
 
