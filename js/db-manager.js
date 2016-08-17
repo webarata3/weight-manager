@@ -20,7 +20,7 @@ dbManager.init = () => {
     dbManager.db.createObjectStore('weight', {keyPath: 'date'});
   };
 
-  const promise = new Promise((resolve, reject) => {
+  return new Promise((resolve, reject) => {
     // DBのオープンが成功した場合
     request.onsuccess = event => {
       dbManager.db = event.target.result;
@@ -31,8 +31,6 @@ dbManager.init = () => {
       reject(event);
     };
   });
-
-  return promise;
 };
 
 // 全件読み込み
