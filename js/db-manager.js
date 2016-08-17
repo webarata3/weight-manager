@@ -74,7 +74,7 @@ dbManager.readAll = () => {
 };
 
 dbManager.insert = (date, weight) => {
-  const promise = new Promise((resolve, reject) => {
+  return new Promise((resolve, reject) => {
     // キー情報の読み込み
     const tx = dbManager.db.transaction(['weight'], 'readwrite');
     const store = tx.objectStore('weight');
@@ -95,12 +95,10 @@ dbManager.insert = (date, weight) => {
       };
     };
   });
-
-  return promise;
 };
 
-dbManager.update = (date, weight, completeCallback, errorCallback) => {
-  new Promise((resolve, reject) => {
+dbManager.update = (date, weight) => {
+  return new Promise((resolve, reject) => {
     // キー情報の読み込み
     const tx = dbManager.db.transaction(['weight'], 'readwrite');
     const store = tx.objectStore('weight');
@@ -121,17 +119,11 @@ dbManager.update = (date, weight, completeCallback, errorCallback) => {
         reject();
       };
     };
-  }).then(() => {
-    completeCallback();
-  }).catch((error) => {
-    // TODO エラー処理
-    console.log(error);
-    errorCallback(error);
   });
 };
 
-dbManager.delete = (date, completeCallback, errorCallback) => {
-  new Promise((resolve, reject) => {
+dbManager.delete = (date) => {
+  return new Promise((resolve, reject) => {
     // キー情報の読み込み
     const tx = dbManager.db.transaction(['weight'], 'readwrite');
     const store = tx.objectStore('weight');
@@ -139,13 +131,6 @@ dbManager.delete = (date, completeCallback, errorCallback) => {
     request.onsuccess = function(event) {
       resolve();
     };
-  }).then(() => {
-    console.log('success');
-   // completeCallback();
-  }).catch((error) => {
-    // TODO エラー処理
-    console.log(error);
-   // errorCallback(error);
   });
 };
 

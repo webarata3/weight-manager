@@ -46,8 +46,7 @@ controller.init = () => {
     if (isValid) {
       const date = moment($registerDate.value).format('YYYYMMDD');
       const weight = $registerWeight.value;
-      const promise = dbManager.insert(date, weight);
-      promise.then(
+      dbManager.insert(date, weight).then(
         controller.renderWeightList
       ).catch(() => {
         // TODO
@@ -70,14 +69,22 @@ controller.init = () => {
     if (isValid) {
       const date = moment($selectedDate.innerText.split('/').join('-')).format('YYYYMMDD');
       const weight = $changeWeight.value;
-      dbManager.update(date, weight, controller.renderWeightList);
+      dbManager.update(date, weight).then(
+        controller.renderWeightList
+      ).catch(() => {
+        // TODO
+      });
     }
   });
 
   document.getElementById('deleteButton').addEventListener('click', () => {
     const $selectedDate = document.getElementById('selectedDate');
     const date = moment($selectedDate.innerText.split('/').join('-')).format('YYYYMMDD');
-    dbManager.delete(date);
+    dbManager.delete(date).then(
+      // TODO
+    ).catch(
+      // TODO
+    );
   });
 };
 
