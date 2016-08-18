@@ -15,8 +15,8 @@ class Controller {
     this._model.inputHeight(height)
   }
 
-  insertWeight($date, $weight) {
-    this._model.insertWeight($date, $weight);
+  insertWeight(date, weight) {
+    this._model.insertWeight(date, weight);
   }
 }
 

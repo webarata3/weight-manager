@@ -25,9 +25,10 @@ class View {
      */
     this._setEl({
       'height': '_$height',
+
       'insertError': '_$insertError',
       'insertDate': '_$insertDate',
-      'insertWeight': '_$insertWeignt',
+      'insertWeight': '_$insertWeight',
 
       'weightTable': '_$weightTable'
     });
@@ -38,6 +39,7 @@ class View {
     });
 
     model.addObserver(this);
+    model.init();
   }
 
   _setEl(elList) {
@@ -67,7 +69,7 @@ class View {
    * モデルからの通知を受け取る
    */
   notify(modelEvent) {
-    console.log('evnet= ' + modelEvent);
+    console.log('event=',  modelEvent);
 
     switch (modelEvent) {
       case ModelEvent.FINISH_INIT:
@@ -79,6 +81,9 @@ class View {
       case ModelEvent.CHANGE_HEIGHT:
         this.changeHeight();
         break;
+      case ModelEvent.FINISH_INSERT:
+        this.insertWeight();
+        break;
     }
   }
 
@@ -87,7 +92,7 @@ class View {
   }
 
   _onClickInsertButton() {
-    this._controller.insertWeight(this._$insertDate, this._$insertWeight);
+    this._controller.insertWeight(this._$insertDate.value, this._$insertWeight.value);
   }
 
   changeHeight() {
@@ -102,7 +107,7 @@ class View {
     this._setFieldError(this._$height, this._model.lastErrorMessageList.heightError);
   }
 
-  renderWeightList(weightList) {
+  renderWeightList() {
     this._$weightTable.innerHTML = '';
 
     const height = localStorage.getItem('height');
@@ -132,6 +137,21 @@ class View {
         controller.setChangeMode(currentValue.date, weight);
       });
     });
+  }
+
+  insertWeight() {
+    this._setInsertErrorMessage();
+    if (Object.keys(this._model._lastErrorMessageList).length === 0) {
+      this._controller.renderWeightList();
+    }
+  }
+
+  _setInsertErrorMessage() {
+    if (this._model.lastErrorMessageList.insertError != null) {
+      this._$insertError.innerText = this._model.lastErrorMessageList.insertError;
+    }
+    this._setFieldError(this._$insertDate, this._model.lastErrorMessageList.insertDateError);
+    this._setFieldError(this._$insertWeight, this._model.lastErrorMessageList.insertWeightError);
   }
 
   _setFieldError($el, message) {

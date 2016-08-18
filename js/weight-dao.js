@@ -3,7 +3,7 @@
 // http://qiita.com/taizo/items/3a5505308ca2e303c099
 const moment = require('moment');
 
-class Dao {
+class WeightDao {
   constructor() {
     this._indexedDB = window.indexedDB;
     this._db = null;
@@ -59,10 +59,41 @@ class Dao {
         console.log('ERROR');
       }
     });
-  };
+  }
+
+  insert(date, weight) {
+    return new Promise((resolve, reject) => {
+      // キー情報の読み込み
+      const tx = this._db.transaction(['weight'], 'readwrite');
+      const store = tx.objectStore('weight');
+      const request = store.get(date);
+      request.onsuccess = function(event) {
+        const value = event.target.result;
+        // すでに登録済みの場合エラー
+        if (value != null) {
+          resolve(WeightDao.DUPLICATE);
+          return;
+        }
+        store.put({date: date, weight: weight});
+        tx.oncomplete = () => {
+          resolve(WeightDao.SUCESS);
+        };
+        tx.onerror = event => {
+          console.log(event);
+          reject(event);
+        };
+      };
+      request.onerror = (event) => {
+        reject(event);
+      };
+    });
+  }
 }
 
-module.exports = Dao;
+WeightDao.DUPLICATE = 'duplicate';
+WeightDao.SUCCESS = 'success';
+
+module.exports = WeightDao;
 
 /*
  module.exports = dbManager;

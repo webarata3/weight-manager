@@ -25,10 +25,10 @@ fieldset {
   width: 8em;
 }
 
-#registerDate {
+#insertDate {
   width: 12em;
 }
 
-#registerWeight, #changeWeight {
+#insertWeight, #updateWeight {
   width: 8em;
 }
