@@ -88,10 +88,54 @@ class WeightDao {
       };
     });
   }
+
+  delete(date) {
+    return new Promise((resolve, reject) => {
+      // キー情報の読み込み
+      const tx = this._db.transaction(['weight'], 'readwrite');
+      const store = tx.objectStore('weight');
+      const request = store.delete(date);
+      request.onsuccess = function() {
+        resolve();
+      };
+      request.onerror = function(event) {
+        // TODO エラー
+        reject();
+      };
+    });
+  }
+
+  update(date, weight) {
+    return new Promise((resolve, reject) => {
+      // キー情報の読み込み
+      const tx = this._db.transaction(['weight'], 'readwrite');
+      const store = tx.objectStore('weight');
+      const request = store.get(date);
+      request.onsuccess = (event) => {
+        const value = event.target.result;
+        if (value == null) {
+          resolve(WeightDao.NOT_EXIST);
+          return;
+        }
+        store.put({date: date, weight: weight});
+        tx.oncomplete = () => {
+          resolve(WeightDao.SUCCESS);
+        };
+        tx.onerror = (event) => {
+          console.log(event);
+          reject();
+        };
+      };
+      request.onerror = (event) => {
+        console.log(event);
+      }
+    });
+  };
 }
 
 WeightDao.DUPLICATE = 'duplicate';
 WeightDao.SUCCESS = 'success';
+WeightDao.NOT_EXIST = "notExist";
 
 module.exports = WeightDao;
 

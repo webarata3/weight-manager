@@ -1,7 +1,5 @@
 'use strict';
 
-const electron = require('electron');
-
 class Controller {
   constructor(model) {
     this._model = model;
@@ -17,6 +15,22 @@ class Controller {
 
   insertWeight(date, weight) {
     this._model.insertWeight(date, weight);
+  }
+
+  changeUpdateMode(date, weight) {
+    this._model.changeUpdateMode(date, weight);
+  }
+
+  changeInsertMode() {
+    this._model.changeInsertMode();
+  }
+
+  deleteWeight() {
+    this._model.deleteWeight();
+  }
+
+  updateWeight(weight) {
+    this._model.updateWeight2(weight);
   }
 }
 

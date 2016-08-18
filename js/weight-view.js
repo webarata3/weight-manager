@@ -21,14 +21,17 @@ class View {
       'updateDate': '_$updateDate',
       'updateWeight': '_$updateWeight',
 
-      'updateFieldset': '_$updateFiledset',
+      'updateFieldset': '_$updateFieldset',
 
       'weightTable': '_$weightTable'
     });
 
     this._setEvent({
       'input height': this._onInputHeight,
-      'click insertButton': this._onClickInsertButton
+      'click insertButton': this._onClickInsertButton,
+      'click cancelButton': this._onClickCancelButton,
+      'click updateButton': this._onClickUpdateButton,
+      'click deleteButton': this._onClickDeleteButton,
     });
 
     model.addObserver(this);
@@ -62,7 +65,7 @@ class View {
    * モデルからの通知を受け取る
    */
   notify(modelEvent) {
-    console.log('event=',  modelEvent);
+    console.log('event=', modelEvent);
 
     switch (modelEvent) {
       case ModelEvent.FINISH_INIT:
@@ -77,6 +80,18 @@ class View {
       case ModelEvent.FINISH_INSERT:
         this.insertWeight();
         break;
+      case ModelEvent.CHANGE_UPDATE_MODE:
+        this._changeUpdateMode();
+        break;
+      case ModelEvent.CHANGE_INSERT_MODE:
+        this._changeInsertMode();
+        break;
+      case ModelEvent.FINISH_DELETE:
+        this._deleteWeight();
+        break;
+      case ModelEvent.FINISH_UPDATE:
+        this._updateWeight();
+        break;
     }
   }
 
@@ -86,6 +101,21 @@ class View {
 
   _onClickInsertButton() {
     this._controller.insertWeight(this._$insertDate.value, this._$insertWeight.value);
+  }
+
+  _onClickCancelButton() {
+    this._controller.changeInsertMode();
+  }
+
+  _onClickUpdateButton() {
+    this._controller.updateWeight(this._$updateWeight.value);
+  }
+
+  _onClickDeleteButton() {
+    const message = `計測日 ${this._model.updateDate} の ${this._model.updateWeight} kgを削除します`;
+    if (confirm(message)) {
+      this._controller.deleteWeight();
+    }
   }
 
   changeHeight() {
@@ -127,7 +157,7 @@ class View {
       this._$weightTable.appendChild($trEl);
 
       $trEl.getElementsByTagName('button')[0].addEventListener('click', () => {
-        controller.setChangeMode(currentValue.date.split('/').join('-'), weight);
+        this._controller.changeUpdateMode(currentValue.date, weight);
       });
     });
   }
@@ -182,6 +212,27 @@ class View {
   _clearInsertForm() {
     this._$insertDate.value = '';
     this._$insertWeight.value = '';
+  }
+
+  _changeUpdateMode() {
+    this._$insertFieldset.setAttribute('disabled', 'disabled');
+    this._$updateFieldset.removeAttribute('disabled');
+
+    this._$updateDate.innerText = this._model.updateDate;
+    this._$updateWeight.value = this._model.updateWeight;
+  }
+
+  _changeInsertMode() {
+    this._$insertFieldset.removeAttribute('disabled');
+    this._$updateFieldset.setAttribute('disabled', 'disabled');
+  }
+
+  _deleteWeight() {
+    this._controller.renderWeightList();
+  }
+
+  _updateWeight() {
+    this._controller.renderWeightList();
   }
 }
 

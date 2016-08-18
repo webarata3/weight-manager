@@ -54,6 +54,14 @@ class Model {
     return this._weightList;
   }
 
+  get updateDate() {
+    return this._updateDate;
+  }
+
+  get updateWeight() {
+    return this._updateWeight;
+  }
+
   inputHeight(height) {
     this._height = height;
     this._lastErrorMessageList = {};
@@ -113,6 +121,40 @@ class Model {
       console.log(event);
       console.log('error');
     });
+  }
+
+  changeUpdateMode(date, weight) {
+    this._updateDate = date;
+    this._updateWeight = weight;
+
+    this._notify(ModelEvent.CHANGE_UPDATE_MODE);
+  }
+
+  changeInsertMode() {
+    this._notify(ModelEvent.CHANGE_INSERT_MODE);
+  }
+
+  deleteWeight() {
+    this._dao.delete(this._updateDate.split('/').join('')).then(() => {
+      this._notify(ModelEvent.FINISH_DELETE);
+    }).catch(() => {
+    });
+  }
+
+  updateWeight2(weight) {
+    if (true) {
+      const formatDate = moment(this._updateDate.split('/').join('-')).format('YYYYMMDD');
+      this._dao.update(formatDate, weight).then(updateStatus => {
+        if (updateStatus === WeightDao.NOT_EXIST) {
+          this._lastErrorMessageList.updateError = '指定の日の体重は削除されています';
+        } else {
+          this._notify(ModelEvent.FINISH_UPDATE);
+        }
+      }).catch((event) => {
+        // TODO
+        console.log('error', event);
+      });
+    }
   }
 }
 

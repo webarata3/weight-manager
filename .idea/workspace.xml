@@ -3,8 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="26f42047-d813-4b9e-b019-5337f21f0d29" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/weight-controller.js" afterPath="$PROJECT_DIR$/js/weight-controller.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/weight-dao.js" afterPath="$PROJECT_DIR$/js/weight-dao.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/weight-model-event.js" afterPath="$PROJECT_DIR$/js/weight-model-event.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/weight-model.js" afterPath="$PROJECT_DIR$/js/weight-model.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/weight-view.js" afterPath="$PROJECT_DIR$/js/weight-view.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
     </list>
     <ignored path="WeightManager.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -32,8 +35,8 @@
           <file leaf-file-name="weight-controller.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/js/weight-controller.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1305">
-                  <caret line="87" column="77" selection-start-line="87" selection-start-column="57" selection-end-line="87" selection-end-column="77" />
+                <state relative-caret-position="283">
+                  <caret line="21" column="3" selection-start-line="21" selection-start-column="3" selection-end-line="21" selection-end-column="3" />
                   <folding />
                 </state>
               </provider>
@@ -42,8 +45,8 @@
           <file leaf-file-name="weight-dao.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/js/weight-dao.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="201">
-                  <caret line="80" column="31" selection-start-line="80" selection-start-column="31" selection-end-line="80" selection-end-column="31" />
+                <state relative-caret-position="-189">
+                  <caret line="103" column="8" selection-start-line="103" selection-start-column="8" selection-end-line="103" selection-end-column="8" />
                   <folding />
                 </state>
               </provider>
@@ -52,8 +55,8 @@
           <file leaf-file-name="weight-model.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/js/weight-model.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="306">
-                  <caret line="108" column="7" selection-start-line="108" selection-start-column="7" selection-end-line="108" selection-end-column="7" />
+                <state relative-caret-position="6">
+                  <caret line="130" column="3" selection-start-line="130" selection-start-column="3" selection-end-line="130" selection-end-column="3" />
                   <folding />
                 </state>
               </provider>
@@ -62,7 +65,7 @@
           <file leaf-file-name="app-validator.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/js/app-validator.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="345">
+                <state relative-caret-position="255">
                   <caret line="23" column="73" selection-start-line="23" selection-start-column="73" selection-end-line="23" selection-end-column="73" />
                   <folding />
                 </state>
@@ -72,8 +75,8 @@
           <file leaf-file-name="weight-view.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/js/weight-view.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="279">
-                  <caret line="137" column="30" selection-start-line="137" selection-start-column="30" selection-end-line="137" selection-end-column="30" />
+                <state relative-caret-position="309">
+                  <caret line="234" column="27" selection-start-line="234" selection-start-column="27" selection-end-line="234" selection-end-column="27" />
                   <folding />
                 </state>
               </provider>
@@ -82,8 +85,8 @@
           <file leaf-file-name="weight-model-event.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/js/weight-model-event.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="75">
-                  <caret line="5" column="32" selection-start-line="5" selection-start-column="32" selection-end-line="5" selection-end-column="32" />
+                <state relative-caret-position="120">
+                  <caret line="8" column="15" selection-start-line="8" selection-start-column="15" selection-end-line="8" selection-end-column="15" />
                   <folding />
                 </state>
               </provider>
@@ -106,8 +109,8 @@
           <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/html/index.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="199">
-                  <caret line="34" column="12" selection-start-line="34" selection-start-column="12" selection-end-line="34" selection-end-column="12" />
+                <state relative-caret-position="184">
+                  <caret line="33" column="21" selection-start-line="33" selection-start-column="21" selection-end-line="33" selection-end-column="21" />
                   <folding />
                 </state>
               </provider>
@@ -176,11 +179,11 @@
         <option value="$PROJECT_DIR$/js/WeightController.js" />
         <option value="$PROJECT_DIR$/js/WeightModel.js" />
         <option value="$PROJECT_DIR$/js/index.js" />
-        <option value="$PROJECT_DIR$/js/weight-model-event.js" />
         <option value="$PROJECT_DIR$/js/app-validator.js" />
         <option value="$PROJECT_DIR$/css/default.css" />
-        <option value="$PROJECT_DIR$/js/weight-dao.js" />
+        <option value="$PROJECT_DIR$/js/weight-model-event.js" />
         <option value="$PROJECT_DIR$/js/weight-controller.js" />
+        <option value="$PROJECT_DIR$/js/weight-dao.js" />
         <option value="$PROJECT_DIR$/js/weight-model.js" />
         <option value="$PROJECT_DIR$/js/weight-view.js" />
       </list>
@@ -375,12 +378,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1471224692693</updated>
-      <workItem from="1471224694733" duration="87245000" />
+      <workItem from="1471224694733" duration="93744000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="87245000" />
+    <option name="totallyTimeSpent" value="93744000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -517,22 +520,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/app-validator.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="23" column="73" selection-start-line="23" selection-start-column="73" selection-end-line="23" selection-end-column="73" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/weight-dao.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="201">
-          <caret line="80" column="31" selection-start-line="80" selection-start-column="31" selection-end-line="80" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
@@ -541,42 +528,58 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/weight-model-event.js">
+    <entry file="file://$PROJECT_DIR$/js/app-validator.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="32" selection-start-line="5" selection-start-column="32" selection-end-line="5" selection-end-column="32" />
+        <state relative-caret-position="255">
+          <caret line="23" column="73" selection-start-line="23" selection-start-column="73" selection-end-line="23" selection-end-column="73" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/weight-model.js">
+    <entry file="file://$PROJECT_DIR$/js/weight-model-event.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="108" column="7" selection-start-line="108" selection-start-column="7" selection-end-line="108" selection-end-column="7" />
+        <state relative-caret-position="120">
+          <caret line="8" column="15" selection-start-line="8" selection-start-column="15" selection-end-line="8" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/weight-dao.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-189">
+          <caret line="103" column="8" selection-start-line="103" selection-start-column="8" selection-end-line="103" selection-end-column="8" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/html/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="199">
-          <caret line="34" column="12" selection-start-line="34" selection-start-column="12" selection-end-line="34" selection-end-column="12" />
+        <state relative-caret-position="184">
+          <caret line="33" column="21" selection-start-line="33" selection-start-column="21" selection-end-line="33" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/weight-model.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6">
+          <caret line="130" column="3" selection-start-line="130" selection-start-column="3" selection-end-line="130" selection-end-column="3" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/weight-controller.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1305">
-          <caret line="87" column="77" selection-start-line="87" selection-start-column="57" selection-end-line="87" selection-end-column="77" />
+        <state relative-caret-position="283">
+          <caret line="21" column="3" selection-start-line="21" selection-start-column="3" selection-end-line="21" selection-end-column="3" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/weight-view.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
-          <caret line="137" column="30" selection-start-line="137" selection-start-column="30" selection-end-line="137" selection-end-column="30" />
+        <state relative-caret-position="309">
+          <caret line="234" column="27" selection-start-line="234" selection-start-column="27" selection-end-line="234" selection-end-column="27" />
           <folding />
         </state>
       </provider>
