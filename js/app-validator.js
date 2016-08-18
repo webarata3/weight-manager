@@ -3,10 +3,28 @@
 // https://www.npmjs.com/package/validator
 const validator = require('validator');
 
-const appValidator = {};
+class AppValidator {
+  validInsert() {
+    const errorList = [];
 
-module.exports = appValidator;
+    if (this._requireValidator()) {
+      return validator.isNull(value) ? '必須入力です' : null;
+    }
+  }
 
+  requiredValidator(value) {
+    return validator.isNull(value) ? '必須入力です' : null;
+  };
+
+  heightValidator(value) {
+    return validator.isFloat(value, {min: 0.1, max: 300}) ? null : '0.1〜300の間の数値を入力してください';
+  }
+}
+
+module.exports = AppValidator;
+
+
+/*
 appValidator.ERROR_STYLE = 'validationError';
 appValidator.ERROR_MESSAGE_STYLE = 'errorMessage';
 
@@ -81,3 +99,4 @@ appValidator.dateValidator = (value) => {
   // TODO バグ
   return validator.isDate(value) ? null : '日付を入力してください';
 };
+*/

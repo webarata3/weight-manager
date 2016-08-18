@@ -2,33 +2,28 @@
 
 const electron = require('electron');
 
-// http://qiita.com/taizo/items/3a5505308ca2e303c099
-const moment = require('moment');
+class Controller {
+  constructor(model) {
+    this._model = model;
+  }
 
-const chart = require('chart.js');
+  renderWeightList() {
+    this._model.readAllWeightList();
+  }
 
-const appValidator = require('../js/app-validator.js');
-const model = require('../js/model.js');
-const dbManager = require('../js/db-manager.js');
+  inputHeight(height) {
+    this._model.inputHeight(height)
+  }
 
-const controller = {};
+  insertWeight($date, $weight) {
+    this._model.insertWeight($date, $weight);
+  }
+}
 
-module.exports = controller;
+module.exports = Controller;
 
+/*
 controller.init = () => {
-  controller.$height = document.getElementById('height');
-
-  controller.$insertError = document.getElementById('insertError');
-  controller.$insertDate = document.getElementById('insertDate');
-  controller.$insertWeight = document.getElementById('insertWeight');
-
-  controller.$updateError = document.getElementById('updateError');
-  controller.$updateDate = document.getElementById('updateDate');
-  controller.$updateWeight = document.getElementById('updateWeight');
-
-  controller.$insertFieldset = document.getElementById('insertFieldset');
-  controller.$updateFieldset = document.getElementById('updateFieldset');
-
 
   // 初期設定
   dbManager.init().then(
@@ -102,7 +97,7 @@ controller.init = () => {
 controller.renderWeightList = () => {
   const promise = model.getWeightList();
 
-  const $weightTable = document.getElementById('weightTable');
+  const $weighteTable = document.getElementById('weightTable');
   promise.then(weightList => {
     $weightTable.innerHTML = '';
 
@@ -190,3 +185,5 @@ controller.clearinsertArea = () => {
 controller.clearUpdateArea = () => {
   controller.$updateError.innerText = '';
 };
+
+*/
