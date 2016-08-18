@@ -7,28 +7,21 @@ class View {
   constructor(controller, model) {
     this._controller = controller;
     this._model = model;
-    /*
-     this._$height = document.getElementById('height');
 
-     this._$insertError = document.getElementById('insertError');
-     this._$insertDate = document.getElementById('insertDate');
-     this._$insertWeight = document.getElementById('insertWeight');
-
-     this._$updateError = document.getElementById('updateError');
-     this._$updateDate = document.getElementById('updateDate');
-     this._$updateWeight = document.getElementById('updateWeight');
-
-     this._$insertFieldset = document.getElementById('insertFieldset');
-     this._$updateFieldset = document.getElementById('updateFieldset');
-
-     this._$weightTable = document.getElementById('weightTable');
-     */
     this._setEl({
       'height': '_$height',
 
       'insertError': '_$insertError',
       'insertDate': '_$insertDate',
       'insertWeight': '_$insertWeight',
+
+      'insertFieldset': '_$insertFieldset',
+
+      'updateError': '_$updateError',
+      'updateDate': '_$updateDate',
+      'updateWeight': '_$updateWeight',
+
+      'updateFieldset': '_$updateFiledset',
 
       'weightTable': '_$weightTable'
     });
@@ -134,14 +127,16 @@ class View {
       this._$weightTable.appendChild($trEl);
 
       $trEl.getElementsByTagName('button')[0].addEventListener('click', () => {
-        controller.setChangeMode(currentValue.date, weight);
+        controller.setChangeMode(currentValue.date.split('/').join('-'), weight);
       });
     });
   }
 
   insertWeight() {
     this._setInsertErrorMessage();
-    if (Object.keys(this._model._lastErrorMessageList).length === 0) {
+    if (Object.keys(this._model.lastErrorMessageList).length === 0) {
+      this._clearInsertForm();
+      this._clearInsertError();
       this._controller.renderWeightList();
     }
   }
@@ -174,6 +169,20 @@ class View {
       $el.parentNode.insertBefore($message, $el.nextSibling);
     }
   };
+
+  _clearInsertError() {
+    this._$insertError.innerText = '';
+    const $errorEl = this._$insertFieldset.getElementsByClassName(View.ERROR_MESSAGE_STYLE);
+    for (let i = 0; i < $errorEl.length; i++) {
+      if ($errorEl[i].id === 'insertError') continue;
+      $errorEl[i].parentNode.removeChild($errorEl[i]);
+    }
+  }
+
+  _clearInsertForm() {
+    this._$insertDate.value = '';
+    this._$insertWeight.value = '';
+  }
 }
 
 View.ERROR_STYLE = 'validationError';
