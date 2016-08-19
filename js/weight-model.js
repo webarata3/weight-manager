@@ -4,8 +4,11 @@ const AppValidator = require('../js/app-validator.js');
 const ModelEvent = require('../js/weight-model-event.js');
 const WeightDao = require('../js/weight-dao.js');
 
-// http://qiita.com/taizo/items/3a5505308ca2e303c099
-const moment = require('moment');
+class WeightModel {
+  constructor(attrs) {
+    this._attributes = attrs || {};
+  }
+}
 
 class Model {
   constructor() {
