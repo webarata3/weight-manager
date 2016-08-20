@@ -1,6 +1,6 @@
 'use strict';
 
-const WeightListModel = require('../model/weight-list-model');
+const WeightListModel = require('../model/weight-list-model.js');
 
 class AppController {
   constructor(weightListModel) {
@@ -8,6 +8,7 @@ class AppController {
   }
 
   readAll() {
+    // 消す
     this._weightListModel.readAll();
   }
 }

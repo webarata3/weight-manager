@@ -13,6 +13,23 @@ class ValidatorUtil {
       ]);
   }
 
+  static checkDate(value) {
+    return ValidatorUtil.validatorList(
+      value, [
+        ValidatorUtil.validRequired,
+        ValidatorUtil.validDate
+      ]);
+  }
+
+  static checkWeight(value) {
+    return ValidatorUtil.validatorList(
+      value, [
+        ValidatorUtil.validRequired,
+        ValidatorUtil.validDecimal,
+        ValidatorUtil.validWeight
+      ]);
+  }
+
   static validatorList(value, validList) {
     let message = null;
     validList.some((valid) => {

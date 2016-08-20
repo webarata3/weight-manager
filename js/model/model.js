@@ -19,7 +19,6 @@ class Model {
     (this._handlerList[event] || (this._handlerList[event] = [])).push(handler);
   }
 
-  // TODO 引数をどうするか
   _trigger(event, argList) {
     const list = this._handlerList[event];
     if (list) {

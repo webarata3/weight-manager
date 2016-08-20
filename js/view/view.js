@@ -19,7 +19,7 @@ class View {
         const keys = key.split(' ');
 
         document.getElementById(keys[1]).addEventListener(keys[0], () => {
-          callback.apply(this);
+          callback.call(this);
         });
       }
     }

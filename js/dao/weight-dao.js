@@ -3,10 +3,26 @@
 // http://qiita.com/taizo/items/3a5505308ca2e303c099
 const moment = require('moment');
 
+const DUPLICATE = 'duplicate';
+const SUCCESS = 'success';
+const NOT_EXIST = "notExist";
+
 class WeightDao {
   constructor() {
     this._indexedDB = window.indexedDB;
     this._db = null;
+  }
+
+  static get DUPLICATE() {
+    return DUPLICATE;
+  }
+
+  static get SUCCESS() {
+    return SUCCESS;
+  }
+
+  static get NOT_EXIST() {
+    return NOT_EXIST;
   }
 
   init() {
@@ -132,9 +148,5 @@ class WeightDao {
     });
   };
 }
-
-WeightDao.DUPLICATE = 'duplicate';
-WeightDao.SUCCESS = 'success';
-WeightDao.NOT_EXIST = "notExist";
 
 module.exports = WeightDao;
