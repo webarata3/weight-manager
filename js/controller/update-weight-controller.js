@@ -12,6 +12,18 @@ class UpdateWeightController {
   updateWeight(param) {
     this._updateWeightModel.updateWeight(param);
   }
+
+  cancel() {
+    this._updateWeightModel.cancel();
+  }
+
+  update(date, weight) {
+    this._updateWeightModel.update(date, weight);
+  }
+
+  remove(date) {
+    this._updateWeightModel.remove(date);
+  }
 }
 
 module.exports = UpdateWeightController;

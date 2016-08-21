@@ -105,22 +105,6 @@ class WeightDao {
     });
   }
 
-  delete(date) {
-    return new Promise((resolve, reject) => {
-      // キー情報の読み込み
-      const tx = this._db.transaction(['weight'], 'readwrite');
-      const store = tx.objectStore('weight');
-      const request = store.delete(date);
-      request.onsuccess = function() {
-        resolve();
-      };
-      request.onerror = function(event) {
-        // TODO エラー
-        reject();
-      };
-    });
-  }
-
   update(date, weight) {
     return new Promise((resolve, reject) => {
       // キー情報の読み込み
@@ -146,7 +130,22 @@ class WeightDao {
         console.log(event);
       }
     });
-  };
+  }
+
+  remove(date) {
+    return new Promise((resolve, reject) => {
+      const tx = this._db.transaction(['weight'], 'readwrite');
+      const store = tx.objectStore('weight');
+      const request = store.delete(date);
+      request.onsuccess = function() {
+        resolve();
+      };
+      request.onerror = function(event) {
+        // TODO エラー
+        reject();
+      };
+    });
+  }
 }
 
 module.exports = WeightDao;

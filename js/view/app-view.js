@@ -23,11 +23,20 @@ class AppView extends View {
     this._setAppEvent(this._insertWeightModel, {
       'insert': this._change
     });
+    this._setAppEvent(this._updateWeightModel, {
+      'update': this._change
+    });
+    this._setAppEvent(this._updateWeightModel, {
+      'remove': this._change
+    });
     this._setAppEvent(this._weightListModel, {
       'changeUpdateMode': this._changeUpdateMode
     });
     this._setAppEvent(this._updateWeightModel, {
       'dispUpdateMode': this._dispUpdateMode
+    });
+    this._setAppEvent(this._updateWeightModel, {
+      'changeInsertMode': this._changeInsertMode
     });
   }
 
@@ -40,6 +49,11 @@ class AppView extends View {
     this._$updateFieldset.classList.remove('hide');
 
     this._appController.changeUpdateMode(param);
+  }
+
+  _changeInsertMode(param) {
+    this._$insertFieldset.classList.remove('hide');
+    this._$updateFieldset.classList.add('hide');
   }
 }
 

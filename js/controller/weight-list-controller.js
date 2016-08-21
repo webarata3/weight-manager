@@ -9,6 +9,10 @@ class WeightListController {
     this._weightListModel.init();
   }
 
+  readAll() {
+    this._weightListModel.readAll();
+  }
+
   changeUpdateMode(param) {
     this._weightListModel.changeUpdateMode(param);
   }

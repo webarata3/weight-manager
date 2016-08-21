@@ -39,7 +39,7 @@ class App {
     const weightListView = new WeightListView(weightListController, weightListModel);
 
     const appModel = new AppModel();
-    const appController = new AppController(appModel, weightListModel, updateWeightModel);
+    const appController = new AppController(appModel, weightListController, updateWeightController);
     const appView = new AppView(appController, appModel, inputHeightModel, insertWeightModel, updateWeightModel, weightListModel);
   }
 }

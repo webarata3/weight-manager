@@ -23,6 +23,7 @@ class UpdateWeightView extends View {
     });
 
     this._setAppEvent(this._updateWeightModel, {
+      update: this._update,
       'initUpdate': this._initUpdate,
       'invalid': this._invalid
     });
@@ -35,12 +36,28 @@ class UpdateWeightView extends View {
   }
 
   _onClickCancelButton() {
-  }
-
-  _onClickDeleteButton() {
+    this._updateWeightController.cancel();
   }
 
   _onClickUpdateButton() {
+    this._$updateError.innerText = '';
+    DomUtil._removeFieldError(this._$updateWeight);
+
+    const date = this._$updateDate.innerText;
+    const weight = this._$updateWeight.value;
+
+    this._updateWeightController.update(date, weight);
+  }
+
+  _onClickDeleteButton() {
+    const date = this._$updateDate.innerText;
+    this._updateWeightController.remove(date);
+  }
+
+  _update(errorMessage) {
+    if (errorMessage) {
+      this._$updateError.innerText = errorMessage;
+    }
   }
 
   _initUpdate(param) {
@@ -49,7 +66,10 @@ class UpdateWeightView extends View {
   }
 
   _dispUpdateMode(param) {
-    console.log('update');
+  }
+
+  _invalid(errorMessageMap) {
+    DomUtil._setFieldError(this._$updateWeight, errorMessageMap.updateWeight);
   }
 }
 
