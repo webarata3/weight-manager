@@ -23,6 +23,10 @@
   margin: 5px;
 }
 
+.hide {
+  display: none;
+}
+
 *[disabled="disabled"], *[disabled="disabled"] input {
   background-color: #ddd;
 }

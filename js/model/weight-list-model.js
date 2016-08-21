@@ -32,6 +32,10 @@ class WeightModelList extends Model {
       console.log('error');
     });
   }
+
+  changeUpdateMode(param) {
+    this._trigger('changeUpdateMode', param);
+  }
 }
 
 module.exports = WeightModelList;

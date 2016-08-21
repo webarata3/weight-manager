@@ -47,15 +47,9 @@ class InsertWeightView extends View{
       this._$insertError.innerText = errorMessage;
       return;
     }
-    this._render();
-  }
-
-  _render() {
-//    this._$height.value = this._insertWeightModel.get('height');
   }
 
   _invalid(errorMessageMap) {
-    console.log(errorMessageMap);
     DomUtil._setFieldError(this._$insertDate,  errorMessageMap.insertDate);
     DomUtil._setFieldError(this._$insertWeight,  errorMessageMap.insertWeight);
   }

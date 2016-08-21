@@ -3,13 +3,18 @@
 const WeightListModel = require('../model/weight-list-model.js');
 
 class AppController {
-  constructor(weightListModel) {
+  constructor(appModel, weightListModel, updateWeightModel) {
+    this._appModel = appModel;
     this._weightListModel = weightListModel;
+    this._updateWeightModel = updateWeightModel;
   }
 
   readAll() {
-    // 消す
     this._weightListModel.readAll();
+  }
+
+  changeUpdateMode(param) {
+    this._updateWeightModel.updateWeight(param);
   }
 }
 

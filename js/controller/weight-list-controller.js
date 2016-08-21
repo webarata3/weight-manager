@@ -8,6 +8,10 @@ class WeightListController {
   init() {
     this._weightListModel.init();
   }
+
+  changeUpdateMode(param) {
+    this._weightListModel.changeUpdateMode(param);
+  }
 }
 
 module.exports = WeightListController;

@@ -3,7 +3,7 @@
 const DomUtil = require('../util/dom-util.js');
 const View = require('../view/view.js');
 
-class WeightListView extends View{
+class WeightListView extends View {
   constructor(weightListController, weightListModel) {
     super();
     this._weightListController = weightListController;
@@ -53,7 +53,10 @@ class WeightListView extends View{
       this._$weightTable.appendChild($trEl);
 
       $trEl.getElementsByTagName('button')[0].addEventListener('click', () => {
-        this._controller.changeUpdateMode(currentValue.date, weight);
+        this._weightListController.changeUpdateMode({
+          date: currentValue.date,
+          weight: weight
+        });
       });
     });
   }
