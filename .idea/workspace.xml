@@ -2,15 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="26f42047-d813-4b9e-b019-5337f21f0d29" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/app/app.js" afterPath="$PROJECT_DIR$/js/app/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/controller/app-controller.js" afterPath="$PROJECT_DIR$/js/controller/app-controller.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/controller/update-weight-controller.js" afterPath="$PROJECT_DIR$/js/controller/update-weight-controller.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/controller/weight-list-controller.js" afterPath="$PROJECT_DIR$/js/controller/weight-list-controller.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/dao/weight-dao.js" afterPath="$PROJECT_DIR$/js/dao/weight-dao.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/model/update-weight-model.js" afterPath="$PROJECT_DIR$/js/model/update-weight-model.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/view/app-view.js" afterPath="$PROJECT_DIR$/js/view/app-view.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/view/update-weight-view.js" afterPath="$PROJECT_DIR$/js/view/update-weight-view.js" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/js/app-validator.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/js/weight-controller.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/js/weight-dao.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/js/weight-model-event.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/js/weight-model.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/js/weight-view.js" afterPath="" />
     </list>
     <ignored path="WeightManager.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -119,21 +116,11 @@
       </split-first>
       <split-second>
         <leaf>
-          <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+          <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/html/index.html">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="319">
                   <caret line="52" column="30" selection-start-line="52" selection-start-column="18" selection-end-line="52" selection-end-column="30" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="weight-model.js" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/js/weight-model.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="280">
-                  <caret line="144" column="0" selection-start-line="140" selection-start-column="0" selection-end-line="144" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
@@ -154,16 +141,6 @@
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="90">
                   <caret line="6" column="16" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="16" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="weight-dao.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/js/weight-dao.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="456">
-                  <caret line="111" column="14" selection-start-line="111" selection-start-column="14" selection-end-line="111" selection-end-column="14" />
                   <folding />
                 </state>
               </provider>
@@ -541,12 +518,12 @@
       <option name="presentableId" value="Default" />
       <updated>1471224692693</updated>
       <workItem from="1471224694733" duration="101951000" />
-      <workItem from="1471567282750" duration="65996000" />
+      <workItem from="1471567282750" duration="66064000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="167947000" />
+    <option name="totallyTimeSpent" value="168015000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
