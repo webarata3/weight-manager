@@ -1,5 +1,8 @@
 'use strict';
 
+const Chart = require('chart.js');
+const moment = require('moment');
+
 const DomUtil = require('../util/dom-util.js');
 const View = require('../view/view.js');
 
@@ -59,6 +62,37 @@ class WeightListView extends View {
         });
       });
     });
+
+    const dateList = [];
+    const weightList = [];
+    this._weightListModel.weightList.forEach(currentValue => {
+      const formatDate = moment(currentValue.date.split('/').join('-')).format('M/DD');
+      dateList.push(formatDate);
+      weightList.push(currentValue.weight);
+    });
+    const data = {
+      labels: dateList,
+      datasets: [{
+        label: '体重',
+        fillColor: 'rgba(220,220,220,0.2)',
+        strokeColor: 'rgba(220,220,220,1)',
+        pointColor: 'rgba(220,220,220,1)',
+        pointStrokeColor: '#fff',
+        pointHighlightFill: '#fff',
+        pointHighlightStroke: 'rgba(220,220,220,1)',
+        data: weightList
+      }]
+    };
+    const ctx = document.getElementById('weightGraph').getContext('2d');
+    const options = {};
+    try {
+      var lineChart = Chart.Line(ctx, {
+        data: data,
+        options: options
+      });
+    }catch(e) {
+      console.log(e);
+    }
   }
 }
 
