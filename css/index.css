@@ -27,13 +27,7 @@
   display: none;
 }
 
-*[disabled="disabled"], *[disabled="disabled"] input {
-  background-color: #ddd;
-}
-
-*[disabled="disabled"] button {
-  background-color: #ddd;
-  background-image: none;
-  border-color: #ddd;
-  color: #000;
+#weightGraph {
+  width: 500px;
+  height: 500px;
 }
