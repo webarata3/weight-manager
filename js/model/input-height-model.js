@@ -20,13 +20,13 @@ class InputHeightModel extends Model {
     this.set('height', height);
 
     const errorMessage = ValidatorUtil.checkHeight(height);
-    if (errorMessage != null) {
+    if (errorMessage !== null) {
       this._trigger('invalid', errorMessage);
-      return
+      return;
     }
 
     localStorage.setItem('height', height);
-    this._trigger('change')
+    this._trigger('change');
   }
 }
 
