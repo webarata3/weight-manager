@@ -12,16 +12,16 @@
    <header class="toolbar toolbar-header">
     <div class="toolbar-actions">
      <div class="btn-group">
-      <button class="btn btn-default active">
+      <button id="mainButton" class="btn btn-default active">
        <span class="icon icon-doc-text"></span>
       </button>
-      <button class="btn btn-default">
+      <button id="graphButton" class="btn btn-default">
        <span class="icon icon-gauge"></span>
       </button>
      </div>
     </div>
    </header>
-   <div class="container">
+   <div id="mainContainer" class="container">
     <div class="side">
      <fieldset>
       <div class="form-group">
@@ -69,10 +69,12 @@
       <tbody id="weightTable">
       </tbody>
      </table>
-     <canvas id="weightGraph" width="500" height="300"></canvas>
     </div>
    </div>
-  </div>
+   <div id="graphContainer" class="container hide">
+    <canvas id="weightGraph"></canvas>
+   </div>
+   </div>
   <script src="../js/index.js"></script>
  </body>
 </html>
