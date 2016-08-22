@@ -34,7 +34,7 @@ class ValidatorUtil {
     let message = null;
     validList.some((valid) => {
       message = valid(value);
-      return message != null
+      return message !== null;
     });
     return message;
   }
@@ -59,7 +59,7 @@ class ValidatorUtil {
   static validDate(value) {
     // TODO バグ
     return validator.isDate(value) ? null : '日付を入力してください';
-  };
+  }
 }
 
 module.exports = ValidatorUtil;

@@ -1,15 +1,18 @@
 'use strict';
 
-const VALIDATION_ERROR = 'validationError';
-const ERROR_MESSAGE = 'errorMessage';
-
 class DomUtil {
+  /**
+   * @returns {string}
+   */
   static get ERROR_MESSAGE() {
-    return ERROR_MESSAGE;
+    return 'errorMessage';
   }
 
+  /**
+   * @returns {string}
+   */
   static get VALIDATION_ERROR() {
-    return VALIDATION_ERROR;
+    return 'validationError';
   }
 
   static _removeFieldError($el) {
@@ -28,7 +31,7 @@ class DomUtil {
   static _setFieldError($el, message) {
     DomUtil._removeFieldError($el);
 
-    if (message == null) {
+    if (message === null) {
       $el.classList.remove(DomUtil.VALIDATION_ERROR);
     } else {
       $el.classList.add(DomUtil.VALIDATION_ERROR);

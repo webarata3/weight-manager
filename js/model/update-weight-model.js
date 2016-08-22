@@ -26,10 +26,10 @@ class UpdateWeightModel extends Model {
   update(date, weight) {
     const errorMessageMap = {};
     let errorMessage = ValidatorUtil.checkWeight(weight);
-    if (errorMessage != null) {
+    if (errorMessage !== null) {
       errorMessageMap['updateWeight'] = errorMessage;
     }
-    if (Object.keys(errorMessageMap).length != 0) {
+    if (Object.keys(errorMessageMap).length !== 0) {
       this._trigger('invalid', errorMessageMap);
       return;
     }
@@ -39,7 +39,7 @@ class UpdateWeightModel extends Model {
       const formatDate = moment(date.split('/').join('-')).format('YYYYMMDD');
       weightDao.update(formatDate, weight).then(updateStatus => {
         if (updateStatus === WeightDao.NOT_EXIST) {
-          this._trigger('update', '指定の日の体重は削除されています')
+          this._trigger('update', '指定の日の体重は削除されています');
         } else {
           this._trigger('update');
         }

@@ -3,26 +3,34 @@
 // http://qiita.com/taizo/items/3a5505308ca2e303c099
 const moment = require('moment');
 
-const DUPLICATE = 'duplicate';
-const SUCCESS = 'success';
-const NOT_EXIST = "notExist";
-
 class WeightDao {
   constructor() {
     this._indexedDB = window.indexedDB;
     this._db = null;
   }
 
+  /**
+   * コメントを付けないとWebStormで警告が出る
+   * @returns {string}
+   */
   static get DUPLICATE() {
-    return DUPLICATE;
+    return 'duplicate';
   }
 
+  /**
+   * コメントを付けないとWebStormで警告が出る
+   * @returns {string}
+   */
   static get SUCCESS() {
-    return SUCCESS;
+    return 'success';
   }
 
+  /**
+   * コメントを付けないとWebStormで警告が出る
+   * @returns {string}
+   */
   static get NOT_EXIST() {
-    return NOT_EXIST;
+    return 'notExist';
   }
 
   init() {
@@ -71,8 +79,7 @@ class WeightDao {
         }
       };
       cursorRequest.onerror = event => {
-        // TODO
-        console.log('ERROR');
+        reject(event);
       }
     });
   }
@@ -95,7 +102,6 @@ class WeightDao {
           resolve(WeightDao.SUCESS);
         };
         tx.onerror = event => {
-          console.log(event);
           reject(event);
         };
       };
@@ -122,12 +128,11 @@ class WeightDao {
           resolve(WeightDao.SUCCESS);
         };
         tx.onerror = (event) => {
-          console.log(event);
-          reject();
+          reject(event);
         };
       };
       request.onerror = (event) => {
-        console.log(event);
+        reject(event);
       }
     });
   }
@@ -136,13 +141,12 @@ class WeightDao {
     return new Promise((resolve, reject) => {
       const tx = this._db.transaction(['weight'], 'readwrite');
       const store = tx.objectStore('weight');
-      const request = store.delete(date);
+      const request = store.deldete(date);
       request.onsuccess = function() {
         resolve();
       };
       request.onerror = function(event) {
-        // TODO エラー
-        reject();
+        reject(event);
       };
     });
   }

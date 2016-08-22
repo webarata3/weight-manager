@@ -3,7 +3,6 @@
 const Chart = require('chart.js');
 const moment = require('moment');
 
-const DomUtil = require('../util/dom-util.js');
 const View = require('../view/view.js');
 
 class WeightListView extends View {
@@ -36,7 +35,7 @@ class WeightListView extends View {
 
     const height = localStorage.getItem('height');
 
-    if (height == null) return;
+    if (height === null) return;
 
     let beforeWeight = 0;
     let diffWeight = 0;
@@ -85,14 +84,10 @@ class WeightListView extends View {
     };
     const ctx = document.getElementById('weightGraph').getContext('2d');
     const options = {};
-    try {
-      var lineChart = Chart.Line(ctx, {
-        data: data,
-        options: options
-      });
-    }catch(e) {
-      console.log(e);
-    }
+    Chart.Line(ctx, {
+      data: data,
+      options: options
+    });
   }
 }
 
