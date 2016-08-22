@@ -55,7 +55,8 @@ class UpdateWeightModel extends Model {
     weightDao.init().then(() => {
       weightDao.remove(date.split('/').join('')).then(() => {
         this._trigger('remove');
-      }).catch(() => {
+      }).catch((event) => {
+        throw new Error(event);
       });
     });
   }

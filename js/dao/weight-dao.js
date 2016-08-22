@@ -80,7 +80,7 @@ class WeightDao {
       };
       cursorRequest.onerror = event => {
         reject(event);
-      }
+      };
     });
   }
 
@@ -93,7 +93,7 @@ class WeightDao {
       request.onsuccess = function(event) {
         const value = event.target.result;
         // すでに登録済みの場合エラー
-        if (value != null) {
+        if (value !== undefined) {
           resolve(WeightDao.DUPLICATE);
           return;
         }
@@ -119,7 +119,7 @@ class WeightDao {
       const request = store.get(date);
       request.onsuccess = (event) => {
         const value = event.target.result;
-        if (value == null) {
+        if (value === undefined) {
           resolve(WeightDao.NOT_EXIST);
           return;
         }
@@ -133,7 +133,7 @@ class WeightDao {
       };
       request.onerror = (event) => {
         reject(event);
-      }
+      };
     });
   }
 
@@ -141,7 +141,7 @@ class WeightDao {
     return new Promise((resolve, reject) => {
       const tx = this._db.transaction(['weight'], 'readwrite');
       const store = tx.objectStore('weight');
-      const request = store.deldete(date);
+      const request = store.delete(date);
       request.onsuccess = function() {
         resolve();
       };
