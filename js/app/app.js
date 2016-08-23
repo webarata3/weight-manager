@@ -1,5 +1,9 @@
 'use strict';
 
+const ipcRenderer = require('electron').ipcRenderer;
+
+const WeightDao = require('../dao/weight-dao.js');
+
 const InputHeightModel = require('../../js/model/input-height-model.js');
 const InputHeightController = require('../../js/controller/input-height-controller.js');
 const InputHeightView = require('../../js/view/input-height-view.js');
@@ -41,6 +45,42 @@ class App {
     const appModel = new AppModel();
     const appController = new AppController(appModel, weightListController, updateWeightController);
     const appView = new AppView(appController, appModel, inputHeightModel, insertWeightModel, updateWeightModel, weightListModel);
+
+    ipcRenderer.on('get_csv_data', (ev) => {
+      const weightDao = new WeightDao();
+      weightDao.init().then(() => {
+        weightDao.readAll().then(weightList => {
+          let result = '計測日,体重,増減,BMI\n';
+          weightList.forEach(data => {
+            result = result + data.date + "," + data.weight + "\n";
+          });
+          ipcRenderer.send('send_csv', result);
+        }).catch((event) => {
+          // TODO
+          console.log(event);
+          console.log('error');
+        });
+      }).catch(() => {
+        // TODO
+        console.log('error');
+      });
+    });
+
+    ipcRenderer.on('get_excel_data', () => {
+      const weightDao = new WeightDao();
+      weightDao.init().then(() => {
+        weightDao.readAll().then(weightList => {
+          ipcRenderer.send('send_excel', weightList);
+        }).catch((event) => {
+          // TODO
+          console.log(event);
+          console.log('error');
+        });
+      }).catch(() => {
+        // TODO
+        console.log('error');
+      });
+    });
   }
 }
 

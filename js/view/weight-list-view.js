@@ -30,6 +30,22 @@ class WeightListView extends View {
     this._render();
   }
 
+  _rawHtml(templates, ...values) {
+    let result = '';
+    templates.forEach((template, index) => {
+      result = result + template;
+      if (index < values.length) {
+        if (index === 0) {
+          result = result + values[index];
+        } else {
+          result = result + Number.parseFloat(values[index]).toFixed(1);
+        }
+      }
+    });
+
+    return result;
+  }
+
   _render() {
     this._$weightTable.innerHTML = '';
 
@@ -41,17 +57,15 @@ class WeightListView extends View {
     let diffWeight = 0;
 
     this._weightListModel.weightList.forEach(currentValue => {
-      const weight = Number.parseFloat(currentValue.weight);
-      const bmi = Number.parseFloat(weight / (height * height / 10000));
+      const date = currentValue.date;
+      const weight = currentValue.weight;
+      const bmi = (weight / (height * height / 10000));
       diffWeight = Number.parseFloat(beforeWeight === 0 ? 0 : weight - beforeWeight);
       beforeWeight = weight;
       const $trEl = document.createElement('tr');
-      $trEl.innerHTML = `
-          <td>${currentValue.date}</td>
-          <td class="number">${weight.toFixed(1)} kg</td>
-          <td class="number">${diffWeight.toFixed(1)} kg</td>
-          <td class="number">${bmi.toFixed(1)}</td>
-          <td><button class="btn btn-mini btn-positive">変更・削除</button></td>`;
+      $trEl.innerHTML =
+        this._rawHtml `<td>${date}</td><td>${weight}</td><td>${diffWeight}</td><td>${bmi}</td>
+                       <td><button class="btn btn-mini btn-positive">変更・削除</button></td>`;
       this._$weightTable.appendChild($trEl);
 
       $trEl.getElementsByTagName('button')[0].addEventListener('click', () => {
