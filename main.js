@@ -6,11 +6,17 @@ const app = electron.app;
 const BrowserWindow = electron.BrowserWindow;
 const Menu = electron.Menu;
 const dialog = electron.dialog;
+const ipcMain = require('electron').ipcMain;
+
+const fs = require('fs');
+const officegen = require('officegen');
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let win;
 let changeWeightWindow;
+
+let fileName;
 
 let menuTemplate = [
   {
@@ -41,14 +47,35 @@ let menuTemplate = [
   },
   {
     label: 'ファイル',
-    submenu: [
-      {
-        label: 'CSVファイルとして保存',
-        accelerator: 'CmdOrCtrl+Shift+C',
-        click: () => {
-        }
+    submenu: [{
+      label: 'CSVファイルとして保存',
+      accelerator: 'CmdOrCtrl+Shift+C',
+      click: () => {
+        dialog.showSaveDialog({
+          title: '保存するCSVファイル名',
+          filters: [
+            {name: 'CSVファイル', extensions: ['csv']}
+          ]
+        }, (file) => {
+          fileName = file;
+          win.webContents.send('get_csv_data');
+        });
       }
-    ]
+    }, {
+      label: 'Excelファイルとして保存',
+      accelerator: 'CmdOrCtrl+Shift+E',
+      click: () => {
+        dialog.showSaveDialog({
+          title: '保存するExcelファイル名',
+          filters: [
+            {name: 'Excelファイル', extensions: ['xlsx']}
+          ]
+        }, (file) => {
+          fileName = file;
+          win.webContents.send('get_excel_data');
+        });
+      }
+    }]
   }];
 
 let menu = Menu.buildFromTemplate(menuTemplate);
@@ -107,3 +134,37 @@ function showAboutDialog() {
     detail: '体重管理 バージョン 0.1.0'
   });
 }
+
+ipcMain.on('send_csv', (event, message) => {
+  fs.writeFile(fileName, message, function(error) {
+  });
+});
+
+ipcMain.on('send_excel', (event, weightList) => {
+  const xlsx = officegen('xlsx');
+  xlsx.on('finalize', function(written) {
+    console.log('Finish to create an Excel file.\nTotal bytes created: ' + written);
+  });
+
+  xlsx.on('error', function(err) {
+    console.log(err);
+  });
+
+  let sheet = xlsx.makeNewSheet();
+  sheet.name = '体重管理';
+
+  sheet.data[0] = ['計測日', '体重', '増減', 'BMI'];
+  weightList.forEach((data, y) => {
+    sheet.data[y + 1] = [];
+    sheet.data[y + 1][0] = data.date;
+    sheet.data[y + 1][1] = data.weight;
+  });
+
+  const out = fs.createWriteStream(fileName);
+
+  out.on('error', function(err) {
+    console.log(err);
+  });
+
+  xlsx.generate(out);
+});

@@ -6,6 +6,7 @@
   "dependencies": {
     "chart.js": "^2.2.1",
     "moment": "^2.14.1",
+    "officegen": "^0.2.10",
     "validator": "^5.5.0"
   },
   "devDependencies": {
