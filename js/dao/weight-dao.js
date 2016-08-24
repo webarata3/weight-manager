@@ -64,7 +64,7 @@ class WeightDao {
     const cursorRequest = weightStore.openCursor();
     return new Promise((resolve, reject) => {
       cursorRequest.onsuccess = event => {
-        var cursor = event.target.result;
+        let cursor = event.target.result;
         if (cursor) {
           const date = cursor.key;
           const weight = Number.parseFloat(cursor.value.weight);

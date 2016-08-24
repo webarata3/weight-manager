@@ -32,21 +32,19 @@ class InsertWeightModel extends Model {
 
     const formatYYYYMMDD = moment(date).format('YYYYMMDD');
     const weightDao = new WeightDao();
-    weightDao.init().then(() => {
-      weightDao.insert(formatYYYYMMDD, weight).then((status) => {
-        if (status === WeightDao.DUPLICATE) {
-          this._trigger('insert', '指定の計測日の体重は登録済みです');
-        } else {
-          this._trigger('insert');
-        }
-      }).catch((event) => {
-        // TODO
-        console.log(event);
-        console.log('error');
-      });
-    }).catch(() => {
-      // TODO
-      console.log('error');
+    const promise = Promise.resolve();
+    promise.then(() => {
+      return weightDao.init();
+    }).then(() => {
+      return weightDao.insert(formatYYYYMMDD, weight);
+    }).then((status) => {
+      if (status === WeightDao.DUPLICATE) {
+        this._trigger('insert', '指定の計測日の体重は登録済みです');
+      } else {
+        this._trigger('insert');
+      }
+    }).catch(error => {
+      throw new Error(error);
     });
   }
 }
