@@ -158,6 +158,8 @@ ipcMain.on('send_excel', (event, weightList) => {
     sheet.data[y + 1] = [];
     sheet.data[y + 1][0] = data.date;
     sheet.data[y + 1][1] = data.weight;
+    sheet.data[y + 1][2] = data.diffWeight;
+    sheet.data[y + 1][3] = data.bmi;
   });
 
   const out = fs.createWriteStream(fileName);
