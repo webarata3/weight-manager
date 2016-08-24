@@ -2,6 +2,8 @@
 
 const ipcRenderer = require('electron').ipcRenderer;
 
+const moment = require('moment');
+
 const WeightDao = require('../dao/weight-dao.js');
 
 const InputHeightModel = require('../../js/model/input-height-model.js');
@@ -67,21 +69,37 @@ class App {
     });
 
     ipcRenderer.on('get_excel_data', () => {
-      const weightDao = new WeightDao();
-      weightDao.init().then(() => {
-        weightDao.readAll().then(weightList => {
-          ipcRenderer.send('send_excel', weightList);
-        }).catch((event) => {
-          // TODO
-          console.log(event);
-          console.log('error');
-        });
-      }).catch(() => {
-        // TODO
-        console.log('error');
+      const promise = aaa();
+      promise.then((weightList) => {
+        console.log(weightList);
+
+        ipcRenderer.send('send_excel', weightList);
+      }).catch((error) => {
+        throw new Error(event);
       });
     });
   }
+}
+
+const WeightUtil = require('../util/weight-util.js');
+
+function aaa(height) {
+  const weightDao = new WeightDao();
+
+  const promise = Promise.resolve();
+  return promise
+    .then(() => {
+      return weightDao.init();
+    })
+    .then(() => {
+      return weightDao.readAll();
+    })
+    .then((weightList) => {
+      return WeightUtil.formatWeightList(weightList);
+    })
+    .catch((error) => {
+      throw new Error(error);
+    });
 }
 
 module.exports = App;
