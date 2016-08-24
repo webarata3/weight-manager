@@ -35,29 +35,34 @@ class UpdateWeightModel extends Model {
     }
 
     const weightDao = new WeightDao();
-    weightDao.init().then(() => {
+    const promise = Promise.resolve();
+    promise.then(() => {
+      return weightDao.init();
+    }).then(() => {
       const formatDate = moment(date.split('/').join('-')).format('YYYYMMDD');
-      weightDao.update(formatDate, weight).then(updateStatus => {
-        if (updateStatus === WeightDao.NOT_EXIST) {
-          this._trigger('update', '指定の日の体重は削除されています');
-        } else {
-          this._trigger('update');
-        }
-      }).catch((event) => {
-        // TODO
-        console.log('error', event);
-      });
+      return weightDao.update(formatDate, weight);
+    }).then(status => {
+      if (status === WeightDao.NOT_EXIST) {
+        this._trigger('update', '指定の日の体重は削除されています');
+      } else {
+        this._trigger('update');
+      }
+    }).catch(error => {
+      throw new Error(error);
     });
   }
 
   remove(date) {
     const weightDao = new WeightDao();
-    weightDao.init().then(() => {
-      weightDao.remove(date.split('/').join('')).then(() => {
-        this._trigger('remove');
-      }).catch((event) => {
-        throw new Error(event);
-      });
+    const promise = Promise.resolve();
+    promise.then(() => {
+      return weightDao.init();
+    }).then(() => {
+      return weightDao.remove(date.split('/').join(''));
+    }).then(() => {
+      this._trigger('remove');
+    }).catch(error => {
+      throw new Error(error);
     });
   }
 }

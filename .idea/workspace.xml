@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="26f42047-d813-4b9e-b019-5337f21f0d29" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/dao/weight-dao.js" afterPath="$PROJECT_DIR$/js/dao/weight-dao.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/model/insert-weight-model.js" afterPath="$PROJECT_DIR$/js/model/insert-weight-model.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/model/update-weight-model.js" afterPath="$PROJECT_DIR$/js/model/update-weight-model.js" />
     </list>
     <ignored path="WeightManager.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -46,21 +46,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="insert-weight-model.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="insert-weight-model.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/model/insert-weight-model.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="479">
-              <caret line="35" column="5" selection-start-line="35" selection-start-column="5" selection-end-line="35" selection-end-column="5" />
+            <state relative-caret-position="284">
+              <caret line="38" column="37" selection-start-line="38" selection-start-column="37" selection-end-line="38" selection-end-column="37" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="update-weight-model.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="update-weight-model.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/model/update-weight-model.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="254">
-              <caret line="48" column="9" selection-start-line="48" selection-start-column="9" selection-end-line="48" selection-end-column="9" />
+            <state relative-caret-position="359">
+              <caret line="60" column="13" selection-start-line="60" selection-start-column="13" selection-end-line="60" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -128,13 +128,13 @@
         <option value="$PROJECT_DIR$/js/model/input-height-model.js" />
         <option value="$PROJECT_DIR$/.jshintrc" />
         <option value="$PROJECT_DIR$/js/util/dom-util.js" />
-        <option value="$PROJECT_DIR$/js/model/update-weight-model.js" />
         <option value="$PROJECT_DIR$/js/view/weight-list-view.js" />
         <option value="$PROJECT_DIR$/js/util/weight-util.js" />
         <option value="$PROJECT_DIR$/main.js" />
         <option value="$PROJECT_DIR$/js/dao/weight-dao.js" />
         <option value="$PROJECT_DIR$/js/app/app.js" />
         <option value="$PROJECT_DIR$/js/model/insert-weight-model.js" />
+        <option value="$PROJECT_DIR$/js/model/update-weight-model.js" />
       </list>
     </option>
   </component>
@@ -423,12 +423,12 @@
       <workItem from="1471756897031" duration="35000" />
       <workItem from="1471756936033" duration="4185000" />
       <workItem from="1471836942021" duration="47000" />
-      <workItem from="1471836992552" duration="32341000" />
+      <workItem from="1471836992552" duration="33167000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="205115000" />
+    <option name="totallyTimeSpent" value="205941000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -747,18 +747,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/model/update-weight-model.js">
+    <entry file="file://$PROJECT_DIR$/js/model/insert-weight-model.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="254">
-          <caret line="48" column="9" selection-start-line="48" selection-start-column="9" selection-end-line="48" selection-end-column="9" />
+        <state relative-caret-position="284">
+          <caret line="38" column="37" selection-start-line="38" selection-start-column="37" selection-end-line="38" selection-end-column="37" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/model/insert-weight-model.js">
+    <entry file="file://$PROJECT_DIR$/js/model/update-weight-model.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="479">
-          <caret line="35" column="5" selection-start-line="35" selection-start-column="5" selection-end-line="35" selection-end-column="5" />
+        <state relative-caret-position="359">
+          <caret line="60" column="13" selection-start-line="60" selection-start-column="13" selection-end-line="60" selection-end-column="13" />
           <folding />
         </state>
       </provider>
