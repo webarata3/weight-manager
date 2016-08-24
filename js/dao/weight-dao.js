@@ -49,8 +49,8 @@ class WeightDao {
         resolve();
       };
 
-      request.onerror = event => {
-        reject(event);
+      request.onerror = error => {
+        reject(error);
       };
     });
   }
@@ -78,8 +78,8 @@ class WeightDao {
           resolve(weightList);
         }
       };
-      cursorRequest.onerror = event => {
-        reject(event);
+      cursorRequest.onerror = error => {
+        reject(error);
       };
     });
   }
@@ -101,12 +101,12 @@ class WeightDao {
         tx.oncomplete = () => {
           resolve(WeightDao.SUCESS);
         };
-        tx.onerror = event => {
-          reject(event);
+        tx.onerror = error => {
+          reject(error);
         };
       };
-      request.onerror = (event) => {
-        reject(event);
+      request.onerror = (error) => {
+        reject(error);
       };
     });
   }
@@ -127,12 +127,12 @@ class WeightDao {
         tx.oncomplete = () => {
           resolve(WeightDao.SUCCESS);
         };
-        tx.onerror = (event) => {
-          reject(event);
+        tx.onerror = (error) => {
+          reject(error);
         };
       };
-      request.onerror = (event) => {
-        reject(event);
+      request.onerror = (error) => {
+        reject(error);
       };
     });
   }
@@ -142,11 +142,11 @@ class WeightDao {
       const tx = this._db.transaction(['weight'], 'readwrite');
       const store = tx.objectStore('weight');
       const request = store.delete(date);
-      request.onsuccess = function() {
+      request.onsuccess = () => {
         resolve();
       };
-      request.onerror = function(event) {
-        reject(event);
+      request.onerror = error => {
+        reject(error);
       };
     });
   }
