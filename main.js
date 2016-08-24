@@ -137,17 +137,18 @@ function showAboutDialog() {
 
 ipcMain.on('send_csv', (event, message) => {
   fs.writeFile(fileName, message, function(error) {
+    throw new Error(error);
   });
 });
 
 ipcMain.on('send_excel', (event, weightList) => {
   const xlsx = officegen('xlsx');
   xlsx.on('finalize', function(written) {
-    console.log('Finish to create an Excel file.\nTotal bytes created: ' + written);
+    // 成功
   });
 
-  xlsx.on('error', function(err) {
-    console.log(err);
+  xlsx.on('error', function(error) {
+    throw new Error(error);
   });
 
   let sheet = xlsx.makeNewSheet();
