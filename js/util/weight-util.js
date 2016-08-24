@@ -7,18 +7,15 @@ class WeightUtil {
 
   static formatWeightList(height, weightList) {
     let diffWeight = null;
-    let formatWeightList = [];
-    weightList.forEach((weight) => {
+    return weightList.map(weight => {
       const formatWeight = {};
       formatWeight.date = weight.date;
       formatWeight.weight = WeightUtil.fixed1(weight.weight);
       formatWeight.diffWeight = diffWeight === null ? '0.0' : WeightUtil.fixed1(diffWeight);
       diffWeight = weight.weight;
       formatWeight.bmi = WeightUtil.fixed1(weight.weight / (height * height / 10000));
-
-      formatWeightList.push(formatWeight);
+      return formatWeight;
     });
-    return formatWeightList;
   }
 }
 

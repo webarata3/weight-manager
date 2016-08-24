@@ -154,12 +154,12 @@ ipcMain.on('send_excel', (event, weightList) => {
   sheet.name = '体重管理';
 
   sheet.data[0] = ['計測日', '体重', '増減', 'BMI'];
-  weightList.forEach((data, y) => {
+  weightList.forEach((value, y) => {
     sheet.data[y + 1] = [];
-    sheet.data[y + 1][0] = data.date;
-    sheet.data[y + 1][1] = data.weight;
-    sheet.data[y + 1][2] = data.diffWeight;
-    sheet.data[y + 1][3] = data.bmi;
+    sheet.data[y + 1][0] = value.date;
+    sheet.data[y + 1][1] = value.weight;
+    sheet.data[y + 1][2] = value.diffWeight;
+    sheet.data[y + 1][3] = value.bmi;
   });
 
   const out = fs.createWriteStream(fileName);

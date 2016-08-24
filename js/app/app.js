@@ -48,33 +48,26 @@ class App {
     const appController = new AppController(appModel, weightListController, updateWeightController);
     const appView = new AppView(appController, appModel, inputHeightModel, insertWeightModel, updateWeightModel, weightListModel);
 
-    ipcRenderer.on('get_csv_data', (ev) => {
-      const weightDao = new WeightDao();
-      weightDao.init().then(() => {
-        weightDao.readAll().then(weightList => {
-          let result = '計測日,体重,増減,BMI\n';
-          weightList.forEach(data => {
-            result = result + data.date + "," + data.weight + "\n";
-          });
-          ipcRenderer.send('send_csv', result);
-        }).catch((event) => {
-          // TODO
-          console.log(event);
-          console.log('error');
+
+    ipcRenderer.on('get_csv_data', () => {
+      const promise = getFormatWeightList();
+
+      promise.then(weightList => {
+        let result = '計測日,体重,増減,BMI\n';
+        weightList.forEach(data => {
+          result = result + data.date + "," + data.weight + "\n";
         });
-      }).catch(() => {
-        // TODO
-        console.log('error');
+        ipcRenderer.send('send_csv', result);
+      }).catch(error => {
+        throw new Error(error);
       });
     });
 
     ipcRenderer.on('get_excel_data', () => {
-      const promise = aaa();
+      const promise = getFormatWeightList();
       promise.then((weightList) => {
-        console.log(weightList);
-
         ipcRenderer.send('send_excel', weightList);
-      }).catch((error) => {
+      }).catch(error => {
         throw new Error(event);
       });
     });
@@ -83,7 +76,7 @@ class App {
 
 const WeightUtil = require('../util/weight-util.js');
 
-function aaa(height) {
+function getFormatWeightList(height) {
   const weightDao = new WeightDao();
 
   const promise = Promise.resolve();
@@ -95,7 +88,7 @@ function aaa(height) {
       return weightDao.readAll();
     })
     .then((weightList) => {
-      return WeightUtil.formatWeightList(weightList);
+      return WeightUtil.formatWeightList(155, weightList);
     })
     .catch((error) => {
       throw new Error(error);
