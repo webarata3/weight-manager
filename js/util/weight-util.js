@@ -8,7 +8,6 @@ module.exports = class WeightUtil {
   static formatWeightList(height, weightList) {
     let diffWeight = null;
     return weightList.map(weight => {
-      console.log(weight);
       const formatWeight = {};
       formatWeight.date = weight.date;
       formatWeight.weight = WeightUtil.fixed1(weight.weight);

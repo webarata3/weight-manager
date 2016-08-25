@@ -1,11 +1,7 @@
 'use strict';
 
 // / const {app, BrowserWindow} = require('electron');
-const electron = require('electron');
-const app = electron.app;
-const BrowserWindow = electron.BrowserWindow;
-const Menu = electron.Menu;
-const dialog = electron.dialog;
+const {app, BrowserWindow, electron, Menu, dialog} = require('electron');
 const ipcMain = require('electron').ipcMain;
 
 const fs = require('fs');
@@ -135,9 +131,14 @@ function showAboutDialog() {
   });
 }
 
-ipcMain.on('send_csv', (event, message) => {
-  fs.writeFile(fileName, message, function(error) {
-    throw new Error(error);
+ipcMain.on('send_csv', (event, weightList) => {
+  let result = '計測日,体重,増減,BMI\n';
+  weightList.forEach(weight => {
+    result = result + `${weight.date},${weight.weight},${weight.diffWeight},${weight.bmi}\n`;
+  });
+
+  fs.writeFile(fileName, result, error => {
+    if (error) throw new Error(error);
   });
 });
 
@@ -155,18 +156,18 @@ ipcMain.on('send_excel', (event, weightList) => {
   sheet.name = '体重管理';
 
   sheet.data[0] = ['計測日', '体重', '増減', 'BMI'];
-  weightList.forEach((value, y) => {
+  weightList.forEach((weight, y) => {
     sheet.data[y + 1] = [];
-    sheet.data[y + 1][0] = value.date;
-    sheet.data[y + 1][1] = value.weight;
-    sheet.data[y + 1][2] = value.diffWeight;
-    sheet.data[y + 1][3] = value.bmi;
+    sheet.data[y + 1][0] = weight.date;
+    sheet.data[y + 1][1] = weight.weight;
+    sheet.data[y + 1][2] = weight.diffWeight;
+    sheet.data[y + 1][3] = weight.bmi;
   });
 
   const out = fs.createWriteStream(fileName);
 
-  out.on('error', function(err) {
-    console.log(err);
+  out.on('error', function(error) {
+    throw new Error(error);
   });
 
   xlsx.generate(out);

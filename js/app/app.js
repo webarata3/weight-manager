@@ -1,6 +1,6 @@
 'use strict';
 
-const ipcRenderer = require('electron').ipcRenderer;
+const {ipcRenderer} = require('electron');
 
 const moment = require('moment');
 
@@ -48,16 +48,11 @@ module.exports = class App {
     const appController = new AppController(appModel, weightListController, updateWeightController);
     const appView = new AppView(appController, appModel, inputHeightModel, insertWeightModel, updateWeightModel, weightListModel);
 
-
     ipcRenderer.on('get_csv_data', () => {
       const promise = getFormatWeightList();
 
       promise.then(weightList => {
-        let result = '計測日,体重,増減,BMI\n';
-        weightList.forEach(data => {
-          result = result + data.date + "," + data.weight + "\n";
-        });
-        ipcRenderer.send('send_csv', result);
+        ipcRenderer.send('send_csv', weightList);
       }).catch(error => {
         throw new Error(error);
       });
