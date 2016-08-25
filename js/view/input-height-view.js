@@ -1,9 +1,9 @@
 'use strict';
 
-const DomUtil = require('../util/dom-util.js');
-const View = require('../view/view.js');
+const DomUtil = require('../util/dom-util');
+const View = require('../view/view');
 
-class InputHeightView extends View{
+module.exports = class InputHeightView extends View{
   constructor(inputHeightController, inputHeightModel) {
     super();
     this._inputHeightController = inputHeightController;
@@ -45,6 +45,4 @@ class InputHeightView extends View{
   _invalid(errorMessage) {
     DomUtil._setFieldError(this._$height, errorMessage);
   }
-}
-
-module.exports = InputHeightView;
+};

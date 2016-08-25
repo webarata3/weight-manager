@@ -3,7 +3,7 @@
 // http://qiita.com/taizo/items/3a5505308ca2e303c099
 const moment = require('moment');
 
-class WeightDao {
+module.exports = class WeightDao {
   constructor() {
     this._indexedDB = window.indexedDB;
     this._db = null;
@@ -150,6 +150,4 @@ class WeightDao {
       };
     });
   }
-}
-
-module.exports = WeightDao;
+};

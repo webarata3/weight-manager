@@ -1,6 +1,6 @@
 'use strict';
 
-class WeightListController {
+module.exports = class WeightListController {
   constructor(weightListModel) {
     this._weightListModel = weightListModel;
   }
@@ -16,6 +16,4 @@ class WeightListController {
   changeUpdateMode(param) {
     this._weightListModel.changeUpdateMode(param);
   }
-}
-
-module.exports = WeightListController;
+};

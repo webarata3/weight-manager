@@ -1,8 +1,8 @@
 'use strict';
 
-const View = require('../view/view.js');
+const View = require('../view/view');
 
-class AppView extends View {
+module.exports = class AppView extends View {
   constructor(appController, appModel, inputHeightModel, insertWeightModel, updateWeightModel, weightListModel) {
     super();
     this._appController = appController;
@@ -78,6 +78,4 @@ class AppView extends View {
     this._$mainContainer.classList.add('hide');
     this._$graphContainer.classList.remove('hide');
   }
-}
-
-module.exports = AppView;
+};

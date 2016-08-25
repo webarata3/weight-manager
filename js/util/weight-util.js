@@ -1,6 +1,6 @@
 'use strict';
 
-class WeightUtil {
+module.exports = class WeightUtil {
   static fixed1(value) {
     return Number.parseFloat(value).toFixed(1).toString();
   }
@@ -8,6 +8,7 @@ class WeightUtil {
   static formatWeightList(height, weightList) {
     let diffWeight = null;
     return weightList.map(weight => {
+      console.log(weight);
       const formatWeight = {};
       formatWeight.date = weight.date;
       formatWeight.weight = WeightUtil.fixed1(weight.weight);
@@ -17,6 +18,4 @@ class WeightUtil {
       return formatWeight;
     });
   }
-}
-
-module.exports = WeightUtil;
+};

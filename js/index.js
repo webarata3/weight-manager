@@ -1,5 +1,5 @@
 'use strict';
 
-const App = require('../js/app/app.js');
+const App = require('../js/app/app');
 
 new App();

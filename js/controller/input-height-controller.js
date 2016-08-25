@@ -1,6 +1,6 @@
 'use strict';
 
-class InputHeightController {
+module.exports = class InputHeightController {
   constructor(inputHeightModel) {
     this._inputHeightModel = inputHeightModel;
   }
@@ -12,6 +12,4 @@ class InputHeightController {
   changeHeight(height) {
     this._inputHeightModel.changeHeight(height);
   }
-}
-
-module.exports = InputHeightController;
+};

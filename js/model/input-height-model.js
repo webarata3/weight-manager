@@ -3,10 +3,10 @@
 // http://qiita.com/taizo/items/3a5505308ca2e303c099
 const moment = require('moment');
 
-const ValidatorUtil = require('../util/validator-util.js');
-const Model = require('../model/model.js');
+const ValidatorUtil = require('../util/validator-util');
+const Model = require('../model/model');
 
-class InputHeightModel extends Model {
+module.exports = class InputHeightModel extends Model {
   constructor() {
     super();
   }
@@ -28,6 +28,4 @@ class InputHeightModel extends Model {
     localStorage.setItem('height', height);
     this._trigger('change');
   }
-}
-
-module.exports = InputHeightModel;
+};

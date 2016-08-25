@@ -1,8 +1,8 @@
 'use strict';
 
-const WeightListModel = require('../model/weight-list-model.js');
+const WeightListModel = require('../model/weight-list-model');
 
-class AppController {
+module.exports = class AppController {
   constructor(appModel, weightListController, updateWeightController) {
     this._appModel = appModel;
     this._weightListController = weightListController;
@@ -16,6 +16,4 @@ class AppController {
   changeUpdateMode(param) {
     this._updateWeightController.updateWeight(param);
   }
-}
-
-module.exports = AppController;
+};

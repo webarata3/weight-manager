@@ -1,9 +1,9 @@
 'use strict';
 
-const DomUtil = require('../util/dom-util.js');
-const View = require('../view/view.js');
+const DomUtil = require('../util/dom-util');
+const View = require('../view/view');
 
-class UpdateWeightView extends View {
+module.exports = class UpdateWeightView extends View {
   constructor(updateWeightController, updateWeightModel) {
     super();
     this._updateWeightController = updateWeightController;
@@ -71,6 +71,4 @@ class UpdateWeightView extends View {
   _invalid(errorMessageMap) {
     DomUtil._setFieldError(this._$updateWeight, errorMessageMap.updateWeight);
   }
-}
-
-module.exports = UpdateWeightView;
+};

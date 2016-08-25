@@ -1,6 +1,6 @@
 'use strict';
 
-class DomUtil {
+module.exports = class DomUtil {
   /**
    * @returns {string}
    */
@@ -42,7 +42,4 @@ class DomUtil {
       $el.parentNode.insertBefore($message, $el.nextSibling);
     }
   }
-
-}
-
-module.exports = DomUtil;
+};

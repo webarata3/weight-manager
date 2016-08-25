@@ -1,6 +1,6 @@
 'use strict';
 
-class UpdateWeightController {
+module.exports = class UpdateWeightController {
   constructor(updateWeightModel) {
     this._updateWeightModel = updateWeightModel;
   }
@@ -24,6 +24,4 @@ class UpdateWeightController {
   remove(date) {
     this._updateWeightModel.remove(date);
   }
-}
-
-module.exports = UpdateWeightController;
+};

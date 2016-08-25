@@ -1,6 +1,6 @@
 'use strict';
 
-class View {
+module.exports = class View {
   constructor() {
   }
 
@@ -35,6 +35,4 @@ class View {
       }
     }
   }
-}
-
-module.exports = View;
+};

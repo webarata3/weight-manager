@@ -3,7 +3,7 @@
 // https://www.npmjs.com/package/validator
 const validator = require('validator');
 
-class ValidatorUtil {
+module.exports = class ValidatorUtil {
   static checkHeight(value) {
     return ValidatorUtil.validatorList(
       value, [
@@ -60,6 +60,4 @@ class ValidatorUtil {
     // TODO バグ
     return validator.isDate(value) ? null : '日付を入力してください';
   }
-}
-
-module.exports = ValidatorUtil;
+};

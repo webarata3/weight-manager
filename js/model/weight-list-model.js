@@ -1,9 +1,9 @@
 'use strict';
 
-const Model = require('../model/model.js');
-const WeightDao = require('../dao/weight-dao.js');
+const Model = require('../model/model');
+const WeightDao = require('../dao/weight-dao');
 
-class WeightModelList extends Model {
+module.exports = class WeightModelList extends Model {
   constructor() {
     super();
   }
@@ -36,6 +36,4 @@ class WeightModelList extends Model {
   changeUpdateMode(param) {
     this._trigger('changeUpdateMode', param);
   }
-}
-
-module.exports = WeightModelList;
+};

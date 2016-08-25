@@ -1,6 +1,6 @@
 'use strict';
 
-class InsertWeightController {
+module.exports = class InsertWeightController {
   constructor(insertWeightModel) {
     this._insertWeightModel = insertWeightModel;
   }
@@ -12,6 +12,4 @@ class InsertWeightController {
   insertWeight(date, weight) {
     this._insertWeightModel.insertWeight(date, weight);
   }
-}
-
-module.exports = InsertWeightController;
+};

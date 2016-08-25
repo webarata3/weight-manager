@@ -1,11 +1,9 @@
 'use strict';
 
-const Model = require('../model/model.js');
+const Model = require('../model/model');
 
-class AppModel extends Model {
+module.exports = class AppModel extends Model {
   constructor() {
     super();
   }
-}
-
-module.exports = AppModel;
+};

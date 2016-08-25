@@ -3,9 +3,9 @@
 const Chart = require('chart.js');
 const moment = require('moment');
 
-const View = require('../view/view.js');
+const View = require('../view/view');
 
-class WeightListView extends View {
+module.exports = class WeightListView extends View {
   constructor(weightListController, weightListModel) {
     super();
     this._weightListController = weightListController;
@@ -103,6 +103,4 @@ class WeightListView extends View {
       options: options
     });
   }
-}
-
-module.exports = WeightListView;
+};

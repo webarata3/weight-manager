@@ -1,9 +1,9 @@
 'use strict';
 
-const DomUtil = require('../util/dom-util.js');
-const View = require('../view/view.js');
+const DomUtil = require('../util/dom-util');
+const View = require('../view/view');
 
-class InsertWeightView extends View{
+module.exports = class InsertWeightView extends View{
   constructor(insertWeightController, insertWeightModel) {
     super();
     this._insertWeightController = insertWeightController;
@@ -45,7 +45,6 @@ class InsertWeightView extends View{
   _insert(errorMessage) {
     if (errorMessage) {
       this._$insertError.innerText = errorMessage;
-      return;
     }
   }
 
@@ -53,6 +52,4 @@ class InsertWeightView extends View{
     DomUtil._setFieldError(this._$insertDate,  errorMessageMap.insertDate);
     DomUtil._setFieldError(this._$insertWeight,  errorMessageMap.insertWeight);
   }
-}
-
-module.exports = InsertWeightView;
+};

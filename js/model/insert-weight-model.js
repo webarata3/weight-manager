@@ -3,11 +3,11 @@
 // http://qiita.com/taizo/items/3a5505308ca2e303c099
 const moment = require('moment');
 
-const ValidatorUtil = require('../util/validator-util.js');
-const Model = require('../model/model.js');
-const WeightDao = require('../dao/weight-dao.js');
+const ValidatorUtil = require('../util/validator-util');
+const Model = require('../model/model');
+const WeightDao = require('../dao/weight-dao');
 
-class InsertWeightModel extends Model {
+module.exports = class InsertWeightModel extends Model {
   constructor() {
     super();
   }
@@ -47,6 +47,4 @@ class InsertWeightModel extends Model {
       throw new Error(error);
     });
   }
-}
-
-module.exports = InsertWeightModel;
+};
