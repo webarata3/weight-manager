@@ -2,42 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="26f42047-d813-4b9e-b019-5337f21f0d29" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/js/index.js" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/js/index.js" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/css/default.css" afterPath="$PROJECT_DIR$/src/css/default.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/css/index.css" afterPath="$PROJECT_DIR$/src/css/index.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/css/photon.min.css" afterPath="$PROJECT_DIR$/src/css/photon.min.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/fonts/photon-entypo.eot" afterPath="$PROJECT_DIR$/src/fonts/photon-entypo.eot" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/fonts/photon-entypo.svg" afterPath="$PROJECT_DIR$/src/fonts/photon-entypo.svg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/fonts/photon-entypo.ttf" afterPath="$PROJECT_DIR$/src/fonts/photon-entypo.ttf" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/fonts/photon-entypo.woff" afterPath="$PROJECT_DIR$/src/fonts/photon-entypo.woff" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/html/index.html" afterPath="$PROJECT_DIR$/src/html/index.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/js/app/app.js" afterPath="$PROJECT_DIR$/src/js/app/app.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/js/controller/app-controller.js" afterPath="$PROJECT_DIR$/src/js/controller/app-controller.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/js/controller/input-height-controller.js" afterPath="$PROJECT_DIR$/src/js/controller/input-height-controller.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/js/controller/insert-weight-controller.js" afterPath="$PROJECT_DIR$/src/js/controller/insert-weight-controller.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/js/controller/update-weight-controller.js" afterPath="$PROJECT_DIR$/src/js/controller/update-weight-controller.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/js/controller/weight-list-controller.js" afterPath="$PROJECT_DIR$/src/js/controller/weight-list-controller.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/js/dao/weight-dao.js" afterPath="$PROJECT_DIR$/src/js/dao/weight-dao.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/js/model/app-model.js" afterPath="$PROJECT_DIR$/src/js/model/app-model.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/js/model/input-height-model.js" afterPath="$PROJECT_DIR$/src/js/model/input-height-model.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/js/model/insert-weight-model.js" afterPath="$PROJECT_DIR$/src/js/model/insert-weight-model.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/js/model/model.js" afterPath="$PROJECT_DIR$/src/js/model/model.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/js/model/update-weight-model.js" afterPath="$PROJECT_DIR$/src/js/model/update-weight-model.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/js/model/weight-list-model.js" afterPath="$PROJECT_DIR$/src/js/model/weight-list-model.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/js/util/dom-util.js" afterPath="$PROJECT_DIR$/src/js/util/dom-util.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/js/util/validator-util.js" afterPath="$PROJECT_DIR$/src/js/util/validator-util.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/js/util/weight-util.js" afterPath="$PROJECT_DIR$/src/js/util/weight-util.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/js/view/app-view.js" afterPath="$PROJECT_DIR$/src/js/view/app-view.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/js/view/input-height-view.js" afterPath="$PROJECT_DIR$/src/js/view/input-height-view.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/js/view/insert-weight-view.js" afterPath="$PROJECT_DIR$/src/js/view/insert-weight-view.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/js/view/update-weight-view.js" afterPath="$PROJECT_DIR$/src/js/view/update-weight-view.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/js/view/view.js" afterPath="$PROJECT_DIR$/src/js/view/view.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/js/view/weight-list-view.js" afterPath="$PROJECT_DIR$/src/js/view/weight-list-view.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/main.js" afterPath="$PROJECT_DIR$/src/main.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/src/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/html/update.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/js/app/update.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/js/controller/update-controller.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/js/model/update-model.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/js/view/update-view.js" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/js/app/app.js" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/js/controller/app-controller.js" afterPath="$PROJECT_DIR$/src/js/controller/index-controller.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/js/index.js" afterPath="$PROJECT_DIR$/src/js/app/index.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/js/model/app-model.js" afterPath="$PROJECT_DIR$/src/js/model/index-model.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/js/view/app-view.js" afterPath="$PROJECT_DIR$/src/js/view/index-view.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/css/default.css" afterPath="$PROJECT_DIR$/src/css/default.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/css/index.css" afterPath="$PROJECT_DIR$/src/css/index.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/html/index.html" afterPath="$PROJECT_DIR$/src/html/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/controller/weight-list-controller.js" afterPath="$PROJECT_DIR$/src/js/controller/weight-list-controller.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/view/weight-list-view.js" afterPath="$PROJECT_DIR$/src/js/view/weight-list-view.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main.js" afterPath="$PROJECT_DIR$/src/main.js" />
     </list>
     <ignored path="WeightManager.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -61,10 +42,50 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/js/index.js">
+        <entry file="file://$PROJECT_DIR$/src/js/app/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" column="27" selection-start-line="2" selection-start-column="27" selection-end-line="2" selection-end-column="27" />
+            <state relative-caret-position="420">
+              <caret line="28" column="11" selection-start-line="28" selection-start-column="11" selection-end-line="28" selection-end-column="11" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index-view.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/js/view/index-view.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="8" column="19" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="19" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="update-controller.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/js/controller/update-controller.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="4" column="36" selection-start-line="4" selection-start-column="36" selection-end-line="4" selection-end-column="36" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index-controller.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/js/controller/index-controller.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="285">
+              <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index-model.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/js/model/index-model.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="4" column="33" selection-start-line="4" selection-start-column="33" selection-end-line="4" selection-end-column="33" />
               <folding />
             </state>
           </provider>
@@ -78,20 +99,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/js/app/weight-app.js" />
-        <option value="$PROJECT_DIR$/js/util/app-validator.js" />
-        <option value="$PROJECT_DIR$/js/model/weight-model-list.js" />
-        <option value="$PROJECT_DIR$/js/model/weight-model.js" />
-        <option value="$PROJECT_DIR$/js/model/input-weight-model.js" />
-        <option value="$PROJECT_DIR$/js/controller/input-weight-controller.js" />
-        <option value="$PROJECT_DIR$/js/view/input-Weight-view.js" />
-        <option value="$PROJECT_DIR$/js/view/insert-Weight-view.js" />
-        <option value="$PROJECT_DIR$/html/index.html" />
-        <option value="$PROJECT_DIR$/css/index.css" />
-        <option value="$PROJECT_DIR$/.jshintrc" />
-        <option value="$PROJECT_DIR$/js/controller/input-height-controller.js" />
-        <option value="$PROJECT_DIR$/js/controller/insert-weight-controller.js" />
-        <option value="$PROJECT_DIR$/js/controller/update-weight-controller.js" />
         <option value="$PROJECT_DIR$/js/controller/weight-list-controller.js" />
         <option value="$PROJECT_DIR$/js/dao/weight-dao.js" />
         <option value="$PROJECT_DIR$/js/model/model.js" />
@@ -99,7 +106,6 @@
         <option value="$PROJECT_DIR$/js/util/validator-util.js" />
         <option value="$PROJECT_DIR$/js/view/view.js" />
         <option value="$PROJECT_DIR$/js/util/weight-util.js" />
-        <option value="$PROJECT_DIR$/src/main.js" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/html/insert.html" />
         <option value="$PROJECT_DIR$/main.js" />
@@ -116,19 +122,34 @@
         <option value="$PROJECT_DIR$/js/view/update-weight-view.js" />
         <option value="$PROJECT_DIR$/js/view/weight-list-view.js" />
         <option value="$PROJECT_DIR$/js/index.js" />
-        <option value="$PROJECT_DIR$/src/js/app/app.js" />
         <option value="$PROJECT_DIR$/src/js/model/app-model.js" />
-        <option value="$PROJECT_DIR$/src/js/model/input-height-model.js" />
-        <option value="$PROJECT_DIR$/src/js/model/insert-weight-model.js" />
         <option value="$PROJECT_DIR$/src/js/model/update-weight-model.js" />
         <option value="$PROJECT_DIR$/src/js/model/weight-list-model.js" />
         <option value="$PROJECT_DIR$/src/js/view/app-view.js" />
         <option value="$PROJECT_DIR$/src/js/view/input-height-view.js" />
         <option value="$PROJECT_DIR$/src/js/view/insert-weight-view.js" />
         <option value="$PROJECT_DIR$/src/js/view/update-weight-view.js" />
-        <option value="$PROJECT_DIR$/src/js/view/weight-list-view.js" />
         <option value="$PROJECT_DIR$/src/js/controller/app-controller.js" />
         <option value="$PROJECT_DIR$/src/js/index.js" />
+        <option value="$PROJECT_DIR$/src/css/default.css" />
+        <option value="$PROJECT_DIR$/src/html/insert.html" />
+        <option value="$PROJECT_DIR$/src/js/view/weight-list-view.js" />
+        <option value="$PROJECT_DIR$/src/js/controller/weight-list-controller.js" />
+        <option value="$PROJECT_DIR$/src/html/update.html" />
+        <option value="$PROJECT_DIR$/src/main.js" />
+        <option value="$PROJECT_DIR$/src/css/index.css" />
+        <option value="$PROJECT_DIR$/src/js/update.js" />
+        <option value="$PROJECT_DIR$/src/js/model/update-model.js" />
+        <option value="$PROJECT_DIR$/src/js/view/update-view.js" />
+        <option value="$PROJECT_DIR$/src/html/index.html" />
+        <option value="$PROJECT_DIR$/src/js/app/app.js" />
+        <option value="$PROJECT_DIR$/src/js/model/input-height-model.js" />
+        <option value="$PROJECT_DIR$/src/js/model/insert-weight-model.js" />
+        <option value="$PROJECT_DIR$/src/js/controller/update-controller.js" />
+        <option value="$PROJECT_DIR$/src/js/model/index-model.js" />
+        <option value="$PROJECT_DIR$/src/js/view/index-view.js" />
+        <option value="$PROJECT_DIR$/src/js/controller/index-controller.js" />
+        <option value="$PROJECT_DIR$/src/js/app/index.js" />
       </list>
     </option>
   </component>
@@ -203,24 +224,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="weight-manager" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="weight-manager" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -356,6 +359,42 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="weight-manager" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="weight-manager" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="html" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="weight-manager" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="weight-manager" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
     </panes>
@@ -366,7 +405,7 @@
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
     <property name="nodejs_interpreter_path" value="/usr/local/bin/node" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="settings.editor.selected.configurable" value="preferences.editor" />
     <property name="JavaScriptPreferStrict" value="false" />
     <property name="JavaScriptWeakerCompletionTypeGuess" value="true" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
@@ -375,15 +414,16 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/js/app" />
       <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/html" />
-      <recent name="$PROJECT_DIR$/js/controller" />
-      <recent name="$PROJECT_DIR$/js/view" />
-      <recent name="$PROJECT_DIR$/js/model" />
-      <recent name="$PROJECT_DIR$/js/util" />
+      <recent name="$PROJECT_DIR$/src/js/view" />
+      <recent name="$PROJECT_DIR$/src/js/model" />
+      <recent name="$PROJECT_DIR$/src/js/controller" />
+      <recent name="$PROJECT_DIR$/src/js" />
+      <recent name="$PROJECT_DIR$/src/html" />
     </key>
   </component>
   <component name="RunManager">
@@ -460,12 +500,12 @@
       <workItem from="1471756897031" duration="35000" />
       <workItem from="1471756936033" duration="4185000" />
       <workItem from="1471836942021" duration="47000" />
-      <workItem from="1471836992552" duration="50119000" />
+      <workItem from="1471836992552" duration="62129000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="222893000" />
+    <option name="totallyTimeSpent" value="234903000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -487,7 +527,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32929516" sideWeight="0.4944134" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2973568" sideWeight="0.4944134" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -516,17 +556,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/js/weight-dao.js" />
-    <entry file="file://$PROJECT_DIR$/app/html/heightDialog.html" />
-    <entry file="file://$PROJECT_DIR$/app/js/changeWeight.js" />
-    <entry file="file://$PROJECT_DIR$/app/html/changeWeight.html" />
-    <entry file="file://$PROJECT_DIR$/src/css/photon.min.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="8" column="1890" selection-start-line="8" selection-start-column="1876" selection-end-line="8" selection-end-column="1890" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/Observer.js" />
     <entry file="file://$PROJECT_DIR$/js/app-validator.js" />
     <entry file="file://$PROJECT_DIR$/js/weight-controller.js" />
@@ -566,22 +595,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/css/default.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/css/index.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="31" column="16" selection-start-line="31" selection-start-column="16" selection-end-line="31" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.jshintrc">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -598,14 +611,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="25" selection-start-line="17" selection-start-column="25" selection-end-line="17" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/html/insert.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
@@ -614,82 +619,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/html/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="554">
-          <caret line="63" column="19" selection-start-line="63" selection-start-column="19" selection-end-line="63" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/controller/update-weight-controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-646">
-          <caret line="97" column="0" selection-start-line="97" selection-start-column="0" selection-end-line="97" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/app/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="44" selection-start-line="6" selection-start-column="44" selection-end-line="6" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/controller/insert-weight-controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/controller/weight-list-controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/js/dao/weight-dao.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2295">
           <caret line="153" column="0" selection-start-line="153" selection-start-column="0" selection-end-line="153" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/model/app-model.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="37" selection-start-line="2" selection-start-column="37" selection-end-line="2" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/model/input-height-model.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="53" selection-start-line="5" selection-start-column="53" selection-end-line="5" selection-end-column="53" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/model/insert-weight-model.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="53" selection-start-line="5" selection-start-column="53" selection-end-line="5" selection-end-column="53" />
           <folding />
         </state>
       </provider>
@@ -718,46 +651,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/util/dom-util.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="675">
-          <caret line="45" column="0" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/util/validator-util.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="945">
-          <caret line="63" column="0" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/util/weight-util.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/view/app-view.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="34" selection-start-line="2" selection-start-column="34" selection-end-line="2" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/view/input-height-view.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="41" selection-start-line="2" selection-start-column="41" selection-end-line="2" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/js/view/insert-weight-view.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
@@ -774,18 +667,130 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/view/weight-list-view.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="34" selection-start-line="5" selection-start-column="34" selection-end-line="5" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/js/view/view.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="570">
           <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/css/default.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="14" selection-start-line="11" selection-start-column="14" selection-end-line="11" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/css/index.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="485">
+          <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/html/update.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="54" selection-start-line="12" selection-start-column="54" selection-end-line="12" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/app/update.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="13" selection-start-line="0" selection-start-column="13" selection-end-line="0" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/view/update-view.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="14" selection-start-line="8" selection-start-column="5" selection-end-line="8" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/model/update-model.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-550">
+          <caret line="88" column="23" selection-start-line="88" selection-start-column="18" selection-end-line="88" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/html/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="424">
+          <caret line="81" column="25" selection-start-line="81" selection-start-column="25" selection-end-line="81" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/util/weight-util.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/util/validator-util.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="945">
+          <caret line="63" column="0" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/util/dom-util.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="675">
+          <caret line="45" column="0" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/view/weight-list-view.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1065">
+          <caret line="71" column="51" selection-start-line="71" selection-start-column="51" selection-end-line="71" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/app/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="30" selection-start-line="4" selection-start-column="30" selection-end-line="4" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/view/input-height-view.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="41" selection-start-line="2" selection-start-column="41" selection-end-line="2" selection-end-column="41" />
           <folding />
         </state>
       </provider>
@@ -798,18 +803,82 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/controller/app-controller.js">
+    <entry file="file://$PROJECT_DIR$/src/js/controller/insert-weight-controller.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="59" selection-start-line="2" selection-start-column="59" selection-end-line="2" selection-end-column="59" />
+        <state relative-caret-position="225">
+          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/index.js">
+    <entry file="file://$PROJECT_DIR$/src/js/controller/update-weight-controller.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="27" selection-start-line="2" selection-start-column="27" selection-end-line="2" selection-end-column="27" />
+        <state relative-caret-position="405">
+          <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/controller/weight-list-controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="40" selection-start-line="18" selection-start-column="40" selection-end-line="18" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/model/input-height-model.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="25" selection-start-line="6" selection-start-column="25" selection-end-line="6" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/model/insert-weight-model.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="27" selection-start-line="7" selection-start-column="27" selection-end-line="7" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/model/index-model.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="33" selection-start-line="4" selection-start-column="33" selection-end-line="4" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/view/index-view.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="19" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/controller/update-controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="36" selection-start-line="4" selection-start-column="36" selection-end-line="4" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/controller/index-controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/app/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="28" column="11" selection-start-line="28" selection-start-column="11" selection-end-line="28" selection-end-column="11" />
           <folding />
         </state>
       </provider>

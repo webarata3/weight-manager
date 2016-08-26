@@ -1,5 +1,7 @@
 'use strict';
 
+const {ipcRenderer} = require('electron');
+
 module.exports = class WeightListController {
   constructor(weightListModel) {
     this._weightListModel = weightListModel;
@@ -13,7 +15,7 @@ module.exports = class WeightListController {
     this._weightListModel.readAll();
   }
 
-  changeUpdateMode(param) {
-    this._weightListModel.changeUpdateMode(param);
+  showUpdateWindw(param) {
+    ipcRenderer.send('show_update_window', param);
   }
 };

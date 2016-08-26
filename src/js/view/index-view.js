@@ -2,11 +2,11 @@
 
 const View = require('../view/view');
 
-module.exports = class AppView extends View {
-  constructor(appController, appModel, inputHeightModel, insertWeightModel, updateWeightModel, weightListModel) {
+module.exports = class IndexView extends View {
+  constructor(appController, indexModel, inputHeightModel, insertWeightModel, updateWeightModel, weightListModel) {
     super();
     this._appController = appController;
-    this._appModel = appModel;
+    this.indexModel = indexModel;
     this._inputHeightModel = inputHeightModel;
     this._insertWeightModel = insertWeightModel;
     this._updateWeightModel = updateWeightModel;

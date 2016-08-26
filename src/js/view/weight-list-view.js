@@ -69,7 +69,7 @@ module.exports = class WeightListView extends View {
       this._$weightTable.appendChild($trEl);
 
       $trEl.getElementsByTagName('button')[0].addEventListener('click', () => {
-        this._weightListController.changeUpdateMode({
+        this._weightListController.showUpdateWindw({
           date: currentValue.date,
           weight: weight
         });

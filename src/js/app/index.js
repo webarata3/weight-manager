@@ -2,31 +2,33 @@
 
 const {ipcRenderer} = require('electron');
 
-const moment = require('moment');
+const WeightDao = require('../js/dao/weight-dao');
 
-const WeightDao = require('../dao/weight-dao');
+const InputHeightModel = require('../js/model/input-height-model');
+const InputHeightController = require('../js/controller/input-height-controller');
+const InputHeightView = require('../js/view/input-height-view');
 
-const InputHeightModel = require('../../js/model/input-height-model');
-const InputHeightController = require('../../js/controller/input-height-controller');
-const InputHeightView = require('../../js/view/input-height-view');
+const InsertWeightModel = require('../js/model/insert-weight-model');
+const InsertWeightController = require('../js/controller/insert-weight-controller');
+const InsertWeightView = require('../js/view/insert-weight-view');
 
-const InsertWeightModel = require('../../js/model/insert-weight-model');
-const InsertWeightController = require('../../js/controller/insert-weight-controller');
-const InsertWeightView = require('../view/insert-weight-view');
+const UpdateWeightModel = require('../js/model/update-weight-model');
+const UpdateWeightController = require('../js/controller/update-weight-controller');
+const UpdateWeightView = require('../js/view/update-weight-view');
 
-const UpdateWeightModel = require('../../js/model/update-weight-model');
-const UpdateWeightController = require('../../js/controller/update-weight-controller');
-const UpdateWeightView = require('../view/update-weight-view');
+const WeightListModel = require('../js/model/weight-list-model');
+const WeightListController = require('../js/controller/weight-list-controller');
+const WeightListView = require('../js/view/weight-list-view');
 
-const WeightListModel = require('../../js/model/weight-list-model');
-const WeightListController = require('../../js/controller/weight-list-controller');
-const WeightListView = require('../../js/view/weight-list-view');
+const UpdateModel = require('../js/model/update-model');
+const UpdateController = require('../js/controller/update-controller');
+const UpdateView = require('../js/view/update-view');
 
-const AppModel = require('../../js/model/app-model');
-const AppController = require('../../js/controller/app-controller');
-const AppView = require('../../js/view/app-view');
+const IndexModel = require('../js/model/index-model');
+const IndexController = require('../js/controller/index-controller');
+const IndexView = require('../js/view/index-view');
 
-module.exports = class App {
+class Index {
   constructor() {
     const inputHeightModel = new InputHeightModel();
     const inputHeightController = new InputHeightController(inputHeightModel);
@@ -44,9 +46,13 @@ module.exports = class App {
     const weightListController = new WeightListController(weightListModel);
     const weightListView = new WeightListView(weightListController, weightListModel);
 
-    const appModel = new AppModel();
-    const appController = new AppController(appModel, weightListController, updateWeightController);
-    const appView = new AppView(appController, appModel, inputHeightModel, insertWeightModel, updateWeightModel, weightListModel);
+    const updateModel = new UpdateModel();
+    const updateController = new UpdateController(updateModel);
+    const updateView = new UpdateView(updateController, updateModel);
+
+    const indexModel = new IndexModel();
+    const indexController = new IndexController(indexModel, weightListController, updateWeightController);
+    const indexView = new IndexView(indexController, indexModel, inputHeightModel, insertWeightModel, updateWeightModel, weightListModel);
 
     ipcRenderer.on('get_csv_data', () => {
       const promise = getFormatWeightList();
@@ -67,9 +73,11 @@ module.exports = class App {
       });
     });
   }
-};
+}
 
-const WeightUtil = require('../util/weight-util.js');
+new Index();
+
+const WeightUtil = require('../js/util/weight-util.js');
 
 function getFormatWeightList(height) {
   const weightDao = new WeightDao();

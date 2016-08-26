@@ -9,7 +9,7 @@ const officegen = require('officegen');
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let win;
-let changeWeightWindow;
+let updateWindow;
 
 let fileName;
 
@@ -77,7 +77,11 @@ let menu = Menu.buildFromTemplate(menuTemplate);
 
 function createWindow() {
   // メニューの設定
-  Menu.setApplicationMenu(menu);
+  if (process.platform === 'darwin') {
+    Menu.setApplicationMenu(menu);
+  } else {
+    win.setMenu(menu);
+  }
 
   // Create the browser window.
   win = new BrowserWindow({width: 800, height: 700});
@@ -171,3 +175,25 @@ ipcMain.on('send_excel', (event, weightList) => {
 
   xlsx.generate(out);
 });
+
+ipcMain.on('show_update_window', (event, param) => {
+  showUpdateWindow(param);
+});
+
+function showUpdateWindow(param) {
+  updateWindow = new BrowserWindow({
+    width: 400,
+    height: 300,
+    minimizable: false,
+    maximizable: false,
+    resizable: false,
+    parent: win,
+    modal: true
+  });
+  updateWindow.loadURL('file://' + __dirname + '/html/update.html');
+  updateWindow.webContents.openDevTools();
+  updateWindow.show();
+  updateWindow.on('closed', function() {
+    updateWindow = null;
+  });
+}

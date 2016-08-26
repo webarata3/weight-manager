@@ -2,9 +2,9 @@
 
 const WeightListModel = require('../model/weight-list-model');
 
-module.exports = class AppController {
-  constructor(appModel, weightListController, updateWeightController) {
-    this._appModel = appModel;
+module.exports = class IndexController {
+  constructor(indexModel, weightListController, updateWeightController) {
+    this._indexModel = indexModel;
     this._weightListController = weightListController;
     this._updateWeightController = updateWeightController;
   }

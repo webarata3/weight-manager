@@ -2,7 +2,7 @@
 
 const Model = require('../model/model');
 
-module.exports = class AppModel extends Model {
+module.exports = class IndexModel extends Model {
   constructor() {
     super();
   }

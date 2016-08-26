@@ -13,6 +13,10 @@
   padding: 0.5em;
 }
 
+.window-content {
+  padding: 0.5em;
+}
+
 .number {
   text-align: right;
 }
