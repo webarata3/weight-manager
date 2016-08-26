@@ -1,8 +1,7 @@
 'use strict';
 
 // / const {app, BrowserWindow} = require('electron');
-const {app, BrowserWindow, electron, Menu, dialog} = require('electron');
-const ipcMain = require('electron').ipcMain;
+const {app, BrowserWindow, dialog, electron, Menu, ipcMain} = require('electron');
 
 const fs = require('fs');
 const officegen = require('officegen');
