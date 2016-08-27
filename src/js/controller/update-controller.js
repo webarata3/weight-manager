@@ -12,12 +12,3 @@ module.exports = class UpdateController {
   init() {
   }
 };
-
-// ipcRenderer.on('get_excel_data', () => {
-//   const promise = getFormatWeightList();
-//   promise.then((weightList) => {
-//     ipcRenderer.send('send_excel', weightList);
-//   }).catch(error => {
-//     throw new Error(event);
-//   });
-// });

@@ -20,10 +20,6 @@ const WeightListModel = require('../js/model/weight-list-model');
 const WeightListController = require('../js/controller/weight-list-controller');
 const WeightListView = require('../js/view/weight-list-view');
 
-const UpdateModel = require('../js/model/update-model');
-const UpdateController = require('../js/controller/update-controller');
-const UpdateView = require('../js/view/update-view');
-
 const IndexModel = require('../js/model/index-model');
 const IndexController = require('../js/controller/index-controller');
 const IndexView = require('../js/view/index-view');
@@ -45,10 +41,6 @@ class Index {
     const weightListModel = new WeightListModel();
     const weightListController = new WeightListController(weightListModel);
     const weightListView = new WeightListView(weightListController, weightListModel);
-
-    const updateModel = new UpdateModel();
-    const updateController = new UpdateController(updateModel);
-    const updateView = new UpdateView(updateController, updateModel);
 
     const indexModel = new IndexModel();
     const indexController = new IndexController(indexModel, weightListController, updateWeightController);

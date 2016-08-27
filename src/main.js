@@ -26,14 +26,16 @@ let menuTemplate = [
       },
       {type: 'separator'},
       {
-        label: '環境設定...', accelerator: 'CmdOrCtrl+,',
+        label: '環境設定...',
+        accelerator: 'CmdOrCtrl+,',
         click: () => {
           app.quit();
         }
       },
       {type: 'separator'},
       {
-        label: '体重管理を終了', accelerator: 'CmdOrCtrl+Q',
+        label: '体重管理を終了',
+        accelerator: 'CmdOrCtrl+Q',
         click: () => {
           app.quit();
         }
@@ -135,7 +137,7 @@ function showAboutDialog() {
 }
 
 ipcMain.on('send_csv', (event, weightList) => {
-  let result = '計測日,体重,増減,BMI\n';
+  let result = '計測日,体重,増減,BMI\r\n';
   weightList.forEach(weight => {
     result = result + `${weight.date},${weight.weight},${weight.diffWeight},${weight.bmi}\n`;
   });
@@ -190,10 +192,21 @@ function showUpdateWindow(param) {
     parent: win,
     modal: true
   });
-  updateWindow.loadURL('file://' + __dirname + '/html/update.html');
-  updateWindow.webContents.openDevTools();
-  updateWindow.show();
+
   updateWindow.on('closed', function() {
     updateWindow = null;
   });
+
+  updateWindow.webContents.on('did-finish-load', () => {
+    updateWindow.webContents.send('shown_update_window', param);
+  });
+
+  updateWindow.loadURL('file://' + __dirname + '/html/update.html');
+  updateWindow.webContents.openDevTools();
+  updateWindow.show();
+
 }
+
+ipcMain.on('close_update_window', (event) => {
+  updateWindow.close();
+});
