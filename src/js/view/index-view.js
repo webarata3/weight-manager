@@ -3,13 +3,12 @@
 const View = require('../view/view');
 
 module.exports = class IndexView extends View {
-  constructor(appController, indexModel, inputHeightModel, insertWeightModel, updateWeightModel, weightListModel) {
+  constructor(appController, indexModel, inputHeightModel, insertWeightModel, weightListModel) {
     super();
     this._appController = appController;
     this.indexModel = indexModel;
     this._inputHeightModel = inputHeightModel;
     this._insertWeightModel = insertWeightModel;
-    this._updateWeightModel = updateWeightModel;
     this._weightListModel = weightListModel;
 
     this._setEl({
@@ -32,20 +31,8 @@ module.exports = class IndexView extends View {
     this._setAppEvent(this._insertWeightModel, {
       'insert': this._change
     });
-    this._setAppEvent(this._updateWeightModel, {
-      'update': this._change
-    });
-    this._setAppEvent(this._updateWeightModel, {
-      'remove': this._change
-    });
     this._setAppEvent(this._weightListModel, {
       'changeUpdateMode': this._changeUpdateMode
-    });
-    this._setAppEvent(this._updateWeightModel, {
-      'dispUpdateMode': this._dispUpdateMode
-    });
-    this._setAppEvent(this._updateWeightModel, {
-      'changeInsertMode': this._changeInsertMode
     });
   }
 

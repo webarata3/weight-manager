@@ -17,9 +17,9 @@ module.exports = class UpdateWeightView extends View {
     });
 
     this._setEvent({
-      'click cancelButton': this._onClickCancelButton,
-      'click updateButton': this._onClickUpdateButton,
-      'click deleteButton': this._onClickDeleteButton
+      // 'click cancelButton': this._onClickCancelButton,
+      // 'click updateButton': this._onClickUpdateButton,
+      // 'click deleteButton': this._onClickDeleteButton
     });
 
     this._setAppEvent(this._updateWeightModel, {

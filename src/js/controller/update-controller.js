@@ -2,7 +2,7 @@
 
 const ipcRenderer = require('electron');
 
-const WeightListModel = require('../model/update-model');
+const WeightListModel = require('../model/xxupdate-model');
 
 module.exports = class UpdateController {
   constructor(updateModel) {
@@ -10,5 +10,9 @@ module.exports = class UpdateController {
   }
 
   init() {
+  }
+
+  initView(param){
+
   }
 };

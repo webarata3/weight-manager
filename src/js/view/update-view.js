@@ -34,9 +34,12 @@ module.exports = class UpdateView extends View{
     this._updateController.init();
 
     ipcRenderer.on('shown_update_window', (event, param) => {
-      console.log('#############');
-      console.log(param);
+      this._onShownUpdateWindow(param);
     });
+  }
+
+  _onShownUpdateWindow(param) {
+
   }
 
   _onClickCancelButton() {

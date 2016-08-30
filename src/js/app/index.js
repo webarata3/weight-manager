@@ -12,10 +12,6 @@ const InsertWeightModel = require('../js/model/insert-weight-model');
 const InsertWeightController = require('../js/controller/insert-weight-controller');
 const InsertWeightView = require('../js/view/insert-weight-view');
 
-const UpdateWeightModel = require('../js/model/update-weight-model');
-const UpdateWeightController = require('../js/controller/update-weight-controller');
-const UpdateWeightView = require('../js/view/update-weight-view');
-
 const WeightListModel = require('../js/model/weight-list-model');
 const WeightListController = require('../js/controller/weight-list-controller');
 const WeightListView = require('../js/view/weight-list-view');
@@ -34,17 +30,13 @@ class Index {
     const insertWeightController = new InsertWeightController(insertWeightModel);
     const insertWeightView = new InsertWeightView(insertWeightController, insertWeightModel);
 
-    const updateWeightModel = new UpdateWeightModel();
-    const updateWeightController = new UpdateWeightController(updateWeightModel);
-    const updateWeightView = new UpdateWeightView(updateWeightController, updateWeightModel);
-
     const weightListModel = new WeightListModel();
     const weightListController = new WeightListController(weightListModel);
     const weightListView = new WeightListView(weightListController, weightListModel);
 
     const indexModel = new IndexModel();
-    const indexController = new IndexController(indexModel, weightListController, updateWeightController);
-    const indexView = new IndexView(indexController, indexModel, inputHeightModel, insertWeightModel, updateWeightModel, weightListModel);
+    const indexController = new IndexController(indexModel, weightListController);
+    const indexView = new IndexView(indexController, indexModel, inputHeightModel, insertWeightModel, weightListModel);
 
     ipcRenderer.on('get_csv_data', () => {
       const promise = getFormatWeightList();
