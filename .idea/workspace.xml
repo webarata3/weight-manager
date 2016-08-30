@@ -2,19 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="26f42047-d813-4b9e-b019-5337f21f0d29" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/gulpfile.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/js/model/xxupdate-model.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/js/controller/update-weight-controller.js" afterPath="$PROJECT_DIR$/src/js/controller/xxupdate-weight-controller.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/js/view/update-weight-view.js" afterPath="$PROJECT_DIR$/src/js/view/xxupdate-weight-view.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/html/update.html" afterPath="$PROJECT_DIR$/src/html/update.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/app/index.js" afterPath="$PROJECT_DIR$/src/js/app/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/controller/index-controller.js" afterPath="$PROJECT_DIR$/src/js/controller/index-controller.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/controller/update-controller.js" afterPath="$PROJECT_DIR$/src/js/controller/update-controller.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/view/index-view.js" afterPath="$PROJECT_DIR$/src/js/view/index-view.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/view/update-view.js" afterPath="$PROJECT_DIR$/src/js/view/update-view.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/view/view.js" afterPath="$PROJECT_DIR$/src/js/view/view.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/package.json" afterPath="$PROJECT_DIR$/src/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.travis.yml" afterPath="$PROJECT_DIR$/.travis.yml" />
     </list>
     <ignored path="WeightManager.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -47,7 +36,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index-view.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index-view.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/js/view/index-view.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="330">
@@ -81,7 +70,17 @@
         <entry file="file://$PROJECT_DIR$/src/js/view/view.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="420">
-              <caret line="28" column="15" selection-start-line="28" selection-start-column="15" selection-end-line="28" selection-end-column="15" />
+              <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".travis.yml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.travis.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="4" column="10" selection-start-line="4" selection-start-column="10" selection-end-line="4" selection-end-column="10" />
               <folding />
             </state>
           </provider>
@@ -105,7 +104,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/js/view/view.js" />
         <option value="$PROJECT_DIR$/js/util/weight-util.js" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/html/insert.html" />
@@ -154,8 +152,9 @@
         <option value="$PROJECT_DIR$/src/.gulpfile.js" />
         <option value="$PROJECT_DIR$/src/gulpfile.js" />
         <option value="$PROJECT_DIR$/src/js/view/update-view.js" />
-        <option value="$PROJECT_DIR$/src/js/view/view.js" />
         <option value="$PROJECT_DIR$/src/js/view/index-view.js" />
+        <option value="$PROJECT_DIR$/src/js/view/view.js" />
+        <option value="$PROJECT_DIR$/.travis.yml" />
       </list>
     </option>
   </component>
@@ -336,11 +335,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/src/js/model" />
       <recent name="$PROJECT_DIR$/src/js/view" />
       <recent name="$PROJECT_DIR$/src/js/controller" />
       <recent name="$PROJECT_DIR$/src/js" />
-      <recent name="$PROJECT_DIR$/src/html" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/js/app" />
@@ -424,12 +423,12 @@
       <workItem from="1471836942021" duration="47000" />
       <workItem from="1471836992552" duration="77218000" />
       <workItem from="1472423091679" duration="47000" />
-      <workItem from="1472455414996" duration="6372000" />
+      <workItem from="1472455414996" duration="7171000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="256411000" />
+    <option name="totallyTimeSpent" value="257210000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -480,7 +479,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/js/weight-controller.js" />
     <entry file="file://$PROJECT_DIR$/js/weight-model-event.js" />
     <entry file="file://$PROJECT_DIR$/js/app/input-weight-app.js" />
     <entry file="file://$PROJECT_DIR$/js/controller/weight-controller.js" />
@@ -688,14 +686,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="28" selection-start-line="16" selection-start-column="28" selection-end-line="16" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/gulpfile.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -760,18 +750,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/view/view.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="28" column="15" selection-start-line="28" selection-start-column="15" selection-end-line="28" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/js/view/index-view.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
           <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="28" selection-start-line="16" selection-start-column="28" selection-end-line="16" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/view/view.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.travis.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="10" selection-start-line="4" selection-start-column="10" selection-end-line="4" selection-end-column="10" />
           <folding />
         </state>
       </provider>
