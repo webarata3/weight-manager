@@ -1,29 +1,34 @@
 {
   "extends": "eslint:recommended",
+  "env": {
+    "browser": true,
+    "es6": true,
+    "node": true
+  },
   "rules": {
-    "no-console": 1,
-    //コンソールを使用している
-    "no-alert": 1,
-    //アラートを使用している
+    "no-console": 2,
+    "no-alert": 2,
     "quotes": [
       2,
       "single"
     ],
-    //シングルクオートを使用していない
-    "consistent-return": 1,
-    //関数の戻り値に何も指定していない
+    "consistent-return": 2,
     "default-case": 1,
-    //switch文でdefaultが設定されていない
     "eqeqeq": 1,
-    //「===, !==」ではなく「==,!=」を使用している
     "camelcase": [
       2,
       {
         "properties": "always"
       }
     ],
-    //キャメルケースを使用していない
-    "no-unused-vars": 1
-    //使用していない変数がある
+    "no-unused-vars": 1,
+    "linebreak-style": [
+      2,
+      "unix"
+    ],
+    "semi": [
+      2,
+      "always"
+    ]
   }
 }

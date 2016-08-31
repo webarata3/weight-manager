@@ -5,5 +5,6 @@ gulp.task('eslint', function() {
   gulp.src('js/**/*.js')
     .pipe(eslint())
     .pipe(eslint.format())
-    .pipe(eslint.failAfterError());
+    .pipe(eslint.failAfterError())
+    .on('error', process.exit.bind(process, 1));
 });
