@@ -18,7 +18,7 @@
   },
   "scripts": {
     "start": "electron ./",
-    "test": "gulp eslint"
+    "test": "gulp test"
   },
   "author": "Shinichi ARATA",
   "license": "MIT"

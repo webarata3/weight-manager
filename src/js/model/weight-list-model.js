@@ -23,13 +23,10 @@ module.exports = class WeightModelList extends Model {
         this._weightList = weightList;
         this._trigger('change');
       }).catch((event) => {
-        // TODO
-        console.log(event);
-        console.log('error');
+        throw new Error(event);
       });
     }).catch(() => {
-      // TODO
-      console.log('error');
+      throw new Error(event);
     });
   }
 
