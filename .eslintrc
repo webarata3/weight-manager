@@ -5,6 +5,10 @@
     "es6": true,
     "node": true
   },
+  "options": {
+    "quiet": false
+
+  },
   "rules": {
     "no-console": 2,
     "no-alert": 2,

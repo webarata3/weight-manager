@@ -3,5 +3,7 @@ var eslint = require('gulp-eslint');
 
 gulp.task('eslint', function() {
   gulp.src('js/**/*.js')
-    .pipe(eslint());
+    .pipe(eslint())
+    .pipe(eslint.format())
+    .pipe(eslint.failAfterError());
 });
