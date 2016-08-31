@@ -1,2 +1,2 @@
-src/node_modules/
-.idea/workspace.xml
+/src/node_modules/
+/.idea/workspace.xml
