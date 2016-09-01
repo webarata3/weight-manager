@@ -1,16 +1,14 @@
 'use strict';
 
-const UpdateModel = require('../js/model/update-model');
-const UpdateController = require('../js/controller/update-controller');
-const UpdateView = require('../js/view/update-view');
-
-new UpdateController();
+const UpdateWeightModel = require('../js/model/update-weight-model');
+const UpdateWeightController = require('../js/controller/update-weight-controller');
+const UpdateWeightView = require('../js/view/update-weight-view');
 
 class Update {
   constructor() {
-    const updateModel = new UpdateModel();
-    const updateController = new UpdateController(updateModel);
-    const updateView = new UpdateView(updateController, updateModel);
+    const updateWeightModel = new UpdateWeightModel();
+    const updateWeightController = new UpdateWeightController(updateWeightModel);
+    const updateWeightView = new UpdateWeightView(updateWeightController, updateWeightModel);
   }
 }
 

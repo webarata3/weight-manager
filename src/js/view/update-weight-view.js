@@ -5,11 +5,11 @@ const {ipcRenderer} = require('electron');
 const DomUtil = require('../util/dom-util');
 const View = require('../view/view');
 
-module.exports = class UpdateView extends View{
-  constructor(updateController, updateModel) {
+module.exports = class UpdateWeightView extends View{
+  constructor(updateWeightController, updateWeightModel) {
     super();
-    this._updateController = updateController;
-    this._updateModel = updateModel;
+    this._updateWeightController = updateWeightController;
+    this._updateWeightModel = updateWeightModel;
 
     this._setEl({
       'updateDate': '_$updateDate',
@@ -22,7 +22,7 @@ module.exports = class UpdateView extends View{
       'click updateButton': this._onClickUpdateButton
     });
 
-    this._setAppEvent(this._updateModel, {
+    this._setAppEvent(this._updateWeightModel, {
       'initView': this._initView,
       'remove': this._remove
     });
@@ -31,16 +31,16 @@ module.exports = class UpdateView extends View{
   }
 
   _init() {
-    this._updateController.init();
+    this._updateWeightController.init();
 
     ipcRenderer.on('shown_update_window', (event, param) => {
-      this._updateController.initView(param);
+      this._updateWeightController.initView(param);
     });
   }
 
   _initView() {
-    this._$updateDate.innerText = this._updateModel.date;
-    this._$updateWeight.value = this._updateModel.weight;
+    this._$updateDate.innerText = this._updateWeightModel.date;
+    this._$updateWeight.value = this._updateWeightModel.weight;
   }
 
   _onClickCancelButton() {
@@ -48,7 +48,7 @@ module.exports = class UpdateView extends View{
   }
 
   _onClickRemoveButton() {
-    if (confirm('削除しますか？')) this._updateController.remove();
+    if (confirm('削除しますか？')) this._updateWeightController.remove();
   }
 
   _onClickUpdateButton() {
