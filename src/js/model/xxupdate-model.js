@@ -12,8 +12,7 @@ module.exports = class UpdateModel extends Model {
   }
 
   remove(date) {
-    console.log(date);
-    const formatYYYYMMDD = moment(date.split('/').join('-')).format('YYYYMMDD');
+    const formatYYYYMMDD = moment(date).format('YYYYMMDD');
     const weightDao = new WeightDao();
     const promise = Promise.resolve();
     promise.then(() => {

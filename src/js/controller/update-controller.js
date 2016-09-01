@@ -16,7 +16,7 @@ module.exports = class UpdateController {
     this._updateModel.initView(param);
   }
 
-  remove(date) {
-    this._updateModel.remove(date);
+  remove() {
+    this._updateModel.remove();
   }
 };
