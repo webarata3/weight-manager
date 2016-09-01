@@ -11,7 +11,6 @@
   },
   "rules": {
     "no-console": 2,
-    "no-alert": 2,
     "quotes": [
       2,
       "single"
@@ -25,7 +24,7 @@
         "properties": "always"
       }
     ],
-    "no-unused-vars": 2,
+    "no-unused-vars": 1,
     "linebreak-style": [
       2,
       "unix"

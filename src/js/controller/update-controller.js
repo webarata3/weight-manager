@@ -13,6 +13,10 @@ module.exports = class UpdateController {
   }
 
   initView(param){
+    this._updateModel.initView(param);
+  }
 
+  remove(date) {
+    this._updateModel.remove(date);
   }
 };

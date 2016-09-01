@@ -8,7 +8,7 @@ gulp.task('lint', function() {
     .pipe(eslint.failOnError());
 });
 
-gulp.task('test', function() {
+gulp.task('lintdev', function() {
   gulp.src('js/**/*.js')
     .pipe(eslint())
     .pipe(eslint.format())

@@ -1,8 +1,5 @@
 'use strict';
 
-// http://qiita.com/taizo/items/3a5505308ca2e303c099
-const moment = require('moment');
-
 const ValidatorUtil = require('../util/validator-util');
 const Model = require('../model/model');
 

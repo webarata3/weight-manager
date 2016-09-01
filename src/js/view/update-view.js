@@ -22,9 +22,9 @@ module.exports = class UpdateView extends View{
       'click updateButton': this._onClickUpdateButton
     });
 
-    this._setAppEvent(this._inputHeightModel, {
-//      'change': this._change,
- //     'invalid': this._invalid
+    this._setAppEvent(this._updateModel, {
+      'initView': this._initView,
+      'remove': this._remove
     });
 
     this._init();
@@ -34,12 +34,13 @@ module.exports = class UpdateView extends View{
     this._updateController.init();
 
     ipcRenderer.on('shown_update_window', (event, param) => {
-      this._onShownUpdateWindow(param);
+      this._updateController.initView(param);
     });
   }
 
-  _onShownUpdateWindow(param) {
-
+  _initView() {
+    this._$updateDate.innerText = this._updateModel.date;
+    this._$updateWeight.value = this._updateModel.weight;
   }
 
   _onClickCancelButton() {
@@ -47,8 +48,14 @@ module.exports = class UpdateView extends View{
   }
 
   _onClickRemoveButton() {
+    if (confirm('削除しますか？')) this._updateController.remove();
   }
 
   _onClickUpdateButton() {
+  }
+
+  _remove() {
+    alert('削除しました');
+    ipcRenderer.send('close_update_window');
   }
 };
