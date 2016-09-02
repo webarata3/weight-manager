@@ -64,6 +64,8 @@ module.exports = class UpdateWeightView extends View{
   _update(message) {
     if (message) {
       alert(message);
+    } else {
+      ipcRenderer.send('close_update_window');
     }
   }
 };

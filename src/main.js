@@ -204,7 +204,6 @@ function showUpdateWindow(param) {
   updateWindow.loadURL('file://' + __dirname + '/html/update.html');
   updateWindow.webContents.openDevTools();
   updateWindow.show();
-
 }
 
 ipcMain.on('close_update_window', (event) => {
