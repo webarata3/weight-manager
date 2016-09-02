@@ -57,14 +57,13 @@ module.exports = class UpdateWeightView extends View{
     this._updateWeightController.update(weight);
   }
 
+  _remove() {
+    ipcRenderer.send('close_update_window');
+  }
+
   _update(message) {
     if (message) {
       alert(messae);
     }
-  }
-
-
-  _remove() {
-    ipcRenderer.send('close_update_window');
   }
 };
