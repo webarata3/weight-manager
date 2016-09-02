@@ -24,6 +24,7 @@ module.exports = class UpdateWeightView extends View{
 
     this._setAppEvent(this._updateWeightModel, {
       'initView': this._initView,
+      'update': this._update,
       'remove': this._remove
     });
 
@@ -52,10 +53,18 @@ module.exports = class UpdateWeightView extends View{
   }
 
   _onClickUpdateButton() {
+    const weight = this._$updateWeight.value;
+    this._updateWeightController.update(weight);
   }
 
+  _update(message) {
+    if (message) {
+      alert(messae);
+    }
+  }
+
+
   _remove() {
-    alert('削除しました');
     ipcRenderer.send('close_update_window');
   }
 };

@@ -14,6 +14,10 @@ module.exports = class UpdateWeightController {
     this._updateWeightModel.initView(param);
   }
 
+  update(weight) {
+    this._updateWeightModel.update(weight);
+  }
+
   remove() {
     this._updateWeightModel.remove();
   }
