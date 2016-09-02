@@ -36,7 +36,7 @@ module.exports = class IndexView extends View {
   }
 
   _change() {
-    this._appController.readAll();
+    this._indexController.readAll();
   }
 
   _onClickMainButton() {
