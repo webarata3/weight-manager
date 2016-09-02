@@ -16,8 +16,7 @@ module.exports = class IndexView extends View {
       'graphButton': '_$graphButton',
       'mainContainer': '_$mainContainer',
       'graphContainer': '_$graphContainer',
-      'insertFieldset': '_$insertFieldset',
-      'updateFieldset': '_$updateFieldset'
+      'insertFieldset': '_$insertFieldset'
     });
 
     this._setEvent({
@@ -38,18 +37,6 @@ module.exports = class IndexView extends View {
 
   _change() {
     this._appController.readAll();
-  }
-
-  _changeUpdateMode(param) {
-    this._$insertFieldset.classList.add('hide');
-    this._$updateFieldset.classList.remove('hide');
-
-    this._appController.changeUpdateMode(param);
-  }
-
-  _changeInsertMode(param) {
-    this._$insertFieldset.classList.remove('hide');
-    this._$updateFieldset.classList.add('hide');
   }
 
   _onClickMainButton() {
