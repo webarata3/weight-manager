@@ -3,10 +3,10 @@
 const View = require('../view/view');
 
 module.exports = class IndexView extends View {
-  constructor(appController, indexModel, inputHeightModel, insertWeightModel, weightListModel) {
+  constructor(indexController, indexModel, inputHeightModel, insertWeightModel, weightListModel) {
     super();
-    this._appController = appController;
-    this.indexModel = indexModel;
+    this._indexController = indexController;
+    this._indexModel = indexModel;
     this._inputHeightModel = inputHeightModel;
     this._insertWeightModel = insertWeightModel;
     this._weightListModel = weightListModel;
