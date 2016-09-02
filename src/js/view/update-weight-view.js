@@ -63,7 +63,7 @@ module.exports = class UpdateWeightView extends View{
 
   _update(message) {
     if (message) {
-      alert(messae);
+      alert(message);
     }
   }
 };
