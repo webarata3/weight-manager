@@ -11,16 +11,20 @@ const inputWeightComponent = Vue.extend({
   data: function() {
     return {
       insertDate: '',
-      insertWeight: ''
+      insertWeight: '',
+      insertError: false
     }
   },
   methods: {
     onClickInsertButton: function() {
+      this.insertError = false;
+
       // エラーがあれば何もしない
       if (this.isError) return;
 
       WeightModel.insert(this.insertDate, this.insertWeight).then((status) => {
         if (status === WeightDao.DUPLICATE) {
+          this.insertError = true;
           return;
         }
         this.insertDate = '';
