@@ -4,15 +4,15 @@ const Vue = require('vue');
 
 const inputWeightComponent = Vue.extend({
   template: '#insertWeightTemplate',
-  data: () => {
+  data: function() {
     return {
-      insertDate: '2016/09/01',
-      insertWeight: 22
+      insertDate: '',
+      insertWeight: ''
     }
   },
   methods: {
-    onInputHeight: function() {
-      console.log(height);
+    onClickInsertButton: function() {
+
     }
   }
 });

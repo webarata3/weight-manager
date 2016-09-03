@@ -15,6 +15,11 @@ const index = new Vue({
     'input-height-component': inputHeightComponent,
     'input-weight-component': inputWeightComponent,
     'weight-list-component': weightListComponent
+  },
+  created: function() {
+    this.$on('changeHeight', function() {
+      this.$broadcast('refreshWeightList');
+    });
   }
 });
 

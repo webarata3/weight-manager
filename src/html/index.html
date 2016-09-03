@@ -51,7 +51,8 @@
          <input id="insertWeight" type="text" class="form-control" placeholder="体重（kg）"
                 v-model="insertWeight">
         </div>
-        <button id="insertButton" type="button" class="btn btn-primary">体重を登録する</button>
+        <button id="insertButton" type="button" class="btn btn-primary"
+                v-on:click="onClickInsertButton">体重を登録する</button>
        </fieldset>
       </form>
      </template>

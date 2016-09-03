@@ -1,24 +1,29 @@
 'use strict';
 
 const Vue = require('vue');
+const WeightModel = require('../model/weight-model');
 
 const weightListComponent = Vue.extend({
   template: '#weightListTemplate',
-  data: () => {
+  data: function() {
     return {
-      weightList: [
-      ]
+      weightList: []
     }
   },
   methods: {
     render: function() {
-      this.weightList.push({
-        date: '2016/11/10',
-        weight: 33.4,
-        diffWeight: 33.3,
-        bmi: 22.2
+      const weightModel = new WeightModel();
+      WeightModel.readAll().then((weightList) => {
+        this.weightList = weightList;
+      }).catch((event) => {
+        throw new Error(event);
       });
     }
+  },
+  created: function() {
+    this.$on('refreshWeightList', function() {
+      this.render();
+    });
   },
   attached: function() {
     this.render();

@@ -68,9 +68,8 @@ module.exports = class WeightDao {
         if (cursor) {
           const date = cursor.key;
           const weight = Number.parseFloat(cursor.value.weight);
-          const dispDate = moment(date).format('YYYY/MM/DD');
           weightList.push({
-            date: dispDate,
+            date: date,
             weight: weight
           });
           cursor.continue();
