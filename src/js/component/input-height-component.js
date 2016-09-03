@@ -28,11 +28,7 @@ const inputHeightComponent = Vue.extend({
   computed: {
     validation: function() {
       return {
-        height: ValidatorUtil.validatorList(this.height, [
-          ValidatorUtil.validRequired,
-          ValidatorUtil.validDecimal,
-          ValidatorUtil.validHeight
-        ])
+        height: ValidatorUtil.validationHeight(this.height)
       }
     }
   },

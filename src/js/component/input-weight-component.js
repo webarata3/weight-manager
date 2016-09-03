@@ -2,6 +2,10 @@
 
 const Vue = require('vue');
 
+const ValidatorUtil = require('../util/validator-util');
+const WeightModel = require('../model/weight-model');
+const WeightDao = require('../dao/weight-dao');
+
 const inputWeightComponent = Vue.extend({
   template: '#insertWeightTemplate',
   data: function() {
@@ -12,8 +16,33 @@ const inputWeightComponent = Vue.extend({
   },
   methods: {
     onClickInsertButton: function() {
+      // エラーがあれば何もしない
+      if (this.isError) return;
+
+      WeightModel.insert(this.insertDate, this.insertWeight).then((status) => {
+        if (status === WeightDao.DUPLICATE) {
+          return;
+        }
+        this.insertDate = '';
+        this.insertWeight = '';
+        this.$dispatch('insertWeight');
+      }).catch((error) => {
+        throw new Error(error);
+      });
     },
-    onSubmit: function() {}
+    onSubmit: function() {
+    }
+  },
+  computed: {
+    isError: function() {
+      return this.validation.insertDate || this.validation.insertWeight;
+    },
+    validation: function() {
+      return {
+        insertDate: ValidatorUtil.validationDate(this.insertDate),
+        insertWeight: ValidatorUtil.validationWeight(this.insertWeight)
+      }
+    }
   }
 });
 

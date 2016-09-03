@@ -21,6 +21,9 @@ const index = new Vue({
     this.$on('changeHeight', function() {
       this.$broadcast('refreshWeightList');
     });
+    this.$on('insertWeight', function() {
+      this.$broadcast('refreshWeightList');
+    });
   }
 });
 
