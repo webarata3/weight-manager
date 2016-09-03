@@ -25,19 +25,22 @@
     <div class="side">
      <input-height-component></input-height-component>
      <template id="insertHeightTemplate">
-      <form id="insertForm">
-       <fieldset>
-        <div class="form-group">
-         <label>身長（cm）を入力してください</label><br>
-         <input id="height" type="text" class="form-control" placeholder="身長（cm）"
-                v-model="height" v-on:input="onInputHeight">
-        </div>
-       </fieldset>
-      </form>
+      <validator name="inputHeightValidation">
+       <form id="insertForm" v-on:submit.prevent="onSubmit">
+        <fieldset>
+         <div class="form-group">
+          <label>身長（cm）を入力してください</label><br>
+          <input id="height" type="text" class="form-control" placeholder="身長（cm）"
+                 v-model="height" v-on:input="onInputHeight">
+          <span class="errorMessage" v-show="validation.height">{{validation.height}}</span>
+         </div>
+        </fieldset>
+       </form>
+      </validator>
      </template>
      <input-weight-component></input-weight-component>
      <template id="insertWeightTemplate">
-      <form>
+      <form v-on:submit.prevent="onSubmit">
        <fieldset id="insertFieldset">
         <legend>体重の登録</legend>
         <div id="insertError" class="errorMessage"></div>
@@ -52,7 +55,8 @@
                 v-model="insertWeight">
         </div>
         <button id="insertButton" type="button" class="btn btn-primary"
-                v-on:click="onClickInsertButton">体重を登録する</button>
+                v-on:click="onClickInsertButton">体重を登録する
+        </button>
        </fieldset>
       </form>
      </template>
@@ -63,10 +67,10 @@
       <table class="table-striped">
        <thead>
         <tr>
-         <th>日付</th>
-         <th>体重</th>
-         <th>増減</th>
-         <th>BMI</th>
+         <th class="table-date">日付</th>
+         <th class="table-weight">体重</th>
+         <th class="table-diffWeight">増減</th>
+         <th class="table-bmi">BMI</th>
          <th></th>
         </tr>
        </thead>
@@ -76,7 +80,9 @@
          <td>{{weight.weight}}</td>
          <td>{{weight.diffWeight}}</td>
          <td>{{weight.bmi}}</td>
-         <td><button type="button" class="btn btn-positive">変更・削除</button></td>
+         <td>
+          <button type="button" class="btn btn-positive">変更・削除</button>
+         </td>
         </tr>
        </tbody>
       </table>

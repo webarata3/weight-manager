@@ -12,8 +12,8 @@ const inputWeightComponent = Vue.extend({
   },
   methods: {
     onClickInsertButton: function() {
-
-    }
+    },
+    onSubmit: function() {}
   }
 });
 

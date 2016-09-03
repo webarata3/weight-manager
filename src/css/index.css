@@ -30,8 +30,24 @@
 #weightGraph {
   width: 500px;
   height: 500px;
-<<<<<<< HEAD:css/index.css
 }
-=======
+
+.table-date {
+  white-space: nowrap;
+  width: 10em;
 }
->>>>>>> change_interface:src/css/index.css
+
+.table-weight {
+  white-space: nowrap;
+  width: 7em;
+}
+
+.table-diffWeight {
+  white-space: nowrap;
+  width: 7em;
+}
+
+.table-bmi {
+  white-space: nowrap;
+  width: 9em;
+}

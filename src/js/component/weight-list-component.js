@@ -21,12 +21,13 @@ const weightListComponent = Vue.extend({
     }
   },
   created: function() {
+    this.render();
     this.$on('refreshWeightList', function() {
       this.render();
     });
   },
   attached: function() {
-    this.render();
+//    this.render();
   }
 });
 
