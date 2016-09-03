@@ -23,14 +23,18 @@
    </header>
    <div id="mainContainer" class="container">
     <div class="side">
-     <form>
-      <fieldset>
-       <div class="form-group">
-        <label>身長（cm）を入力してください</label><br>
-        <input id="height" type="text" class="form-control" placeholder="身長（cm）">
-       </div>
-      </fieldset>
-     </form>
+     <input-height-component></input-height-component>
+     <template id="insertTemplate">
+       <form id="insertForm">
+        <fieldset>
+         <div class="form-group">
+          <label>身長（cm）を入力してください</label><br>
+          <input id="height" type="text" class="form-control" placeholder="身長（cm）"
+                 v-model="height" v-on:input="onInputHeight">
+         </div>
+        </fieldset>
+       </form>
+     </template>
      <form>
       <fieldset id="insertFieldset">
        <legend>体重の登録</legend>
@@ -79,6 +83,6 @@
     <canvas id="weightGraph"></canvas>
    </div>
   </div>
-  <script src="../js/app/index.js"></script>
+  <script src="../js/vm/index.js"></script>
  </body>
 </html>

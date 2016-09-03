@@ -1,6 +1,6 @@
 'use strict';
 
-const UpdateWeightModel = require('../js/model/update-weight-model');
+const UpdateWeightModel = require('../js/component/update-weight-component');
 const UpdateWeightController = require('../js/controller/update-weight-controller');
 const UpdateWeightView = require('../js/view/update-weight-view');
 
