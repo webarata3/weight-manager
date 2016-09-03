@@ -3,7 +3,7 @@
 const Vue = require('vue');
 
 const inputHeightComponent = Vue.extend({
-  template: '#insertTemplate',
+  template: '#insertHeightTemplate',
   data: () => {
     return {
       height: ''

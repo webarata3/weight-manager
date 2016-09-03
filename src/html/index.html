@@ -24,59 +24,62 @@
    <div id="mainContainer" class="container">
     <div class="side">
      <input-height-component></input-height-component>
-     <template id="insertTemplate">
-       <form id="insertForm">
-        <fieldset>
-         <div class="form-group">
-          <label>身長（cm）を入力してください</label><br>
-          <input id="height" type="text" class="form-control" placeholder="身長（cm）"
-                 v-model="height" v-on:input="onInputHeight">
-         </div>
-        </fieldset>
-       </form>
+     <template id="insertHeightTemplate">
+      <form id="insertForm">
+       <fieldset>
+        <div class="form-group">
+         <label>身長（cm）を入力してください</label><br>
+         <input id="height" type="text" class="form-control" placeholder="身長（cm）"
+                v-model="height" v-on:input="onInputHeight">
+        </div>
+       </fieldset>
+      </form>
      </template>
-     <form>
-      <fieldset id="insertFieldset">
-       <legend>体重の登録</legend>
-       <div id="insertError" class="errorMessage"></div>
-       <div class="form-group">
-        <label>計測日を入力してください</label><br>
-        <input id="insertDate" type="date" class="form-control">
-       </div>
-       <div class="form-group">
-        <label>体重（kg）を入力してください</label><br>
-        <input id="insertWeight" type="text" class="form-control" placeholder="体重（kg）">
-       </div>
-       <button id="insertButton" type="button" class="btn btn-primary">体重を登録する</button>
-      </fieldset>
-     </form>
-     <fieldset id="updateFieldset" class="hide">
-      <legend>体重の変更・削除</legend>
-      <div id="updateError" class="errorMessage"></div>
-      <div><span>計測日: </span><span id="updateDate"></span></div>
-      <div class="form-group">
-       <label>体重（kg）を入力してください</label><br>
-       <input id="updateWeight" type="text" class="form-control" placeholder="体重（kg）">
-      </div>
-      <button id="cancelButton" type="button" class="btn btn-default">キャンセル</button>
-      <button id="updateButton" type="button" class="btn btn-positive">変更</button>
-      <button id="deleteButton" type="button" class="btn btn-negative">削除</button>
-     </fieldset>
+     <input-weight-component></input-weight-component>
+     <template id="insertWeightTemplate">
+      <form>
+       <fieldset id="insertFieldset">
+        <legend>体重の登録</legend>
+        <div id="insertError" class="errorMessage"></div>
+        <div class="form-group">
+         <label>計測日を入力してください</label><br>
+         <input id="insertDate" type="date" class="form-control"
+                v-model="insertDate">
+        </div>
+        <div class="form-group">
+         <label>体重（kg）を入力してください</label><br>
+         <input id="insertWeight" type="text" class="form-control" placeholder="体重（kg）"
+                v-model="insertWeight">
+        </div>
+        <button id="insertButton" type="button" class="btn btn-primary">体重を登録する</button>
+       </fieldset>
+      </form>
+     </template>
     </div>
     <div class="content">
-     <table class="table-striped">
-      <thead>
-       <tr>
-        <th>日付</th>
-        <th>体重</th>
-        <th>増減</th>
-        <th>BMI</th>
-        <th></th>
-       </tr>
-      </thead>
-      <tbody id="weightTable">
-      </tbody>
-     </table>
+     <weight-list-component></weight-list-component>
+     <template id="weightListTemplate">
+      <table class="table-striped">
+       <thead>
+        <tr>
+         <th>日付</th>
+         <th>体重</th>
+         <th>増減</th>
+         <th>BMI</th>
+         <th></th>
+        </tr>
+       </thead>
+       <tbody id="weightTable">
+        <tr v-for="weight in weightList">
+         <td>{{weight.date}}</td>
+         <td>{{weight.weight}}</td>
+         <td>{{weight.diffWeight}}</td>
+         <td>{{weight.bmi}}</td>
+         <td><button type="button" class="btn btn-positive">変更・削除</button></td>
+        </tr>
+       </tbody>
+      </table>
+     </template>
     </div>
    </div>
    <div id="graphContainer" class="container hide">
