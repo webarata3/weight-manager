@@ -1,5 +1,6 @@
 'use strict';
 
+const {ipcRenderer} = require('electron');
 const Vue = require('vue');
 
 const inputHeightComponent = require('../js/component/input-height-component');
@@ -31,6 +32,9 @@ const index = new Vue({
       this.$broadcast('refreshWeightList');
     });
     this.$on('insertWeight', function() {
+      this.$broadcast('refreshWeightList');
+    });
+    ipcRenderer.on('refresh_weight_list', () => {
       this.$broadcast('refreshWeightList');
     });
   }

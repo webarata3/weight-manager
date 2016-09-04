@@ -30,8 +30,32 @@ module.exports = class WeightModel {
       return weightDao.init();
     }).then(() => {
       return weightDao.insert(formatYYYYMMDD, weight);
-    }).catch(error => {
-      throw new Error(error);
+    }).catch(event => {
+      throw new Error(event);
+    });
+  }
+
+  static update(date, weight) {
+    const weightDao = new WeightDao();
+
+    return new Promise((resolve, reject) => {
+      weightDao.init().then(() => {
+        weightDao.update(date, weight)
+      }).catch(event => {
+        reject(event);
+      });
+    });
+  }
+
+  static remove(date) {
+    const weightDao = new WeightDao();
+    const promise = Promise.resolve();
+    return promise.then(() => {
+      return weightDao.init();
+    }).then(() => {
+      return weightDao.remove(date.split('/').join(''));
+    }).catch(event => {
+      throw new Error(event);
     });
   }
 };

@@ -115,8 +115,10 @@ module.exports = class WeightDao {
       // キー情報の読み込み
       const tx = this._db.transaction(['weight'], 'readwrite');
       const store = tx.objectStore('weight');
+
+      // 更新データがあるか先に検索する
       const request = store.get(date);
-      request.onsuccess = (event) => {
+      request.onsuccess = event => {
         const value = event.target.result;
         if (value === undefined) {
           resolve(WeightDao.NOT_EXIST);

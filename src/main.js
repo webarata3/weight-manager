@@ -272,4 +272,6 @@ function showUpdateWindow(param) {
 
 ipcMain.on('close_update_window', (event) => {
   updateWindow.close();
+
+  win.webContents.send('refresh_weight_list');
 });
