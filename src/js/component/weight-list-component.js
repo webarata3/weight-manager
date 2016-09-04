@@ -1,5 +1,7 @@
 'use strict';
 
+const {ipcRenderer} = require('electron');
+
 const Vue = require('vue');
 const Chart = require('chart.js');
 const moment = require('moment');
@@ -14,7 +16,10 @@ const weightListComponent = Vue.extend({
   },
   methods: {
     onClickUpdateButton: function(index) {
-      console.log(index);
+      ipcRenderer.send('show_update_window', {
+        date: this.weightList[index].date,
+        weight: this.weightList[index].weight
+      });
     },
     render: function() {
       const weightModel = new WeightModel();

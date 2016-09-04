@@ -1,6 +1,5 @@
 'use strict';
 
-const {ipcRenderer} = require('electron');
 const Vue = require('vue');
 
 const inputHeightComponent = require('../js/component/input-height-component');
