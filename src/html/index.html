@@ -12,16 +12,16 @@
    <header class="toolbar toolbar-header">
     <div class="toolbar-actions">
      <div class="btn-group">
-      <button id="mainButton" class="btn btn-default active">
+      <button id="mainButton" class="btn btn-default active" v-on:click="onClickMainButton">
        <span class="icon icon-doc-text"></span>
       </button>
-      <button id="graphButton" class="btn btn-default">
+      <button id="graphButton" class="btn btn-default" v-on:click="onClickGraphButton">
        <span class="icon icon-gauge"></span>
       </button>
      </div>
     </div>
    </header>
-   <div id="mainContainer" class="container">
+   <div id="mainContainer" class="container" v-show="isMainContainer">
     <div class="side">
      <input-height-component></input-height-component>
      <template id="insertHeightTemplate">
@@ -78,13 +78,13 @@
         </tr>
        </thead>
        <tbody id="weightTable">
-        <tr v-for="weight in weightList">
-         <td>{{weight.date}}</td>
-         <td>{{weight.weight}}</td>
-         <td>{{weight.diffWeight}}</td>
-         <td>{{weight.bmi}}</td>
+        <tr v-for="(index, weight) in weightList">
+         <td>{{ weight.date }}</td>
+         <td>{{ weight.weight }}</td>
+         <td>{{ weight.diffWeight }}</td>
+         <td>{{ weight.bmi }}</td>
          <td>
-          <button type="button" class="btn btn-positive">変更・削除</button>
+          <button type="button" class="btn btn-positive" v-on:click="onClickUpdateButton(index)">変更・削除</button>
          </td>
         </tr>
        </tbody>
@@ -92,7 +92,7 @@
      </template>
     </div>
    </div>
-   <div id="graphContainer" class="container hide">
+   <div id="graphContainer" class="container" v-show="!isMainContainer">
     <canvas id="weightGraph"></canvas>
    </div>
   </div>

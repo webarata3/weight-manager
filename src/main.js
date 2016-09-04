@@ -13,7 +13,7 @@ let updateWindow;
 
 let fileName;
 
-let menuTemplate = [
+let macMenuTemplate = [
   {
     label: '体重管理',
     submenu: [
@@ -75,14 +75,78 @@ let menuTemplate = [
     }]
   }];
 
-let menu = Menu.buildFromTemplate(menuTemplate);
+let macMenu = Menu.buildFromTemplate(macMenuTemplate);
+
+let winMenuTemplate = [
+  {
+    label: '体重管理',
+    submenu: [
+      {
+        label: '体重管理について',
+        accelerator: 'CmdOrCtrl+Shift+A',
+        click: () => {
+          showAboutDialog();
+        }
+      },
+      {type: 'separator'},
+      {
+        label: '環境設定...',
+        accelerator: 'CmdOrCtrl+,',
+        click: () => {
+          app.quit();
+        }
+      },
+      {type: 'separator'},
+      {
+        label: '体重管理を終了',
+        accelerator: 'CmdOrCtrl+Q',
+        click: () => {
+          app.quit();
+        }
+      }
+    ]
+  },
+  {
+    label: 'ファイル',
+    submenu: [{
+      label: 'CSVファイルとして保存',
+      accelerator: 'CmdOrCtrl+Shift+C',
+      click: () => {
+        dialog.showSaveDialog({
+          title: '保存するCSVファイル名',
+          filters: [
+            {name: 'CSVファイル', extensions: ['csv']}
+          ]
+        }, (file) => {
+          fileName = file;
+          win.webContents.send('get_csv_data');
+        });
+      }
+    }, {
+      label: 'Excelファイルとして保存',
+      accelerator: 'CmdOrCtrl+Shift+E',
+      click: () => {
+        dialog.showSaveDialog({
+          title: '保存するExcelファイル名',
+          filters: [
+            {name: 'Excelファイル', extensions: ['xlsx']}
+          ]
+        }, (file) => {
+          fileName = file;
+          win.webContents.send('get_excel_data');
+        });
+      }
+    }]
+  }];
+
+let winMenu = Menu.buildFromTemplate(winMenuTemplate);
 
 function createWindow() {
   // メニューの設定
   if (process.platform === 'darwin') {
-    Menu.setApplicationMenu(menu);
+    Menu.setApplicationMenu(macMenu);
   } else {
-    win.setMenu(menu);
+    win.setMenu(win);
   }
 
   // Create the browser window.

@@ -10,12 +10,22 @@ const weightListComponent = require('../js/component/weight-list-component');
 Vue.config.devtools = false;
 
 const index = new Vue({
-  el: '#mainContainer',
-  data: {},
+  el: '#mainWindow',
+  data: {
+    isMainContainer: true
+  },
   components: {
     'input-height-component': inputHeightComponent,
     'input-weight-component': inputWeightComponent,
     'weight-list-component': weightListComponent
+  },
+  methods: {
+    onClickMainButton: function() {
+      this.isMainContainer = true;
+    },
+    onClickGraphButton: function() {
+      this.isMainContainer = false;
+    }
   },
   created: function() {
     this.$on('changeHeight', function() {
