@@ -40,7 +40,7 @@ module.exports = class WeightModel {
 
     return new Promise((resolve, reject) => {
       weightDao.init().then(() => {
-        weightDao.update(date, weight)
+        weightDao.update(date, weight);
       }).catch(event => {
         reject(event);
       });

@@ -13,7 +13,7 @@ const insertWeightComponent = Vue.extend({
       insertDate: '',
       insertWeight: '',
       insertError: false
-    }
+    };
   },
   methods: {
     onClickInsertButton: function() {
@@ -45,7 +45,7 @@ const insertWeightComponent = Vue.extend({
       return {
         insertDate: ValidatorUtil.validationDate(this.insertDate),
         insertWeight: ValidatorUtil.validationWeight(this.insertWeight)
-      }
+      };
     }
   }
 });

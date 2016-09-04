@@ -31,7 +31,7 @@ const update = new Vue({
       promise.then(() => {
         return weightDao.init();
       }).then(() => {
-        const formatDate =　this.updateDate.split('/').join('');
+        const formatDate = this.updateDate.split('/').join('');
         return weightDao.update(formatDate, this.updateWeight);
       }).then(status => {
         if (status === WeightDao.NOT_EXIST) {
@@ -45,7 +45,7 @@ const update = new Vue({
       });
     },
     onClickDeleteButton: function() {
-      if (!confirm("削除しますか")) return;
+      if (!confirm('削除しますか')) return;
 
       WeightModel.remove(this.updateDate).then(() => {
         ipcRenderer.send('close_update_window');
@@ -61,7 +61,7 @@ const update = new Vue({
     validation: function() {
       return {
         updateWeight: ValidatorUtil.validationWeight(this.updateWeight)
-      }
+      };
     }
   },
   created: function() {

@@ -10,13 +10,12 @@ const inputHeightComponent = Vue.extend({
   data: function() {
     return {
       height: ''
-    }
+    };
   },
   methods: {
     onInputHeight: function() {
       const isError = this.heightValidator;
       if (isError) {
-        console.log(isError);
         return;
       }
 
@@ -29,7 +28,7 @@ const inputHeightComponent = Vue.extend({
     validation: function() {
       return {
         height: ValidatorUtil.validationHeight(this.height)
-      }
+      };
     }
   },
   created: function() {

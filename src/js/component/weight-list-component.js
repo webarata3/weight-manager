@@ -12,7 +12,7 @@ const weightListComponent = Vue.extend({
   data: function() {
     return {
       weightList: []
-    }
+    };
   },
   methods: {
     onClickUpdateButton: function(index) {
