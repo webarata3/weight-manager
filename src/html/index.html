@@ -23,22 +23,21 @@
    </header>
    <div id="mainContainer" class="container" v-show="isMainContainer">
     <div class="side">
-     <input-height-component></input-height-component>
+     <insert-height-component></insert-height-component>
      <template id="insertHeightTemplate">
-      <validator name="inputHeightValidation">
-       <form id="insertForm" v-on:submit.prevent="onSubmit">
-        <fieldset>
-         <div class="form-group">
-          <label>身長（cm）を入力してください</label><br>
-          <input id="height" type="text" class="form-control" placeholder="身長（cm）"
-                 v-model="height" v-on:input="onInputHeight">
-          <span class="errorMessage" v-show="validation.height">{{validation.height}}</span>
-         </div>
-        </fieldset>
-       </form>
+      <form id="insertForm" v-on:submit.prevent="onSubmit">
+       <fieldset>
+        <div class="form-group">
+         <label>身長（cm）を入力してください</label><br>
+         <input id="height" type="text" class="form-control" placeholder="身長（cm）"
+                v-model="height" v-on:input="onInputHeight">
+         <span class="errorMessage" v-show="validation.height">{{validation.height}}</span>
+        </div>
+       </fieldset>
+      </form>
       </validator>
      </template>
-     <input-weight-component></input-weight-component>
+     <insert-weight-component></insert-weight-component>
      <template id="insertWeightTemplate">
       <form v-on:submit.prevent="onSubmit">
        <fieldset id="insertFieldset">

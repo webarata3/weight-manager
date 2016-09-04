@@ -5,7 +5,7 @@ const Vue = require('vue');
 const HeightDao = require('../dao/height-dao');
 const ValidatorUtil = require('../util/validator-util');
 
-const inputHeightComponent = Vue.extend({
+const insertHeightComponent = Vue.extend({
   template: '#insertHeightTemplate',
   data: function() {
     return {
@@ -37,4 +37,4 @@ const inputHeightComponent = Vue.extend({
   }
 });
 
-module.exports = inputHeightComponent;
+module.exports = insertHeightComponent;

@@ -6,7 +6,7 @@ const ValidatorUtil = require('../util/validator-util');
 const WeightModel = require('../model/weight-model');
 const WeightDao = require('../dao/weight-dao');
 
-const inputWeightComponent = Vue.extend({
+const insertWeightComponent = Vue.extend({
   template: '#insertWeightTemplate',
   data: function() {
     return {
@@ -50,4 +50,4 @@ const inputWeightComponent = Vue.extend({
   }
 });
 
-module.exports = inputWeightComponent;
+module.exports = insertWeightComponent;
