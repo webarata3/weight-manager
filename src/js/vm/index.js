@@ -3,7 +3,7 @@
 const {ipcRenderer} = require('electron');
 const Vue = require('vue');
 
-const insertHeightComponent = require('../js/component/insert-height-component');
+const inputHeightComponent = require('../js/component/input-height-component');
 const insertWeightComponent = require('../js/component/insert-weight-component');
 const weightListComponent = require('../js/component/weight-list-component');
 
@@ -15,7 +15,7 @@ const index = new Vue({
     isMainContainer: true
   },
   components: {
-    'insert-height-component': insertHeightComponent,
+    'input-height-component': inputHeightComponent,
     'insert-weight-component': insertWeightComponent,
     'weight-list-component': weightListComponent
   },
