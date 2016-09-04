@@ -3,6 +3,7 @@
 const {ipcRenderer} = require('electron');
 const Vue = require('vue');
 
+const ValidatorUtil = require('../js/util/validator-util');
 const WeightDao = require('../js/dao/weight-dao');
 const WeightModel = require('../js/model/weight-model');
 
@@ -11,23 +12,25 @@ Vue.config.devtools = false;
 const update = new Vue({
   el: '#mainWindow',
   data: {
-    date: '',
-    weight: ''
+    updateDate: '',
+    updateWeight: ''
   },
   methods: {
     onClickCancelButton: function() {
       ipcRenderer.send('close_update_window');
     },
     onClickUpdateButton: function() {
+      // エラーがあれば何もしない
+      if (this.isError) return;
+
       // TODO だめ
       const weightDao = new WeightDao();
       const promise = Promise.resolve();
       promise.then(() => {
         return weightDao.init();
       }).then(() => {
-        const formatDate =　this.date.split('/').join('');
-        console.log(formatDate);
-        return weightDao.update(formatDate, this.weight);
+        const formatDate =　this.updateDate.split('/').join('');
+        return weightDao.update(formatDate, this.updateWeight);
       }).then(status => {
         if (status === WeightDao.NOT_EXIST) {
           console.log('not exist');
@@ -50,10 +53,20 @@ const update = new Vue({
       });
     }
   },
+  computed: {
+    isError: function() {
+      return this.validation.updateWeight;
+    },
+    validation: function() {
+      return {
+        updateWeight: ValidatorUtil.validationWeight(this.updateWeight)
+      }
+    }
+  },
   created: function() {
     ipcRenderer.on('shown_update_window', (event, param) => {
-      this.date = param.date;
-      this.weight = param.weight;
+      this.updateDate = param.date;
+      this.updateWeight = param.weight;
     });
   }
 });

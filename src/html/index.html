@@ -48,13 +48,13 @@
          <label>計測日を入力してください</label><br>
          <input id="insertDate" type="date" class="form-control"
                 v-model="insertDate">
-         <span class="errorMessage" v-show="validation.insertDate">{{validation.insertDate}}</span>
+         <span class="errorMessage" v-show="validation.insertDate">{{ validation.insertDate }}</span>
         </div>
         <div class="form-group">
          <label>体重（kg）を入力してください</label><br>
          <input id="insertWeight" type="text" class="form-control" placeholder="体重（kg）"
                 v-model="insertWeight">
-         <span class="errorMessage" v-show="validation.insertWeight">{{validation.insertWeight}}</span>
+         <span class="errorMessage" v-show="validation.insertWeight">{{ validation.insertWeight }}</span>
         </div>
         <button id="insertButton" type="button" class="btn btn-primary"
                 v-on:click="onClickInsertButton">体重を登録する
