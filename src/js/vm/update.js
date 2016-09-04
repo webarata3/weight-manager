@@ -13,13 +13,15 @@ const update = new Vue({
   el: '#mainWindow',
   data: {
     updateDate: '',
-    updateWeight: ''
+    updateWeight: '',
+    updateError: false
   },
   methods: {
     onClickCancelButton: function() {
       ipcRenderer.send('close_update_window');
     },
     onClickUpdateButton: function() {
+      this.updateError = false;
       // エラーがあれば何もしない
       if (this.isError) return;
 
@@ -33,10 +35,9 @@ const update = new Vue({
         return weightDao.update(formatDate, this.updateWeight);
       }).then(status => {
         if (status === WeightDao.NOT_EXIST) {
-          console.log('not exist');
           // エラー
+          this.updateError = true;
         } else {
-          console.log('success');
           ipcRenderer.send('close_update_window');
         }
       }).catch(error => {
@@ -46,7 +47,7 @@ const update = new Vue({
     onClickDeleteButton: function() {
       if (!confirm("削除しますか")) return;
 
-      WeightModel.remove(this.date).then(() => {
+      WeightModel.remove(this.updateDate).then(() => {
         ipcRenderer.send('close_update_window');
       }).catch(error => {
         throw new Error(error);
