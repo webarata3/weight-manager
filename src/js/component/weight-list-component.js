@@ -21,7 +21,6 @@ const weightListComponent = Vue.extend({
       });
     },
     render: function() {
-      const weightModel = new WeightModel();
       WeightModel.readAll().then((weightList) => {
         this.weightList = weightList;
 
