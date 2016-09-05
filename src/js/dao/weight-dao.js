@@ -1,8 +1,5 @@
 'use strict';
 
-// http://qiita.com/taizo/items/3a5505308ca2e303c099
-const moment = require('moment');
-
 module.exports = class WeightDao {
   constructor() {
     this._indexedDB = window.indexedDB;
