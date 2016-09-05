@@ -4,7 +4,6 @@ const {ipcRenderer} = require('electron');
 
 const Vue = require('vue');
 const Chart = require('chart.js');
-const moment = require('moment');
 const WeightModel = require('../model/weight-model');
 
 const weightListComponent = Vue.extend({
