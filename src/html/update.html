@@ -9,7 +9,7 @@
  <body>
   <div id="mainWindow" class="window">
    <div class="window-content">
-    <form>
+    <form v-on:submit.prevent>
      <div v-show="updateError" id="updateError" class="errorMessage">指定の計測日のデータがありません</div>
      <div><span>計測日: </span><span id="updateDate">{{ updateDate }}</span></div>
      <div class="form-group">
