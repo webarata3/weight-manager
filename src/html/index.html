@@ -25,7 +25,7 @@
     <div class="side">
      <input-height-component></input-height-component>
      <template id="inputHeightTemplate">
-      <form id="insertForm" v-on:submit.prevent="onSubmit">
+      <form id="insertForm" v-on:submit.prevent>
        <fieldset>
         <div class="form-group">
          <label>身長（cm）を入力してください</label><br>
@@ -39,7 +39,7 @@
      </template>
      <insert-weight-component></insert-weight-component>
      <template id="insertWeightTemplate">
-      <form v-on:submit.prevent="onSubmit">
+      <form v-on:submit.prevent>
        <fieldset id="insertFieldset">
         <legend>体重の登録</legend>
         <div v-show="insertError" class="errorMessage">指定の計測日は登録済みです</div>
