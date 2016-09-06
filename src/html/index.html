@@ -12,10 +12,12 @@
    <header class="toolbar toolbar-header">
     <div class="toolbar-actions">
      <div class="btn-group">
-      <button id="mainButton" class="btn btn-default active" v-on:click="onClickMainButton">
+      <button id="mainButton" class="btn btn-default"
+              v-bind:class="{'active': isMainContainer}" v-on:click="onClickMainButton">
        <span class="icon icon-doc-text"></span>
       </button>
-      <button id="graphButton" class="btn btn-default" v-on:click="onClickGraphButton">
+      <button id="graphButton" class="btn btn-default"
+              v-bind:class="{'active': !isMainContainer}" v-on:click="onClickGraphButton">
        <span class="icon icon-gauge"></span>
       </button>
      </div>
