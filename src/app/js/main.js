@@ -153,7 +153,7 @@ function createWindow() {
   win = new BrowserWindow({width: 800, height: 700});
 
   // and load the index.html of the app.
-  win.loadURL(`file://${__dirname}/html/index.html`);
+  win.loadURL(`file://${__dirname}/../html/index.html`);
 
   // Open the DevTools.
   win.webContents.openDevTools();
@@ -265,7 +265,7 @@ function showUpdateWindow(param) {
     updateWindow.webContents.send('shown_update_window', param);
   });
 
-  updateWindow.loadURL('file://' + __dirname + '/html/update.html');
+  updateWindow.loadURL('file://' + __dirname + '/../html/update.html');
   updateWindow.webContents.openDevTools();
   updateWindow.show();
 }
