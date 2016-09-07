@@ -1,8 +1,8 @@
 {
   "name": "weight-manager",
   "version": "0.1.0",
-  "description": "",
-  "main": "src/app/js/main.js",
+  "description": "weight manager",
+  "main": "app/js/main.js",
   "dependencies": {
     "chart.js": "^2.2.1",
     "moment": "^2.14.1",
@@ -12,6 +12,7 @@
   },
   "devDependencies": {
     "electron": "^1.3.5",
+    "electron-builder": "^6.4.1",
     "electron-packager": "^8.0.0",
     "electron-prebuilt": "^1.3.5",
     "gulp": "^3.9.1",
@@ -20,7 +21,12 @@
   },
   "scripts": {
     "start": "electron .",
-    "test": "gulp lint"
+    "test": "gulp lint",
+    "pack:mac": "build --maxos"
+  },
+  "build": {
+    "appId": "your.id",
+    "category": "your.app.category.type"
   },
   "author": "Shinichi ARATA",
   "license": "MIT"
