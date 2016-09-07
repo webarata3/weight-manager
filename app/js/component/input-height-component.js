@@ -21,8 +21,7 @@ const inputHeightComponent = Vue.extend({
 
       HeightDao.setHeight(this.height);
       this.$dispatch('changeHeight');
-    },
-    onSubmit: function() {}
+    }
   },
   computed: {
     validation: function() {

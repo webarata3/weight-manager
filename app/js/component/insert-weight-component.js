@@ -33,8 +33,6 @@ const insertWeightComponent = Vue.extend({
       }).catch((error) => {
         throw new Error(error);
       });
-    },
-    onSubmit: function() {
     }
   },
   computed: {
