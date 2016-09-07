@@ -22,6 +22,7 @@
   "scripts": {
     "start": "electron .",
     "test": "gulp lint",
+    "clean": "rm -rf ./dist",
     "pack:mac": "build --maxos"
   },
   "build": {
