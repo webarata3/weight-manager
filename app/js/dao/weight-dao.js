@@ -31,23 +31,23 @@ module.exports = class WeightDao {
   }
 
   init() {
-    const request = this._indexedDB.open('weightManager', 1);
-
-    // DBのバージョンが上がった場合
-    request.onupgradeneeded = event => {
-      this._db = event.target.result;
-      this._db.createObjectStore('weight', {keyPath: 'date'});
-    };
-
     return new Promise((resolve, reject) => {
+      const request = this._indexedDB.open('weightManager', 1);
+
+      // DBのバージョンが上がった場合
+      request.onupgradeneeded = event => {
+        this._db = event.target.result;
+        this._db.createObjectStore('weight', {keyPath: 'date'});
+      };
+
       // DBのオープンが成功した場合
       request.onsuccess = event => {
         this._db = event.target.result;
         resolve();
       };
 
-      request.onerror = error => {
-        reject(error);
+      request.onerror = event => {
+        reject(event);
       };
     });
   }
