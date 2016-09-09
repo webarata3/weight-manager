@@ -7,12 +7,7 @@ const WeightUtil = require('../util/weight-util');
 
 module.exports = class WeightModel {
   static readAll() {
-    const weightDao = new WeightDao();
-
-    const promise = Promise.resolve();
-    return promise.then(() => {
-      return weightDao.init();
-    }).then(() => {
+    return WeightDao.getInstance().then(weightDao => {
       return weightDao.readAll();
     }).then((weightList) => {
       const height = HeightDao.getHeight();
