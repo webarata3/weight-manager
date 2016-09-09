@@ -25,9 +25,6 @@ const update = new Vue({
       // エラーがあれば何もしない
       if (this.isError) return;
 
-      // TODO だめ
-      const weightDao = new WeightDao();
-      const promise = Promise.resolve();
       return WeightDao.getInstance().then(weightDao => {
         const formatDate = this.updateDate.split('/').join('');
         return weightDao.update(formatDate, this.updateWeight);
