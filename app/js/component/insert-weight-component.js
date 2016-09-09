@@ -22,7 +22,10 @@ const insertWeightComponent = Vue.extend({
       // エラーがあれば何もしない
       if (this.isError) return;
 
-      WeightModel.insert(this.insertDate, this.insertWeight).then((status) => {
+      WeightModel.insert({
+        date: this.insertDate.split('-').join(''),
+        weight: this.insertWeight
+      }).then((status) => {
         if (status === WeightDao.DUPLICATE) {
           this.insertError = true;
           return;

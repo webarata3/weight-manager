@@ -17,10 +17,9 @@ module.exports = class WeightModel {
     });
   }
 
-  static insert(date, weight) {
-    const formatDate = date.split('-').join('');
+  static insert(weight) {
     return WeightDao.getInstance().then(weightDao => {
-      return weightDao.insert({date: formatDate, weight: weight});
+      return weightDao.insert(weight);
     }).catch(event => {
       throw new Error(event);
     });
