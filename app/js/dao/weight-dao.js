@@ -29,6 +29,9 @@
         // DBのバージョンが上がった場合
         request.onupgradeneeded = event => {
           instance._db = event.target.result;
+          if (instance._db.objectStoreNames.contains('weight')) {
+            instance._db.deleteObjectStore('weight');
+          }
           instance._db.createObjectStore('weight', {keyPath: 'date'});
         };
 
@@ -109,7 +112,7 @@
             resolve(WeightDao.DUPLICATE);
             return;
           }
-          store.put({date: date, weight: weight});
+          store.add({date: date, weight: weight});
           tx.oncomplete = () => {
             resolve(WeightDao.SUCESS);
           };
