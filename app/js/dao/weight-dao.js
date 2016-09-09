@@ -99,20 +99,19 @@
       });
     }
 
-    insert(date, weight) {
+    insert(weight) {
       return new Promise((resolve, reject) => {
         // キー情報の読み込み
         const tx = this._db.transaction(['weight'], 'readwrite');
         const store = tx.objectStore('weight');
-        const request = store.get(date);
+        const request = store.get(weight.date);
         request.onsuccess = function(event) {
           const value = event.target.result;
           // すでに登録済みの場合エラー
           if (value !== undefined) {
             resolve(WeightDao.DUPLICATE);
-            return;
           }
-          store.add({date: date, weight: weight});
+          store.add(weight);
           tx.oncomplete = () => {
             resolve(WeightDao.SUCESS);
           };

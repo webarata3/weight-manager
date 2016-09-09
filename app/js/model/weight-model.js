@@ -18,9 +18,9 @@ module.exports = class WeightModel {
   }
 
   static insert(date, weight) {
-    const formatYYYYMMDD = moment(date).format('YYYYMMDD');
+    const formatDate = date.split('-').join('');
     return WeightDao.getInstance().then(weightDao => {
-      return weightDao.insert(formatYYYYMMDD, weight);
+      return weightDao.insert({date: formatDate, weight: weight});
     }).catch(event => {
       throw new Error(event);
     });
