@@ -1,6 +1,5 @@
 'use strict';
 
-const moment = require('moment');
 const HeightDao = require('../dao/height-dao');
 const WeightDao = require('../dao/weight-dao');
 const WeightUtil = require('../util/weight-util');
@@ -28,8 +27,8 @@ module.exports = class WeightService {
   static update(weight) {
     return WeightDao.getInstance().then(weightDao => {
       return weightDao.update(weight);
-    }).catch(evnet => {
-      throw new Error(Event);
+    }).catch(event => {
+      throw new Error(event);
     });
   }
 
