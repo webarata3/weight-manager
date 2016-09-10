@@ -5,7 +5,7 @@ const HeightDao = require('../dao/height-dao');
 const WeightDao = require('../dao/weight-dao');
 const WeightUtil = require('../util/weight-util');
 
-module.exports = class WeightModel {
+module.exports = class WeightService {
   static readAll() {
     return WeightDao.getInstance().then(weightDao => {
       return weightDao.readAll();

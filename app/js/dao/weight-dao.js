@@ -80,7 +80,7 @@
       const cursorRequest = weightStore.openCursor();
       return new Promise((resolve, reject) => {
         cursorRequest.onsuccess = event => {
-          let cursor = event.target.result;
+          const cursor = event.target.result;
           if (cursor) {
             const date = cursor.key;
             const weight = Number.parseFloat(cursor.value.weight);

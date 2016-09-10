@@ -5,7 +5,7 @@ const Vue = require('vue');
 
 const ValidatorUtil = require('../js/util/validator-util');
 const WeightDao = require('../js/dao/weight-dao');
-const WeightModel = require('../js/model/weight-model');
+const WeightService = require('../js/model/weight-service');
 
 Vue.config.devtools = false;
 
@@ -25,7 +25,7 @@ const update = new Vue({
       // エラーがあれば何もしない
       if (this.isError) return;
 
-      return WeightDao.getInstance().then(weightDao => {
+      WeightDao.getInstance().then(weightDao => {
         const formatDate = this.updateDate.split('/').join('');
         return weightDao.update({
           date: formatDate,
@@ -45,7 +45,7 @@ const update = new Vue({
     onClickDeleteButton: function() {
       if (!confirm('削除しますか')) return;
 
-      WeightModel.remove({
+      WeightService.remove({
         date: this.updateDate.split('/').join('')
       }).then(() => {
         ipcRenderer.send('close_update_window');

@@ -13,7 +13,7 @@ let updateWindow;
 
 let fileName;
 
-let macMenuTemplate = [
+const macMenuTemplate = [
   {
     label: '体重管理',
     submenu: [
@@ -75,9 +75,9 @@ let macMenuTemplate = [
     }]
   }];
 
-let macMenu = Menu.buildFromTemplate(macMenuTemplate);
+const macMenu = Menu.buildFromTemplate(macMenuTemplate);
 
-let winMenuTemplate = [
+const winMenuTemplate = [
   {
     label: '体重管理',
     submenu: [
@@ -139,7 +139,7 @@ let winMenuTemplate = [
     }]
   }];
 
-let winMenu = Menu.buildFromTemplate(winMenuTemplate);
+const winMenu = Menu.buildFromTemplate(winMenuTemplate);
 
 function createWindow() {
   // メニューの設定
@@ -221,7 +221,7 @@ ipcMain.on('send_excel', (event, weightList) => {
     throw new Error(error);
   });
 
-  let sheet = xlsx.makeNewSheet();
+  const sheet = xlsx.makeNewSheet();
   sheet.name = '体重管理';
 
   sheet.data[0] = ['計測日', '体重', '増減', 'BMI'];

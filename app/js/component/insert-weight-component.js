@@ -3,7 +3,7 @@
 const Vue = require('vue');
 
 const ValidatorUtil = require('../util/validator-util');
-const WeightModel = require('../model/weight-model');
+const WeightService = require('../model/weight-service');
 const WeightDao = require('../dao/weight-dao');
 
 const insertWeightComponent = Vue.extend({
@@ -22,7 +22,7 @@ const insertWeightComponent = Vue.extend({
       // エラーがあれば何もしない
       if (this.isError) return;
 
-      WeightModel.insert({
+      WeightService.insert({
         date: this.insertDate.split('-').join(''),
         weight: this.insertWeight
       }).then((status) => {
