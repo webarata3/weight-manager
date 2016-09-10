@@ -4,7 +4,7 @@ const {ipcRenderer} = require('electron');
 
 const Vue = require('vue');
 const Chart = require('chart.js');
-const WeightModel = require('../model/weight-model');
+const WeightService = require('../model/weight-service');
 
 const weightListComponent = Vue.extend({
   template: '#weightListTemplate',
@@ -21,7 +21,7 @@ const weightListComponent = Vue.extend({
       });
     },
     render: function() {
-      WeightModel.readAll().then((weightList) => {
+      WeightService.readAll().then((weightList) => {
         this.weightList = weightList;
 
         this.renderGraph();
