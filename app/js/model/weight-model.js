@@ -25,17 +25,17 @@ module.exports = class WeightModel {
     });
   }
 
-  static update(date, weight) {
+  static update(weight) {
     return WeightDao.getInstance().then(weightDao => {
-      return weightDao.update(date, weight);
-    }).catch(event => {
-      reject(event);
+      return weightDao.update(weight);
+    }).catch(evnet => {
+      throw new Error(Event);
     });
   }
 
-  static remove(date) {
+  static remove(weight) {
     return WeightDao.getInstance().then(weightDao => {
-      return weightDao.remove(date.split('/').join(''));
+      return weightDao.remove(weight.date);
     }).catch(event => {
       throw new Error(event);
     });

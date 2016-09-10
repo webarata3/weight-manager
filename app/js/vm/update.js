@@ -27,7 +27,10 @@ const update = new Vue({
 
       return WeightDao.getInstance().then(weightDao => {
         const formatDate = this.updateDate.split('/').join('');
-        return weightDao.update(formatDate, this.updateWeight);
+        return weightDao.update({
+          date: formatDate,
+          weight: this.updateWeight
+        });
       }).then(status => {
         if (status === WeightDao.NOT_EXIST) {
           // エラー
@@ -42,7 +45,9 @@ const update = new Vue({
     onClickDeleteButton: function() {
       if (!confirm('削除しますか')) return;
 
-      WeightModel.remove(this.updateDate).then(() => {
+      WeightModel.remove({
+        date: this.updateDate.split('/').join('')
+      }).then(() => {
         ipcRenderer.send('close_update_window');
       }).catch(error => {
         throw new Error(error);
@@ -61,8 +66,10 @@ const update = new Vue({
   },
   created: function() {
     ipcRenderer.on('shown_update_window', (event, param) => {
-      this.updateDate = param.date;
-      this.updateWeight = param.weight;
+      {
+        this.updateDate = param.date;
+        this.updateWeight = param.weight;
+      }
     });
   }
 });

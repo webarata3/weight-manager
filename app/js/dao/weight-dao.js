@@ -125,21 +125,21 @@
       });
     }
 
-    update(date, weight) {
+    update(weight) {
       return new Promise((resolve, reject) => {
         // キー情報の読み込み
         const tx = this._db.transaction(['weight'], 'readwrite');
         const store = tx.objectStore('weight');
 
         // 更新データがあるか先に検索する
-        const request = store.get(date);
+        const request = store.get(weight.date);
         request.onsuccess = event => {
           const value = event.target.result;
           if (value === undefined) {
             resolve(WeightDao.NOT_EXIST);
             return;
           }
-          store.put({date: date, weight: weight});
+          store.put(weight);
           tx.oncomplete = () => {
             resolve(WeightDao.SUCCESS);
           };
@@ -153,11 +153,11 @@
       });
     }
 
-    remove(date) {
+    remove(weight) {
       return new Promise((resolve, reject) => {
         const tx = this._db.transaction(['weight'], 'readwrite');
         const store = tx.objectStore('weight');
-        const request = store.delete(date);
+        const request = store.delete(weight);
         request.onsuccess = () => {
           resolve();
         };
