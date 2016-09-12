@@ -1,3 +1,7 @@
+// 参考
+// https://github.com/Quramy/electron-jsx-babel-boilerplate/blob/master/gulpfile.js
+// http://akabeko.me/blog/2015/01/gulp-copy-keep-dir-structure/
+
 var gulp = require('gulp');
 var eslint = require('gulp-eslint');
 
