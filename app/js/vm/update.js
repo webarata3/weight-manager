@@ -3,9 +3,9 @@
 const {ipcRenderer} = require('electron');
 const Vue = require('vue');
 
-const ValidatorUtil = require('../js/util/validator-util');
-const WeightDao = require('../js/dao/weight-dao');
-const WeightService = require('../js/model/weight-service');
+const ValidatorUtil = require('../util/validator-util');
+const WeightDao = require('../dao/weight-dao');
+const WeightService = require('../model/weight-service');
 
 Vue.config.devtools = false;
 

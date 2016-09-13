@@ -4,7 +4,7 @@
 const {app, BrowserWindow, dialog, electron, Menu, ipcMain} = require('electron');
 
 const fs = require('fs');
-const officegen = require('officegen');
+//const officegen = require('officegen');
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -211,6 +211,7 @@ ipcMain.on('send_csv', (event, weightList) => {
   });
 });
 
+/*
 ipcMain.on('send_excel', (event, weightList) => {
   const xlsx = officegen('xlsx');
   xlsx.on('finalize', function(written) {
@@ -241,6 +242,7 @@ ipcMain.on('send_excel', (event, weightList) => {
 
   xlsx.generate(out);
 });
+*/
 
 ipcMain.on('show_update_window', (event, param) => {
   showUpdateWindow(param);

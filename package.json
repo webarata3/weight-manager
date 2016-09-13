@@ -2,7 +2,7 @@
   "name": "weight-manager",
   "version": "0.1.0",
   "description": "weight manager",
-  "main": "app/js/main.js",
+  "main": "dist/js/main.js",
   "dependencies": {
     "chart.js": "^2.2.1",
     "moment": "^2.14.1",
@@ -11,31 +11,19 @@
     "vue": "^1.0.26"
   },
   "devDependencies": {
-    "browserify": "^13.1.0",
     "electron": "^1.3.5",
     "electron-builder": "^6.4.1",
     "electron-packager": "^8.0.0",
     "electron-prebuilt": "^1.3.5",
     "gulp": "^3.9.1",
     "gulp-eslint": "^3.0.1",
-    "gulp-load-plugins": "^1.3.0",
-    "merge2": "^1.0.2",
-    "validator": "^5.6.0",
-    "vinyl-buffer": "^1.0.0",
-    "vinyl-source-stream": "^1.1.0"
+    "gulp-webpack": "^1.5.0",
+    "webpack": "^1.13.2"
   },
   "scripts": {
     "start": "electron .",
     "test": "gulp lint",
-    "clean": "rm -rf ./dist",
-    "pack": "npm run pack:osx && npm run build:win",
-    "clean:osx": "rm -rf ./dist/osx",
-    "clean:win": "rm -rf ./dist/win",
-    "pack:osx": "npm run clean:osx && electron-packager . weight-manager --out=dist/osx --platform=darwin --arch=x64 --version=1.3.5 --icon=assets/osx/icon.icns --ignore=\"dist|assets\"",
-    "pack:win": "npm run clean:win && electron-packager . weight-manager --out=dist/win --platform=win32 --arch=x64 --version=1.3.5 --icon=assets/win/icon.ico --ignore=\"dist|assets\"",
-    "archive": "npm run archive:osx && npm run archive:win",
-    "archive:osx": "npm run pack:osx && zip -r dist/osx/weight-manager-osx.zip dist/osx/weight-manager-darwin-x64",
-    "archive:win": "npm run pack:win && zip -r dist/win/weight-manager-win32-x64.zip dist/win/weight-manager-win32-x64"
+    "clean": "gulp clean"
   },
   "build": {
     "appId": "your.id",

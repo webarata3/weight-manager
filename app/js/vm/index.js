@@ -3,9 +3,9 @@
 const {ipcRenderer} = require('electron');
 const Vue = require('vue');
 
-const inputHeightComponent = require('../js/component/input-height-component');
-const insertWeightComponent = require('../js/component/insert-weight-component');
-const weightListComponent = require('../js/component/weight-list-component');
+const inputHeightComponent = require('../component/input-height-component');
+const insertWeightComponent = require('../component/insert-weight-component');
+const weightListComponent = require('../component/weight-list-component');
 
 Vue.config.devtools = false;
 
